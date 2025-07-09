@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catita's Donuts</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/images/logo.jpg" alt="Catita's Donuts logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#sabores">Sabores</a></li>
+        <li><a href="#sobre">Sobre Catita</a></li>
+        <li><a href="#pedidos">Hacenos tu pedido</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-texto">
+      <h1>Donas hechas con amor 💕</h1>
+      <p>Catita tiene solo 10 años y ya hace las donas más ricas del mundo 🍩</p>
+      <a href="#pedidos" class="boton">¡Quiero pedir!</a>
+    </div>
+    <img src="/images/3.svg" alt="Ilustración de Catita con donas" class="hero-img">
+  </section>
+
+  <section id="sabores" class="sabores">
+    <h2>Nuestros sabores favoritos</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="images/dona-choco.png" alt="Dona de chocolate">
+        <h3>Chocolate</h3>
+      </div>
+      <div class="card">
+        <img src="images/dona-frutilla.png" alt="Dona de vainilla">
+        <h3>Vainilla</h3>
+      </div>
+      <div class="card">
+        <img src="images/dona-vainilla.png" alt="Dona de chocolate sin tacc">
+        <h3>Chocolate Sin Tacc</h3>
+      </div>
+      <div class="card">
+        <img src="images/dona-vainilla.png" alt="Dona de vainilla sin tacc">
+        <h3>Vainilla Sin Tacc</h3>
+      </div>
+      <div class="card">
+        <img src="images/dona-vainilla.png" alt="Dona de vainilla sin tacc">
+        <h3>Chocolate con dulce de Leche Sin Tacc</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="sobre">
+    <h2>¿Quién es Catita?</h2>
+    <p>Catita tiene 10 años y desde muy chiquita ama la cocina —¡especialmente cuando se trata de cosas dulces! Por eso, hoy te invita a probar sus donitas, hechas con mucho amor, alegría… ¡y glaseado! 🧁</p>
+  </section>
+
+  <section id="pedidos" class="pedidos">
+    <h2>Hacenos tu pedido</h2>
+    <form id="formulario">
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="tel" placeholder="WhatsApp" required>
+      <textarea placeholder="Contanos qué sabores querés"></textarea>
+      <button type="submit">Enviar pedido</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

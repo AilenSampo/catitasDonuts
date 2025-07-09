@@ -1,0 +1,374 @@
+/* Variables de color y tipografías */
+:root {
+    /* Colores del Brand Kit (respetando tus cambios) */
+    --rosa-donut: #F47EBB;
+    --celeste-glaseado: #AEE9F6; /* Mantengo la variable por si la quieres usar, pero evitaré aplicarla si no te gusta el celeste. */
+    --marron-choco: #8B5E3C;
+    --crema-vainilla: #FFF4E6;
+    --blanco: #FFFFFF;
+    --negro: #000000; /* Usar el valor hexadecimal para el negro */
+    --crema: #FFEFC5;
+  
+    /* Tipografías del Brand Kit como variables */
+    --font-principal: 'Baloo 2', cursive; /* Para logo y títulos */
+    --font-secundaria: 'Baloo 2', sans-serif; /* Para textos generales, menú, redes */
+    --font-baloo: 'Baloo 2', cursive; /* Definición correcta de la variable Baloo 2 */
+  }
+  
+  /* Estilos generales */
+  body {
+    /* Si quieres que Baloo 2 sea la fuente por defecto para todo el cuerpo */
+    font-family: var(--font-baloo); /* <-- ¡AQUÍ ESTÁ EL CAMBIO CLAVE PARA USAR BALOO 2 EN EL BODY! */
+    /* Si prefieres que Quicksand siga siendo la secundaria, usa:
+       font-family: var(--font-secundaria); 
+    */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--crema-vainilla);
+    color: var(--rosa-donut); /* Color del texto general según tu última preferencia */
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3 {
+    font-family: var(--font-principal); /* Usa la variable para Fredoka One */
+    /* Si quieres que los títulos sean Baloo 2, cambia a: font-family: var(--font-baloo); */
+    color: var(--negro); /* Títulos en negro según tu preferencia */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 3.5em;
+    color: var(--rosa-donut); /* Corregido el nombre de la variable. Este es para el h1 del hero. */
+  }
+  
+  h2 {
+    font-size: 2.5em;
+    color: var(--rosa-donut); /* Mantienes el rosa para H2 */
+  }
+  
+  h3 {
+    font-size: 1.8em;
+    color: var(--rosa-donut); /* Mantienes el rosa para H3 */
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--rosa-donut); /* Enlaces en rosa */
+  }
+  
+  /* Header */
+  header {
+    background-color: var(--blanco); /* Header en crema vainilla según tu cambio */
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 5px solid var(--negro); /* Borde inferior del header en negro */
+  }
+  
+  header .logo img {
+    height: 80px;
+    margin-left: 30px;
+  }
+  
+  header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 30px;
+  }
+  
+  header nav ul li {
+    margin-left: 25px;
+  }
+  
+  header nav ul li a {
+    font-family: var(--font-principal); /* Usa la variable para Fredoka One */
+    /* Si quieres que los enlaces de navegación sean Baloo 2, cambia a: font-family: var(--font-baloo); */
+    color: var(--marron-choco);
+    font-size: 1.3em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  header nav ul li a:hover {
+    background-color: var(--rosa-donut);
+    color: var(--blanco);
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    /* Degradado con blanco y crema-vainilla según tu cambio */
+    background: linear-gradient(to right, var(--blanco), var(--blanco));
+    flex-wrap: wrap-reverse; /* Imagen a la derecha en desktop, arriba en móvil */
+  }
+  
+  .hero-texto {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 20px;
+  }
+  
+  .hero-texto h1 {
+    font-size: 4em;
+    line-height: 1.1;
+    margin-bottom: 15px;
+  }
+  
+  .hero-texto p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: var(--marron-choco);
+  }
+  
+  .hero-img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    margin: 20px;
+  }
+  
+  .boton {
+    display: inline-block;
+    background-color: var(--rosa-donut);
+    color: var(--blanco);
+    font-family: var(--font-principal); /* Usa la variable para Fredoka One */
+    /* Si quieres que el botón sea Baloo 2, cambia a: font-family: var(--font-baloo); */
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border-radius: 50px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .boton:hover {
+    transform: translateY(-5px);
+    background-color: #e06bb0; /* Un rosa un poco más oscuro */
+  }
+  
+  /* Sections generales */
+  section {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  section:nth-of-type(odd) {
+    background-color: var(--blanco);
+  }
+  
+  section:nth-of-type(even) {
+    background-color: var(--crema-vainilla);
+  }
+  
+  /* Sabores Section */
+  .sabores .cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .sabores .card {
+    background-color: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    /* Borde de la tarjeta en celeste, si quieres cambiarlo a otro color, hazlo aquí */
+    border: 3px solid var(--celeste-glaseado); 
+  }
+  
+  .sabores .card:hover {
+    transform: translateY(-10px) scale(1.03);
+  }
+  
+  .sabores .card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+  
+  /* Sobre Catita Section */
+  .sobre p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--marron-choco);
+  }
+  
+  /* Pedidos Section */
+  .pedidos {
+    background-color: var(--celeste-glaseado); /* Puedes cambiar este color si no te gusta el celeste */
+    border-top: 5px solid var(--rosa-donut);
+    border-bottom: 5px solid var(--rosa-donut);
+  }
+  
+  .pedidos form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 40px auto 0 auto;
+    padding: 30px;
+    background-color: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .pedidos form input,
+  .pedidos form textarea {
+    padding: 15px;
+    /* Borde del input en celeste, puedes cambiarlo aquí */
+    border: 2px solid var(--celeste-glaseado); 
+    border-radius: 8px;
+    font-family: var(--font-secundaria); /* Usa la variable para Quicksand */
+    /* Si quieres que los inputs y textareas sean Baloo 2, cambia a: font-family: var(--font-baloo); */
+    font-size: 1.1em;
+    color: var(--marron-choco);
+    transition: border-color 0.3s ease;
+  }
+  
+  .pedidos form input:focus,
+  .pedidos form textarea:focus {
+    outline: none;
+    border-color: var(--rosa-donut);
+  }
+  
+  .pedidos form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .pedidos form button {
+    background-color: var(--rosa-donut);
+    color: var(--blanco);
+    font-family: var(--font-principal); /* Usa la variable para Fredoka One */
+    /* Si quieres que el botón sea Baloo 2, cambia a: font-family: var(--font-baloo); */
+    font-size: 1.6em;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pedidos form button:hover {
+    background-color: #e06bb0;
+    transform: translateY(-3px);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--marron-choco);
+    color: var(--crema-vainilla);
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 1.1em;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      padding: 15px 0;
+    }
+  
+    header .logo {
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+  
+    header nav ul {
+      flex-direction: column;
+      align-items: center;
+      margin-right: 0;
+      width: 100%;
+    }
+  
+    header nav ul li {
+      margin: 10px 0;
+    }
+  
+    .hero {
+      flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+      padding: 40px 15px;
+    }
+  
+    .hero-texto h1 {
+      font-size: 2.8em;
+    }
+  
+    .hero-texto p {
+      font-size: 1.2em;
+    }
+  
+    .hero-img {
+      max-width: 300px;
+      margin: 0 auto 20px auto;
+    }
+  
+    h2 {
+      font-size: 2em;
+    }
+  
+    .sabores .card {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .sobre p {
+      font-size: 1.1em;
+    }
+  
+    .pedidos form {
+      padding: 20px;
+    }
+  
+    .pedidos form button {
+      font-size: 1.4em;
+      padding: 12px 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header .logo img {
+      height: 60px;
+    }
+  
+    header nav ul li a {
+      font-size: 1.1em;
+    }
+  
+    .hero-texto h1 {
+      font-size: 2.2em;
+    }
+  
+    .hero-texto p {
+      font-size: 1em;
+    }
+  
+    .boton {
+      font-size: 1.2em;
+      padding: 12px 25px;
+    }
+  
+    h2 {
+      font-size: 1.8em;
+    }
+  }
