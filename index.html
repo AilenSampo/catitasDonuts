@@ -69,7 +69,29 @@
     <form id="formulario">
       <input type="text" placeholder="Tu nombre" required>
       <input type="tel" placeholder="WhatsApp" required>
-      <textarea placeholder="Contanos qué sabores querés"></textarea>
+      
+      <div class="cantidad-donas">
+        <p>¿Cuántas donas querés?</p>
+        <input type="radio" id="cantidad6" name="cantidad" value="6" required>
+        <label for="cantidad6">6 Donas</label>
+        <input type="radio" id="cantidad12" name="cantidad" value="12">
+        <label for="cantidad12">12 Donas</label>
+      </div>
+
+      <select id="sabores-select" multiple required>
+        <option value="" disabled>Selecciona tus sabores (puedes elegir varios)</option>
+        <option value="Chocolate">Chocolate</option>
+        <option value="Vainilla">Vainilla</option>
+        <option value="Chocolate Sin Tacc">Chocolate Sin Tacc</option>
+        <option value="Vainilla Sin Tacc">Vainilla Sin Tacc</option>
+        <option value="Chocolate con dulce de Leche Sin Tacc">Chocolate con dulce de Leche Sin Tacc</option>
+      </select>
+      
+      <div id="sabores-seleccionados">
+        <p>Sabores seleccionados:</p>
+        <ul id="lista-sabores"></ul>
+      </div>
+
       <button type="submit">Enviar pedido</button>
     </form>
   </section>
