@@ -124,9 +124,9 @@
   }
   
   .hero-video {
-    max-width: 300px; /* Ancho máximo más controlado para dar un formato vertical */
+    max-width: 300px; /* Ancho máximo más controlado para dar un formato vertical en desktop */
     width: 100%; /* Asegura que se adapte si la pantalla es más pequeña que max-width */
-    height: 450px; /* Altura aumentada para un formato más vertical */
+    height: 450px; /* Altura aumentada para un formato más vertical en desktop */
     object-fit: cover; /* ¡CLAVE! Esto hará que el video cubra el espacio sin barras negras, recortando si es necesario */
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -475,9 +475,9 @@
     }
   
     .hero-video {
-      max-width: 90%; /* Video ocupa casi todo el ancho en móvil */
-      height: 250px; /* Ajusta la altura para móviles si es necesario */
-      margin: 0 auto 20px auto; /* Margen inferior y centrado */
+      max-width: 300px; /* Ancho máximo fijo para mantener verticalidad en tabletas */
+      height: 400px; /* Altura aumentada para mantener la verticalidad en tabletas */
+      margin: 0 auto 20px auto;
     }
   
     h2 {
