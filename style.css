@@ -2,24 +2,22 @@
 :root {
     /* Colores del Brand Kit (respetando tus cambios) */
     --rosa-donut: #F47EBB;
-    --celeste-glaseado: #AEE9F6; /* Mantengo la variable por si la quieres usar, aunque la usaré poco si no te gusta el celeste. */
+    --celeste-glaseado: #AEE9F6; /* Mantengo la variable por si la quieres usar */
     --marron-choco: #8B5E3C;
     --crema-vainilla: #FFF4E6;
     --blanco: #FFFFFF;
     --negro: #000000; /* Usar el valor hexadecimal para el negro */
     --crema: #FFEFC5; /* Color crema para fondos de inputs, etc. */
+  
+    /* Tipografías del Brand Kit como variables */
+    --font-principal: 'Fredoka One', cursive; /* Para logo y títulos principales */
+    --font-secundaria: 'Quicksand', sans-serif; /* Para textos generales, menú, inputs */
+    --font-baloo: 'Baloo 2', cursive; /* Si quieres usar Baloo 2 para algo específico */
   }
-  
-  /* Tipografías del Brand Kit como variables */
-  /* Asegúrate de que las fuentes Fredoka One, Quicksand y Baloo 2 estén importadas en tu HTML */
-  --font-principal: 'Fredoka One', cursive; /* Para logo y títulos principales */
-  --font-secundaria: 'Quicksand', sans-serif; /* Para textos generales, menú, inputs */
-  --font-baloo: 'Baloo 2', cursive; /* Si quieres usar Baloo 2 para algo específico */
-  
   
   /* Estilos generales */
   body {
-    font-family: var(--font-secundaria); /* Quicksand para el texto general */
+    font-family: var(--font-secundaria); /* Quicksand para el texto general del cuerpo */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -103,8 +101,8 @@
     justify-content: center;
     align-items: center;
     padding: 60px 20px;
-    background: linear-gradient(to right, var(--blanco), var(--blanco)); /* Fondo blanco simple */
-    flex-wrap: wrap-reverse; /* Imagen a la derecha en desktop, arriba en móvil */
+    background: linear-gradient(to right, var(--blanco), var(--blanco));
+    flex-wrap: wrap-reverse;
   }
   
   .hero-texto {
@@ -146,7 +144,7 @@
   
   .boton:hover {
     transform: translateY(-5px);
-    background-color: #e06bb0; /* Un rosa un poco más oscuro */
+    background-color: #e06bb0;
   }
   
   /* Sections generales */
@@ -214,7 +212,7 @@
     color: var(--marron-choco);
   }
   
-  /* --- Pedidos Section (TODO EL CÓDIGO NUEVO Y ADAPTADO) --- */
+  /* --- Pedidos Section --- */
   .pedidos {
     padding: 50px 20px;
     background-color: var(--crema-vainilla); /* Usamos crema-vainilla como base */
@@ -225,7 +223,7 @@
   
   .pedidos h2 {
     font-family: var(--font-principal);
-    color: var(--rosa-donut); /* Color del título de la sección */
+    color: var(--rosa-donut);
     margin-bottom: 30px;
     font-size: 2.5em;
   }
@@ -239,29 +237,29 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espacio entre los elementos del formulario */
+    gap: 20px;
   }
   
-  /* Estilos para los inputs y el select del formulario de pedidos */
   .pedidos form input[type="text"],
   .pedidos form input[type="tel"],
-  .pedidos form textarea { /* Agregado textarea aquí */
-    width: 100%;
+  .pedidos form textarea {
+    width: 100%; /* Asegura que tomen el 100% del ancho del padre */
     padding: 15px;
-    border: 2px solid var(--rosa-donut); /* Usamos rosa donut para el borde */
+    border: 2px solid var(--rosa-donut);
     border-radius: 10px;
-    font-family: var(--font-secundaria); /* Tu fuente secundaria */
+    font-family: var(--font-secundaria);
     font-size: 1.1em;
-    color: var(--marron-choco); /* Color de texto como el marron choco */
+    color: var(--marron-choco);
     outline: none;
     transition: border-color 0.3s ease;
-    background-color: var(--crema); /* Fondo del input para que se vea diferente */
+    background-color: var(--crema);
+    box-sizing: border-box; /* Muy importante para que el padding no desborde el 100% de width */
   }
   
   .pedidos form input[type="text"]:focus,
   .pedidos form input[type="tel"]:focus,
-  .pedidos form textarea:focus { /* Agregado textarea aquí */
-    border-color: var(--negro); /* Borde negro al hacer foco */
+  .pedidos form textarea:focus {
+    border-color: var(--negro);
   }
   
   /* --- Estilos para la selección de cantidad de donas (radio buttons) --- */
@@ -270,20 +268,20 @@
     margin-bottom: 10px;
     font-family: var(--font-secundaria);
     color: var(--marron-choco);
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Mantiene la flexibilidad */
+    flex-wrap: wrap; /* Permite que los elementos salten de línea en pantallas pequeñas */
     align-items: center;
     gap: 15px; /* Espacio entre los radios y labels */
   }
   
   .cantidad-donas p {
     font-weight: bold;
-    margin-bottom: 0; /* Quitar margen inferior si están en la misma línea */
+    margin-bottom: 0;
     font-size: 1.1em;
+    flex-basis: 100%; /* Hace que ocupe todo el ancho disponible para un salto de línea si es necesario */
   }
   
   .cantidad-donas input[type="radio"] {
-    /* Ocultamos el radio nativo para customizarlo */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -295,6 +293,7 @@
     cursor: pointer;
     position: relative;
     transition: background-color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0; /* Evita que los radios se achiquen */
   }
   
   .cantidad-donas input[type="radio"]:checked {
@@ -335,53 +334,63 @@
     font-size: 1.1em;
   }
   
+  #contador-donas {
+      font-weight: normal; /* El contador no necesita ser negrita */
+      margin-left: 5px; /* Pequeño espacio del texto "Sabores seleccionados:" */
+      color: var(--rosa-donut); /* Un color que destaque el contador */
+  }
+  
+  
   #lista-sabores {
-    list-style: none; /* Quitar los puntos de la lista */
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Para que los ítems estén en fila */
-    flex-wrap: wrap; /* Si hay muchos, que salten de línea */
-    gap: 10px; /* Espacio entre los ítems de sabor */
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los chips salten de línea */
+    gap: 10px;
+    justify-content: flex-start; /* Alinear los chips a la izquierda */
   }
   
   #lista-sabores li {
-    background-color: var(--rosa-donut); /* Fondo del chip con tu rosa principal */
-    color: var(--blanco); /* Texto en blanco para contraste */
+    background-color: var(--rosa-donut);
+    color: var(--blanco);
     font-family: var(--font-secundaria);
     padding: 8px 15px;
-    border-radius: 20px; /* Bordes redondeados para el "chip" */
+    border-radius: 20px;
     display: flex;
     align-items: center;
-    gap: 8px; /* Espacio entre el texto y el botón X */
+    gap: 8px;
     font-size: 0.95em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; 
+    max-width: calc(100% - 20px); /* Ajuste por el padding del padre */
+    word-break: break-word; /* Romper palabras largas si es necesario */
   }
   
-  /* --- Estilos para el botón de eliminar sabor (la 'X' dentro del chip) --- */
   .boton-eliminar-sabor {
-    background-color: var(--marron-choco); /* Marrón choco para la 'X' */
+    background-color: var(--marron-choco);
     color: var(--blanco);
     border: none;
-    border-radius: 50%; /* Hacerlo un círculo perfecto */
-    width: 25px; /* Ancho del círculo */
-    height: 25px; /* Alto del círculo */
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.9em; /* Tamaño de la 'X' */
+    font-size: 0.9em;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
-    flex-shrink: 0; /* Evita que el botón se achique */
+    flex-shrink: 0;
   }
   
   .boton-eliminar-sabor:hover {
-    background-color: var(--negro); /* Negro al pasar el mouse */
-    transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
+    background-color: var(--negro);
+    transform: scale(1.05);
   }
   
   /* --- Estilos para el textarea de detalles adicionales --- */
   #detalle-pedido {
-    resize: vertical; /* Permitir redimensionar solo verticalmente */
+    resize: vertical;
     min-height: 80px;
   }
   
@@ -389,20 +398,36 @@
   .pedidos button[type="submit"] {
     background-color: var(--rosa-donut); /* Tu rosa principal */
     color: var(--blanco);
-    padding: 18px 30px;
+    padding: 18px 30px; /* Tamaño del botón */
     border: none;
-    border-radius: 15px;
-    font-family: var(--font-principal); /* Tu fuente principal */
-    font-size: 1.5em;
+    border-radius: 15px; /* Bordes redondeados */
+    font-family: var(--font-principal); /* Tu fuente principal, Fredoka One */
+    font-size: 1.5em; /* Tamaño de la fuente del botón */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 20px; /* Espacio por encima del botón */
+    width: auto; /* Asegura que no se estire al 100% si no lo deseas, o pon 100% si lo prefieres */
+    align-self: center; /* Centra el botón si el padre es un flex container (que lo es, .pedidos form) */
   }
   
   .pedidos button[type="submit"]:hover {
     background-color: var(--negro); /* Un color oscuro al pasar el mouse */
     transform: translateY(-2px); /* Pequeño efecto de elevación */
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--marron-choco);
+    color: var(--crema-vainilla);
+    text-align: center; /* Esto debería centrar el texto */
+    padding: 25px 20px;
+    font-size: 1.1em;
+    /* Añadir display: flex y justify-content: center; como un método más robusto para centrar si text-align no es suficiente por algún motivo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Por si el texto se hace muy largo en móviles */
   }
   
   /* --- Responsive Design --- */
@@ -429,7 +454,7 @@
     }
   
     .hero {
-      flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+      flex-direction: column-reverse;
       padding: 40px 15px;
     }
   
@@ -452,33 +477,57 @@
   
     .sabores .card {
       width: 100%;
-      max-width: 300px;
+      max-width: 300px; /* Asegura que la tarjeta no se haga más grande de 300px aunque el contenedor sea más amplio */
     }
   
     .sobre p {
       font-size: 1.1em;
     }
   
-    /* Ajustes específicos para el formulario en tablet/móvil */
+    /* AJUSTES IMPORTANTES PARA EL FORMULARIO EN MÓVIL */
     .pedidos form {
-      padding: 25px;
-      gap: 15px; /* Reducir un poco el espacio entre elementos */
+      padding: 20px; /* Reduce el padding en móviles */
+      gap: 15px;
     }
-    
-    .pedidos button[type="submit"] {
-      font-size: 1.2em; /* Hace el botón de enviar más pequeño */
-      padding: 15px 25px;
+  
+    .pedidos form input[type="text"],
+    .pedidos form input[type="tel"],
+    .pedidos form textarea {
+      padding: 12px; /* Reduce el padding de inputs en móviles */
+      font-size: 1em; /* Ajusta el tamaño de fuente */
     }
-    
-    /* Ajustes para los chips en pantallas medianas */
+  
+    /* Radio Buttons de Cantidad: Asegurar que se vean bien */
+    .cantidad-donas {
+      flex-direction: column; /* Apila los elementos verticalmente */
+      align-items: flex-start; /* Alinea a la izquierda si están apilados */
+      gap: 10px; /* Espacio entre los radios apilados */
+    }
+    .cantidad-donas p {
+      margin-bottom: 5px; /* Espacio debajo del texto principal */
+    }
+    .cantidad-donas label {
+      margin-right: 0; /* Eliminar margen derecho si están apilados */
+    }
+  
+    /* Chips de Sabores: Asegurar que no desborden */
+    #lista-sabores {
+      justify-content: flex-start; /* Asegura alineación a la izquierda */
+      gap: 8px; /* Espacio entre los chips */
+    }
     #lista-sabores li {
-      font-size: 0.9em;
-      padding: 6px 12px;
+      padding: 6px 12px; /* Reduce el padding de los chips */
+      font-size: 0.9em; /* Reduce el tamaño de fuente de los chips */
     }
     .boton-eliminar-sabor {
       width: 22px;
       height: 22px;
       font-size: 0.8em;
+    }
+  
+    .pedidos button[type="submit"] {
+      font-size: 1.2em;
+      padding: 15px 25px;
     }
   }
   
@@ -507,37 +556,31 @@
     h2 {
       font-size: 1.8em;
     }
-  
-    /* Ajustes específicos para el formulario en móvil muy pequeño */
-    .pedidos form input,
-    .pedidos form textarea { /* También para textarea */
-      padding: 12px;
-      font-size: 1em;
+    
+    /* Ajustes finos para el formulario en móviles muy pequeños */
+    .pedidos form {
+      padding: 15px; /* Aún menos padding */
     }
   
-    .pedidos button[type="submit"] {
-      font-size: 1.1em;
-      padding: 10px 20px;
+    .cantidad-donas {
+      gap: 8px; /* Reduce aún más el espacio */
+    }
+    .cantidad-donas label {
+      font-size: 0.95em; /* Ajusta el tamaño de fuente */
     }
   
-    /* Ajustes para los chips en pantallas muy pequeñas */
     #lista-sabores li {
-      font-size: 0.85em;
       padding: 5px 10px;
+      font-size: 0.85em;
     }
     .boton-eliminar-sabor {
       width: 20px;
       height: 20px;
-      height: 20px;
       font-size: 0.75em;
     }
-  }
-  
-  /* Footer */
-  footer {
-    background-color: var(--marron-choco);
-    color: var(--crema-vainilla);
-    text-align: center;
-    padding: 25px 20px;
-    font-size: 1.1em;
+    
+    .pedidos button[type="submit"] {
+      font-size: 1.1em;
+      padding: 10px 20px;
+    }
   }
