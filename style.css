@@ -1,25 +1,24 @@
 /* Variables de color y tipografías */
 :root {
-    /* Colores del Brand Kit */
+    /* Colores del Brand Kit (respetando tus cambios) */
     --rosa-donut: #F47EBB;
-    --celeste-glaseado: #AEE9F6;
+    --celeste-glaseado: #AEE9F6; /* Mantengo la variable por si la quieres usar, aunque la usaré poco si no te gusta el celeste. */
     --marron-choco: #8B5E3C;
     --crema-vainilla: #FFF4E6;
     --blanco: #FFFFFF;
-    --negro: #000000;
+    --negro: #000000; /* Usar el valor hexadecimal para el negro */
     --crema: #FFEFC5; /* Color crema para fondos de inputs, etc. */
-}
-
-/* Tipografías del Brand Kit como variables */
-/* Asegúrate de que las fuentes Fredoka One y Quicksand estén importadas en tu HTML */
-/* <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet"> */
---font-principal: 'Fredoka One', cursive; /* Para logo y títulos principales */
---font-secundaria: 'Quicksand', sans-serif; /* Para textos generales, menú, inputs */
---font-baloo: 'Baloo 2', cursive; /* Si quieres usar Baloo 2 para algo específico */
-
-
-/* Estilos generales */
-body {
+  }
+  
+  /* Tipografías del Brand Kit como variables */
+  /* Asegúrate de que las fuentes Fredoka One, Quicksand y Baloo 2 estén importadas en tu HTML */
+  --font-principal: 'Fredoka One', cursive; /* Para logo y títulos principales */
+  --font-secundaria: 'Quicksand', sans-serif; /* Para textos generales, menú, inputs */
+  --font-baloo: 'Baloo 2', cursive; /* Si quieres usar Baloo 2 para algo específico */
+  
+  
+  /* Estilos generales */
+  body {
     font-family: var(--font-secundaria); /* Quicksand para el texto general */
     margin: 0;
     padding: 0;
@@ -27,37 +26,37 @@ body {
     background-color: var(--crema-vainilla);
     color: var(--marron-choco); /* Color de texto general, mejor un oscuro para legibilidad */
     line-height: 1.6;
-}
-
-h1, h2, h3 {
+  }
+  
+  h1, h2, h3 {
     font-family: var(--font-principal); /* Fredoka One para los títulos */
     color: var(--negro); /* Títulos en negro para contraste fuerte */
     text-align: center;
     margin-bottom: 20px;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 3.5em;
     color: var(--rosa-donut); /* h1 del hero en rosa donut */
-}
-
-h2 {
+  }
+  
+  h2 {
     font-size: 2.5em;
     color: var(--rosa-donut); /* H2 en rosa donut */
-}
-
-h3 {
+  }
+  
+  h3 {
     font-size: 1.8em;
     color: var(--rosa-donut); /* H3 en rosa donut */
-}
-
-a {
+  }
+  
+  a {
     text-decoration: none;
     color: var(--rosa-donut); /* Enlaces en rosa */
-}
-
-/* Header */
-header {
+  }
+  
+  /* Header */
+  header {
     background-color: var(--blanco);
     padding: 15px 0;
     display: flex;
@@ -65,75 +64,75 @@ header {
     align-items: center;
     flex-wrap: wrap;
     border-bottom: 5px solid var(--negro);
-}
-
-header .logo img {
+  }
+  
+  header .logo img {
     height: 80px;
     margin-left: 30px;
-}
-
-header nav ul {
+  }
+  
+  header nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     margin-right: 30px;
-}
-
-header nav ul li {
+  }
+  
+  header nav ul li {
     margin-left: 25px;
-}
-
-header nav ul li a {
+  }
+  
+  header nav ul li a {
     font-family: var(--font-principal); /* Fredoka One para el menú */
     color: var(--marron-choco);
     font-size: 1.3em;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-}
-
-header nav ul li a:hover {
+  }
+  
+  header nav ul li a:hover {
     background-color: var(--rosa-donut);
     color: var(--blanco);
-}
-
-/* Hero Section */
-.hero {
+  }
+  
+  /* Hero Section */
+  .hero {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 60px 20px;
     background: linear-gradient(to right, var(--blanco), var(--blanco)); /* Fondo blanco simple */
     flex-wrap: wrap-reverse; /* Imagen a la derecha en desktop, arriba en móvil */
-}
-
-.hero-texto {
+  }
+  
+  .hero-texto {
     text-align: center;
     max-width: 600px;
     margin: 0 20px;
-}
-
-.hero-texto h1 {
+  }
+  
+  .hero-texto h1 {
     font-size: 4em;
     line-height: 1.1;
     margin-bottom: 15px;
-}
-
-.hero-texto p {
+  }
+  
+  .hero-texto p {
     font-size: 1.4em;
     margin-bottom: 30px;
     color: var(--marron-choco);
-}
-
-.hero-img {
+  }
+  
+  .hero-img {
     max-width: 450px;
     width: 100%;
     height: auto;
     margin: 20px;
-}
-
-.boton {
+  }
+  
+  .boton {
     display: inline-block;
     background-color: var(--rosa-donut);
     color: var(--blanco);
@@ -143,85 +142,95 @@ header nav ul li a:hover {
     border-radius: 50px;
     transition: transform 0.2s ease-in-out, background-color 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.boton:hover {
+  }
+  
+  .boton:hover {
     transform: translateY(-5px);
     background-color: #e06bb0; /* Un rosa un poco más oscuro */
-}
-
-/* Sections generales */
-section {
+  }
+  
+  /* Sections generales */
+  section {
     padding: 60px 20px;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-section:nth-of-type(odd) {
+  }
+  
+  section:nth-of-type(odd) {
     background-color: var(--blanco);
-}
-
-section:nth-of-type(even) {
+  }
+  
+  section:nth-of-type(even) {
     background-color: var(--crema-vainilla);
-}
-
-/* Sabores Section */
-.sabores .cards {
+  }
+  
+  /* Sabores Section */
+  .sabores .cards {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 40px;
-}
-
-.sabores .card {
+  }
+  
+  .sabores .card {
     background-color: var(--blanco);
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     padding: 25px;
     width: 280px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transición para todo */
     border: 3px solid var(--rosa-donut); /* Borde de la tarjeta en rosa donut */
-}
-
-.sabores .card:hover {
+    cursor: pointer; /* Indicar que es clicable */
+  }
+  
+  .sabores .card:hover {
     transform: translateY(-10px) scale(1.03);
-}
-
-.sabores .card img {
+  }
+  
+  /* Efecto visual al ser seleccionado (para móvil y PC) */
+  .sabores .card.seleccionada {
+    border-color: var(--negro); /* Borde negro para la seleccionada */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3), 0 0 0 5px var(--rosa-donut); /* Doble sombra para destacar */
+    transform: scale(1.02); /* Ligeramente más grande */
+    background-color: var(--crema); /* Fondo cremoso al seleccionar */
+  }
+  
+  
+  .sabores .card img {
     max-width: 100%;
     height: 200px;
     object-fit: contain;
     margin-bottom: 15px;
-}
-
-/* Sobre Catita Section */
-.sobre p {
+  }
+  
+  /* Sobre Catita Section */
+  .sobre p {
     font-size: 1.3em;
     max-width: 800px;
     margin: 0 auto;
     color: var(--marron-choco);
-}
-
-/* --- Pedidos Section (TODO EL CÓDIGO NUEVO Y ADAPTADO) --- */
-.pedidos {
+  }
+  
+  /* --- Pedidos Section (TODO EL CÓDIGO NUEVO Y ADAPTADO) --- */
+  .pedidos {
     padding: 50px 20px;
     background-color: var(--crema-vainilla); /* Usamos crema-vainilla como base */
     text-align: center;
     border-top: 5px solid var(--rosa-donut);
     border-bottom: 5px solid var(--rosa-donut);
-}
-
-.pedidos h2 {
+  }
+  
+  .pedidos h2 {
     font-family: var(--font-principal);
     color: var(--rosa-donut); /* Color del título de la sección */
     margin-bottom: 30px;
     font-size: 2.5em;
-}
-
-.pedidos form {
+  }
+  
+  .pedidos form {
     max-width: 600px;
     margin: 0 auto;
     background-color: var(--blanco);
@@ -231,12 +240,12 @@ section:nth-of-type(even) {
     display: flex;
     flex-direction: column;
     gap: 20px; /* Espacio entre los elementos del formulario */
-}
-
-/* Estilos para los inputs y el select del formulario de pedidos */
-.pedidos form input[type="text"],
-.pedidos form input[type="tel"],
-.pedidos form select {
+  }
+  
+  /* Estilos para los inputs y el select del formulario de pedidos */
+  .pedidos form input[type="text"],
+  .pedidos form input[type="tel"],
+  .pedidos form textarea { /* Agregado textarea aquí */
     width: 100%;
     padding: 15px;
     border: 2px solid var(--rosa-donut); /* Usamos rosa donut para el borde */
@@ -247,63 +256,95 @@ section:nth-of-type(even) {
     outline: none;
     transition: border-color 0.3s ease;
     background-color: var(--crema); /* Fondo del input para que se vea diferente */
-}
-
-.pedidos form input[type="text"]:focus,
-.pedidos form input[type="tel"]:focus,
-.pedidos form select:focus {
+  }
+  
+  .pedidos form input[type="text"]:focus,
+  .pedidos form input[type="tel"]:focus,
+  .pedidos form textarea:focus { /* Agregado textarea aquí */
     border-color: var(--negro); /* Borde negro al hacer foco */
-}
-
-/* --- Estilos para la selección de cantidad de donas (radio buttons) --- */
-.cantidad-donas {
+  }
+  
+  /* --- Estilos para la selección de cantidad de donas (radio buttons) --- */
+  .cantidad-donas {
     text-align: left;
     margin-bottom: 10px;
     font-family: var(--font-secundaria);
     color: var(--marron-choco);
-}
-
-.cantidad-donas p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px; /* Espacio entre los radios y labels */
+  }
+  
+  .cantidad-donas p {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 0; /* Quitar margen inferior si están en la misma línea */
     font-size: 1.1em;
-}
-
-.cantidad-donas input[type="radio"] {
-    margin-right: 8px;
-    /* Puedes customizar los radio buttons aquí si lo deseas con CSS más avanzado */
-}
-
-.cantidad-donas label {
-    margin-right: 20px;
+  }
+  
+  .cantidad-donas input[type="radio"] {
+    /* Ocultamos el radio nativo para customizarlo */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--rosa-donut);
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .cantidad-donas input[type="radio"]:checked {
+    background-color: var(--rosa-donut);
+    border-color: var(--rosa-donut);
+  }
+  
+  .cantidad-donas input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--blanco);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .cantidad-donas label {
     font-size: 1em;
     cursor: pointer;
-}
-
-/* --- Estilos para la lista de sabores seleccionados (los "chips") --- */
-#sabores-seleccionados {
+    margin-right: 0; /* No es necesario si hay gap */
+  }
+  
+  /* --- Estilos para la lista de sabores seleccionados (los "chips") --- */
+  #sabores-seleccionados {
     text-align: left;
     margin-top: 15px;
-}
-
-#sabores-seleccionados p {
+  }
+  
+  #sabores-seleccionados p {
     font-family: var(--font-secundaria);
     font-weight: bold;
     color: var(--marron-choco);
     margin-bottom: 10px;
     font-size: 1.1em;
-}
-
-#lista-sabores {
+  }
+  
+  #lista-sabores {
     list-style: none; /* Quitar los puntos de la lista */
     padding: 0;
     margin: 0;
     display: flex; /* Para que los ítems estén en fila */
     flex-wrap: wrap; /* Si hay muchos, que salten de línea */
     gap: 10px; /* Espacio entre los ítems de sabor */
-}
-
-#lista-sabores li {
+  }
+  
+  #lista-sabores li {
     background-color: var(--rosa-donut); /* Fondo del chip con tu rosa principal */
     color: var(--blanco); /* Texto en blanco para contraste */
     font-family: var(--font-secundaria);
@@ -314,10 +355,10 @@ section:nth-of-type(even) {
     gap: 8px; /* Espacio entre el texto y el botón X */
     font-size: 0.95em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
-}
-
-/* --- Estilos para el botón de eliminar sabor (la 'X' dentro del chip) --- */
-.boton-eliminar-sabor {
+  }
+  
+  /* --- Estilos para el botón de eliminar sabor (la 'X' dentro del chip) --- */
+  .boton-eliminar-sabor {
     background-color: var(--marron-choco); /* Marrón choco para la 'X' */
     color: var(--blanco);
     border: none;
@@ -331,15 +372,21 @@ section:nth-of-type(even) {
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     flex-shrink: 0; /* Evita que el botón se achique */
-}
-
-.boton-eliminar-sabor:hover {
+  }
+  
+  .boton-eliminar-sabor:hover {
     background-color: var(--negro); /* Negro al pasar el mouse */
     transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
-}
-
-/* --- Estilos para el botón de Enviar Pedido (submit) --- */
-.pedidos button[type="submit"] {
+  }
+  
+  /* --- Estilos para el textarea de detalles adicionales --- */
+  #detalle-pedido {
+    resize: vertical; /* Permitir redimensionar solo verticalmente */
+    min-height: 80px;
+  }
+  
+  /* --- Estilos para el botón de Enviar Pedido (submit) --- */
+  .pedidos button[type="submit"] {
     background-color: var(--rosa-donut); /* Tu rosa principal */
     color: var(--blanco);
     padding: 18px 30px;
@@ -351,145 +398,146 @@ section:nth-of-type(even) {
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-top: 20px; /* Espacio por encima del botón */
-}
-
-.pedidos button[type="submit"]:hover {
+  }
+  
+  .pedidos button[type="submit"]:hover {
     background-color: var(--negro); /* Un color oscuro al pasar el mouse */
     transform: translateY(-2px); /* Pequeño efecto de elevación */
-}
-
-/* --- Responsive Design --- */
-@media (max-width: 768px) {
+  }
+  
+  /* --- Responsive Design --- */
+  @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 15px 0;
+      flex-direction: column;
+      padding: 15px 0;
     }
-
+  
     header .logo {
-        margin-left: 0;
-        margin-bottom: 15px;
+      margin-left: 0;
+      margin-bottom: 15px;
     }
-
+  
     header nav ul {
-        flex-direction: column;
-        align-items: center;
-        margin-right: 0;
-        width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 0;
+      width: 100%;
     }
-
+  
     header nav ul li {
-        margin: 10px 0;
+      margin: 10px 0;
     }
-
+  
     .hero {
-        flex-direction: column-reverse; /* Imagen arriba, texto abajo */
-        padding: 40px 15px;
+      flex-direction: column-reverse; /* Imagen arriba, texto abajo */
+      padding: 40px 15px;
     }
-
+  
     .hero-texto h1 {
-        font-size: 2.8em;
+      font-size: 2.8em;
     }
-
+  
     .hero-texto p {
-        font-size: 1.2em;
+      font-size: 1.2em;
     }
-
+  
     .hero-img {
-        max-width: 300px;
-        margin: 0 auto 20px auto;
+      max-width: 300px;
+      margin: 0 auto 20px auto;
     }
-
+  
     h2 {
-        font-size: 2em;
+      font-size: 2em;
     }
-
+  
     .sabores .card {
-        width: 100%;
-        max-width: 300px;
+      width: 100%;
+      max-width: 300px;
     }
-
+  
     .sobre p {
-        font-size: 1.1em;
+      font-size: 1.1em;
     }
-
+  
     /* Ajustes específicos para el formulario en tablet/móvil */
     .pedidos form {
-        padding: 25px;
-        gap: 15px; /* Reducir un poco el espacio entre elementos */
+      padding: 25px;
+      gap: 15px; /* Reducir un poco el espacio entre elementos */
     }
     
     .pedidos button[type="submit"] {
-        font-size: 1.2em; /* Hace el botón de enviar más pequeño */
-        padding: 15px 25px;
+      font-size: 1.2em; /* Hace el botón de enviar más pequeño */
+      padding: 15px 25px;
     }
     
     /* Ajustes para los chips en pantallas medianas */
     #lista-sabores li {
-        font-size: 0.9em;
-        padding: 6px 12px;
+      font-size: 0.9em;
+      padding: 6px 12px;
     }
     .boton-eliminar-sabor {
-        width: 22px;
-        height: 22px;
-        font-size: 0.8em;
+      width: 22px;
+      height: 22px;
+      font-size: 0.8em;
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     header .logo img {
-        height: 60px;
+      height: 60px;
     }
-
+  
     header nav ul li a {
-        font-size: 1.1em;
+      font-size: 1.1em;
     }
-
+  
     .hero-texto h1 {
-        font-size: 2.2em;
+      font-size: 2.2em;
     }
-
+  
     .hero-texto p {
-        font-size: 1em;
+      font-size: 1em;
     }
-
+  
     .boton {
-        font-size: 1.2em;
-        padding: 12px 25px;
+      font-size: 1.2em;
+      padding: 12px 25px;
     }
-
+  
     h2 {
-        font-size: 1.8em;
+      font-size: 1.8em;
     }
-
+  
     /* Ajustes específicos para el formulario en móvil muy pequeño */
     .pedidos form input,
-    .pedidos form select {
-        padding: 12px;
-        font-size: 1em;
+    .pedidos form textarea { /* También para textarea */
+      padding: 12px;
+      font-size: 1em;
     }
-
+  
     .pedidos button[type="submit"] {
-        font-size: 1.1em;
-        padding: 10px 20px;
+      font-size: 1.1em;
+      padding: 10px 20px;
     }
-
+  
     /* Ajustes para los chips en pantallas muy pequeñas */
     #lista-sabores li {
-        font-size: 0.85em;
-        padding: 5px 10px;
+      font-size: 0.85em;
+      padding: 5px 10px;
     }
     .boton-eliminar-sabor {
-        width: 20px;
-        height: 20px;
-        font-size: 0.75em;
+      width: 20px;
+      height: 20px;
+      height: 20px;
+      font-size: 0.75em;
     }
-}
-
-/* Footer */
-footer {
+  }
+  
+  /* Footer */
+  footer {
     background-color: var(--marron-choco);
     color: var(--crema-vainilla);
     text-align: center;
     padding: 25px 20px;
     font-size: 1.1em;
-}
+  }
