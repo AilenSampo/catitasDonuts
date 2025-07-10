@@ -1,103 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catita's Donuts</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catita's Donuts</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="images/logo.jpg" alt="Catita's Donuts logo"> 
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#sabores">Sabores</a></li>
-        <li><a href="#sobre">Sobre Catita</a></li>
-        <li><a href="#pedidos">Hacenos tu pedido</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header>
+    <div class="logo">
+      <img src="images/logo.jpg" alt="Catita's Donuts logo"> 
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#sabores">Sabores</a></li>
+        <li><a href="#sobre">Sobre Catita</a></li>
+        <li><a href="#pedidos">Hacenos tu pedido</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section class="hero">
-    <div class="hero-texto">
-      <h1>Donas hechas con amor 💕</h1>
-      <p>Catita tiene solo 10 años y ya hace las donas más ricas del mundo 🍩</p>
-      <a href="#pedidos" class="boton">¡Quiero pedir!</a>
-    </div>
-    <img src="images/3.svg" alt="Ilustración de Catita con donas" class="hero-img"> 
-  </section>
+  <section class="hero">
+    <div class="hero-texto">
+      <h1>Donas hechas con amor 💕</h1>
+      <p>Catita tiene solo 10 años y ya hace las donas más ricas del mundo 🍩</p>
+      <a href="#pedidos" class="boton">¡Quiero pedir!</a>
+    </div>
+  
+    <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/catitaHablando2.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
+  </section>
+  
 
-  <section id="sabores" class="sabores">
-    <h2>Nuestros sabores favoritos</h2>
-    <div class="cards">
-      <div class="card" data-sabor="Chocolate">
-        <img src="images/dona-choco.png" alt="Dona de chocolate">
-        <h3>Chocolate</h3>
-      </div>
-      <div class="card" data-sabor="Vainilla">
-        <img src="images/dona-frutilla.png" alt="Dona de vainilla"> 
-        <h3>Vainilla</h3>
-      </div>
-      <div class="card" data-sabor="Limon">
-        <img src="images/dona-frutilla.png" alt="Dona de Limon">
-        <h3>Limon</h3>
-      </div>
-      <div class="card" data-sabor="Chocolate Sin Tacc">
-        <img src="images/dona-choco.png" alt="Dona de chocolate sin tacc"> 
-        <h3>Chocolate Sin Tacc</h3>
-      </div>
-      <div class="card" data-sabor="Vainilla Sin Tacc">
-        <img src="images/dona-vainilla.png" alt="Dona de vainilla sin tacc"> 
-        <h3>Vainilla Sin Tacc</h3>
-      </div>
-      <div class="card" data-sabor="Chocolate con Dulce de Leche Sin Tacc">
-        <img src="images/dona-choco-ddl.png" alt="Dona de chocolate con dulce de leche sin tacc"> 
-        <h3>Chocolate con Dulce de Leche Sin Tacc</h3>
-      </div>
-    </div>
-  </section>
+  <section id="sabores" class="sabores">
+    <h2>Nuestros sabores favoritos</h2>
+    <div class="cards">
+      <div class="card" data-sabor="Chocolate">
+        <img src="images/dona-choco.png" alt="Dona de chocolate">
+        <h3>Chocolate</h3>
+      </div>
+      <div class="card" data-sabor="Vainilla">
+        <img src="images/dona-frutilla.png" alt="Dona de vainilla"> 
+        <h3>Vainilla</h3>
+      </div>
+      <div class="card" data-sabor="Limon">
+        <img src="images/dona-frutilla.png" alt="Dona de Limon">
+        <h3>Limon</h3>
+      </div>
+      <div class="card" data-sabor="Chocolate Sin Tacc">
+        <img src="images/dona-choco.png" alt="Dona de chocolate sin tacc"> 
+        <h3>Chocolate Sin Tacc</h3>
+      </div>
+      <div class="card" data-sabor="Vainilla Sin Tacc">
+        <img src="images/dona-vainilla.png" alt="Dona de vainilla sin tacc"> 
+        <h3>Vainilla Sin Tacc</h3>
+      </div>
+      <div class="card" data-sabor="Chocolate con Dulce de Leche Sin Tacc">
+        <img src="images/dona-choco-ddl.png" alt="Dona de chocolate con dulce de leche sin tacc"> 
+        <h3>Chocolate con Dulce de Leche Sin Tacc</h3>
+      </div>
+    </div>
+  </section>
 
-  <section id="sobre" class="sobre">
-    <h2>¿Quién es Catita?</h2>
-    <p>Catita tiene 10 años y desde muy chiquita ama la cocina —¡especialmente cuando se trata de cosas dulces! Por eso, hoy te invita a probar sus donitas, hechas con mucho amor, alegría… ¡y glaseado! 🧁</p>
-  </section>
+  <section id="sobre" class="sobre">
+    <h2>¿Quién es Catita?</h2>
+    <p>Catita tiene 10 años y desde muy chiquita ama la cocina —¡especialmente cuando se trata de cosas dulces! Por eso, hoy te invita a probar sus donitas, hechas con mucho amor, alegría… ¡y glaseado! 🧁</p>
+  </section>
 
-  <section id="pedidos" class="pedidos">
-    <h2>Hacenos tu pedido</h2>
-    <form id="formulario">
-      <input type="text" placeholder="Tu nombre" required>
-      <input type="tel" placeholder="WhatsApp" required>
-      
-      <div class="cantidad-donas">
-        <p>¿Cuántas donas querés?</p>
-        <input type="radio" id="cantidad6" name="cantidad" value="6" required>
-        <label for="cantidad6">6 Donas</label>
-        <input type="radio" id="cantidad12" name="cantidad" value="12">
-        <label for="cantidad12">12 Donas</label>
-      </div>
+  <section id="pedidos" class="pedidos">
+    <h2>Hacenos tu pedido</h2>
+    <form id="formulario">
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="tel" placeholder="WhatsApp" required>
+      
+      <div class="cantidad-donas">
+        <p>¿Cuántas donas querés?</p>
+        <input type="radio" id="cantidad6" name="cantidad" value="6" required>
+        <label for="cantidad6">6 Donas</label>
+        <input type="radio" id="cantidad12" name="cantidad" value="12">
+        <label for="cantidad12">12 Donas</label>
+      </div>
 
-      <div id="sabores-seleccionados">
-        <p>Sabores seleccionados: <span id="contador-donas">0/0</span></p>
-        <ul id="lista-sabores">
-          </ul>
-      </div>
+      <div id="sabores-seleccionados">
+        <p>Sabores seleccionados: <span id="contador-donas">0/0</span></p>
+        <ul id="lista-sabores">
+          </ul>
+      </div>
 
-      <textarea id="detalle-pedido" placeholder="Algún detalle adicional sobre tu pedido (opcional)" rows="3"></textarea>
-      
-      <button type="submit">Enviar pedido</button>
-    </form>
-  </section>
+      <textarea id="detalle-pedido" placeholder="Algún detalle adicional sobre tu pedido (opcional)" rows="3"></textarea>
+      
+      <button type="submit">Enviar pedido</button>
+    </form>
+  </section>
 
-  <footer>
-    <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
-  </footer>
+  <footer>
+    <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
+  </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

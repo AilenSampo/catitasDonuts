@@ -95,24 +95,24 @@
     color: var(--blanco);
   }
   
-  /* Hero Section */
+  /* Hero Section - Opción 2: Texto izquierda, Video derecha (Video arriba en móvil) */
   .hero {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around; /* Distribuye el espacio entre y alrededor de los elementos */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
     padding: 60px 20px;
-    background: linear-gradient(to right, var(--blanco), var(--blanco));
-    flex-wrap: wrap-reverse;
+    background: linear-gradient(to right, var(--blanco), var(--blanco)); /* Fondo blanco simple */
+    flex-wrap: wrap-reverse; /* En pantallas pequeñas, invierte el orden: video arriba, texto abajo */
   }
   
   .hero-texto {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 20px;
+    text-align: left; /* Alinea el texto a la izquierda en escritorio */
+    max-width: 45%; /* Ancho máximo para el bloque de texto */
+    margin: 20px; /* Margen alrededor del bloque de texto */
   }
   
   .hero-texto h1 {
-    font-size: 4em;
+    font-size: 3.5em;
     line-height: 1.1;
     margin-bottom: 15px;
   }
@@ -123,10 +123,13 @@
     color: var(--marron-choco);
   }
   
-  .hero-img {
-    max-width: 450px;
-    width: 100%;
-    height: auto;
+  .hero-video {
+    max-width: 45%; /* Ancho máximo para el video, ajusta para que quepa junto al texto */
+    width: 100%; /* Asegura que el video sea responsive dentro de su max-width */
+    height: 350px; /* Altura fija para el video en desktop */
+    object-fit: cover; /* ¡CLAVE! Esto hará que el video cubra el espacio sin barras negras */
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px;
   }
   
@@ -453,22 +456,28 @@
       margin: 10px 0;
     }
   
+    /* Ajustes para la sección HERO en móviles */
     .hero {
-      flex-direction: column-reverse;
-      padding: 40px 15px;
+      flex-direction: column; /* Apila los elementos: video arriba, texto abajo */
+      align-items: center; /* Centra los elementos apilados */
+      padding: 40px 15px; /* Ajusta el padding en móvil */
     }
   
-    .hero-texto h1 {
-      font-size: 2.8em;
+    .hero-texto {
+      max-width: 90%; /* Ocupa casi todo el ancho en móvil */
+      margin: 20px auto 0 auto; /* Margen superior y centrado */
+      text-align: center; /* Centra el texto en móvil */
     }
   
+    .hero-texto h1,
     .hero-texto p {
-      font-size: 1.2em;
+      text-align: center; /* Asegura que los elementos de texto dentro del hero-texto estén centrados */
     }
   
-    .hero-img {
-      max-width: 300px;
-      margin: 0 auto 20px auto;
+    .hero-video {
+      max-width: 90%; /* Video ocupa casi todo el ancho en móvil */
+      height: 250px; /* Ajusta la altura para móviles si es necesario */
+      margin: 0 auto 20px auto; /* Margen inferior y centrado */
     }
   
     h2 {
