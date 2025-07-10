@@ -124,10 +124,10 @@
   }
   
   .hero-video {
-    max-width: 45%; /* Ancho máximo para el video, ajusta para que quepa junto al texto */
-    width: 100%; /* Asegura que el video sea responsive dentro de su max-width */
-    height: 350px; /* Altura fija para el video en desktop */
-    object-fit: cover; /* ¡CLAVE! Esto hará que el video cubra el espacio sin barras negras */
+    max-width: 300px; /* Ancho máximo más controlado para dar un formato vertical */
+    width: 100%; /* Asegura que se adapte si la pantalla es más pequeña que max-width */
+    height: 450px; /* Altura aumentada para un formato más vertical */
+    object-fit: cover; /* ¡CLAVE! Esto hará que el video cubra el espacio sin barras negras, recortando si es necesario */
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px;
@@ -415,8 +415,8 @@
   }
   
   .pedidos button[type="submit"]:hover {
-    background-color: var(--negro); /* Un color oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
+    background-color: var(--negro);
+    transform: translateY(-2px);
   }
   
   /* Footer */
