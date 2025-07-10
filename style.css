@@ -1,114 +1,170 @@
-/* Variables de color y tipografías */
+/* Variables de color y tipografías (Mantener estas intactas) */
 :root {
-    /* Colores del Brand Kit (respetando tus cambios) */
     --rosa-donut: #F47EBB;
-    --celeste-glaseado: #AEE9F6; /* Mantengo la variable por si la quieres usar */
+    --celeste-glaseado: #AEE9F6;
     --marron-choco: #8B5E3C;
     --crema-vainilla: #FFF4E6;
     --blanco: #FFFFFF;
-    --negro: #000000; /* Usar el valor hexadecimal para el negro */
-    --crema: #FFEFC5; /* Color crema para fondos de inputs, etc. */
-  
-    /* Tipografías del Brand Kit como variables */
-    --font-principal: 'Fredoka One', cursive; /* Para logo y títulos principales */
-    --font-secundaria: 'Quicksand', sans-serif; /* Para textos generales, menú, inputs */
-    --font-baloo: 'Baloo 2', cursive; /* Si quieres usar Baloo 2 para algo específico */
+    --negro: #000000;
+    --crema: #FFEFC5;
+    --font-principal: 'Fredoka One', cursive;
+    --font-secundaria: 'Quicksand', sans-serif;
+    --font-baloo: 'Baloo 2', cursive;
   }
   
-  /* Estilos generales */
+  /* Animación del Logo (Mantener esta intacta) */
+  @keyframes fallFromTop {
+      0% {
+          transform: translateY(-100px); /* Empieza 100px arriba */
+          opacity: 0; /* Invisible al inicio */
+      }
+      100% {
+          transform: translateY(0); /* Cae a su posición normal */
+          opacity: 1; /* Completamente visible */
+      }
+  }
+  
+  
+  /* Estilos generales (Mantener estos intactos) */
   body {
-    font-family: var(--font-secundaria); /* Quicksand para el texto general del cuerpo */
+    font-family: var(--font-secundaria);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: var(--crema-vainilla);
-    color: var(--marron-choco); /* Color de texto general, mejor un oscuro para legibilidad */
+    color: var(--marron-choco);
     line-height: 1.6;
   }
   
   h1, h2, h3 {
-    font-family: var(--font-principal); /* Fredoka One para los títulos */
-    color: var(--negro); /* Títulos en negro para contraste fuerte */
+    font-family: var(--font-principal);
+    color: var(--negro);
     text-align: center;
     margin-bottom: 20px;
   }
   
   h1 {
     font-size: 3.5em;
-    color: var(--rosa-donut); /* h1 del hero en rosa donut */
+    color: var(--rosa-donut);
   }
   
   h2 {
     font-size: 2.5em;
-    color: var(--rosa-donut); /* H2 en rosa donut */
+    color: var(--rosa-donut);
   }
   
   h3 {
     font-size: 1.8em;
-    color: var(--rosa-donut); /* H3 en rosa donut */
+    color: var(--rosa-donut);
   }
   
   a {
     text-decoration: none;
-    color: var(--rosa-donut); /* Enlaces en rosa */
+    color: var(--rosa-donut);
   }
   
-  /* Header */
+  /* --- Header y Navegación (Escritorio) --- */
   header {
-    background-color: var(--blanco);
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    border-bottom: 5px solid var(--negro);
+      background-color: var(--blanco);
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between; /* Espacio entre logo y nav/hamburguesa */
+      align-items: center;
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan si la pantalla es muy estrecha */
+      border-bottom: 5px solid var(--negro); /* Borde inferior */
+      position: relative; /* Necesario para posicionamiento absoluto del menú móvil */
   }
   
   header .logo img {
-    height: 80px;
-    margin-left: 30px;
+      height: 80px;
+      margin-left: 30px;
+      animation: fallFromTop 1s ease-out forwards; /* Aplica la animación al logo */
+  }
+  
+  /* Estilos de la navegación principal (visible en escritorio) */
+  header nav {
+      flex-grow: 1; /* Permite que la navegación ocupe el espacio restante */
+      text-align: right; /* Alinea los enlaces a la derecha dentro de su espacio */
+      margin-right: 30px; /* Margen a la derecha del último enlace */
+      transition: all 0.3s ease-in-out; /* Para la transición de menú hamburguesa */
   }
   
   header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    margin-right: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex; /* Mantiene los elementos de lista en línea */
+      justify-content: flex-end; /* Alinea los ítems de menú a la derecha */
   }
   
   header nav ul li {
-    margin-left: 25px;
+      margin-left: 25px; /* Espacio entre los ítems del menú */
   }
   
   header nav ul li a {
-    font-family: var(--font-principal); /* Fredoka One para el menú */
-    color: var(--marron-choco);
-    font-size: 1.3em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+      font-family: var(--font-principal);
+      color: var(--marron-choco);
+      font-size: 1.3em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
   }
   
   header nav ul li a:hover {
-    background-color: var(--rosa-donut);
-    color: var(--blanco);
+      background-color: var(--rosa-donut);
+      color: var(--blanco);
   }
   
+  /* --- Menú Hamburguesa (Oculto en Escritorio) --- */
+  .hamburger-menu {
+      display: none; /* OCULTA el botón de hamburguesa por defecto en desktop */
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001; /* Asegura que esté por encima de otros elementos si se muestra */
+      margin-right: 20px; /* Espacio a la derecha del botón */
+      position: relative; /* Para la animación de la X */
+  }
+  
+  .hamburger-menu .bar {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: var(--marron-choco);
+      margin: 6px 0;
+      transition: all 0.3s ease-in-out;
+  }
+  
+  /* Animación del icono hamburguesa a "X" */
+  .hamburger-menu.active .bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+  }
+  
+  .hamburger-menu.active .bar:nth-child(2) {
+      opacity: 0;
+  }
+  
+  .hamburger-menu.active .bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+  }
+  
+  
   /* Hero Section - Opción 2: Texto izquierda, Video derecha (Video arriba en móvil) */
+  /* (Mantener esta sección intacta de tu último código, la incluyo por completitud) */
   .hero {
     display: flex;
-    justify-content: space-around; /* Distribuye el espacio entre y alrededor de los elementos */
-    align-items: center; /* Alinea los elementos verticalmente al centro */
+    justify-content: space-around;
+    align-items: center;
     padding: 60px 20px;
-    background: linear-gradient(to right, var(--blanco), var(--blanco)); /* Fondo blanco simple */
-    flex-wrap: wrap-reverse; /* En pantallas pequeñas, invierte el orden: video arriba, texto abajo */
+    background: linear-gradient(to right, var(--blanco), var(--blanco));
+    flex-wrap: wrap-reverse;
   }
   
   .hero-texto {
-    text-align: left; /* Alinea el texto a la izquierda en escritorio */
-    max-width: 45%; /* Ancho máximo para el bloque de texto */
-    margin: 20px; /* Margen alrededor del bloque de texto */
+    text-align: left;
+    max-width: 45%;
+    margin: 20px;
   }
   
   .hero-texto h1 {
@@ -124,10 +180,10 @@
   }
   
   .hero-video {
-    max-width: 300px; /* Ancho máximo más controlado para dar un formato vertical en desktop */
-    width: 100%; /* Asegura que se adapte si la pantalla es más pequeña que max-width */
-    height: 450px; /* Altura aumentada para un formato más vertical en desktop */
-    object-fit: cover; /* ¡CLAVE! Esto hará que el video cubra el espacio sin barras negras, recortando si es necesario */
+    max-width: 300px;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px;
@@ -150,7 +206,7 @@
     background-color: #e06bb0;
   }
   
-  /* Sections generales */
+  /* Sections generales (Mantener estas intactas) */
   section {
     padding: 60px 20px;
     text-align: center;
@@ -166,7 +222,7 @@
     background-color: var(--crema-vainilla);
   }
   
-  /* Sabores Section */
+  /* Sabores Section (Mantener estas intactas) */
   .sabores .cards {
     display: flex;
     justify-content: center;
@@ -182,23 +238,21 @@
     padding: 25px;
     width: 280px;
     text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Transición para todo */
-    border: 3px solid var(--rosa-donut); /* Borde de la tarjeta en rosa donut */
-    cursor: pointer; /* Indicar que es clicable */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid var(--rosa-donut);
+    cursor: pointer;
   }
   
   .sabores .card:hover {
     transform: translateY(-10px) scale(1.03);
   }
   
-  /* Efecto visual al ser seleccionado (para móvil y PC) */
   .sabores .card.seleccionada {
-    border-color: var(--negro); /* Borde negro para la seleccionada */
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3), 0 0 0 5px var(--rosa-donut); /* Doble sombra para destacar */
-    transform: scale(1.02); /* Ligeramente más grande */
-    background-color: var(--crema); /* Fondo cremoso al seleccionar */
+    border-color: var(--negro);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3), 0 0 0 5px var(--rosa-donut);
+    transform: scale(1.02);
+    background-color: var(--crema);
   }
-  
   
   .sabores .card img {
     max-width: 100%;
@@ -207,7 +261,7 @@
     margin-bottom: 15px;
   }
   
-  /* Sobre Catita Section */
+  /* Sobre Catita Section (Mantener esta intacta) */
   .sobre p {
     font-size: 1.3em;
     max-width: 800px;
@@ -215,10 +269,10 @@
     color: var(--marron-choco);
   }
   
-  /* --- Pedidos Section --- */
+  /* Pedidos Section (Mantener esta intacta) */
   .pedidos {
     padding: 50px 20px;
-    background-color: var(--crema-vainilla); /* Usamos crema-vainilla como base */
+    background-color: var(--crema-vainilla);
     text-align: center;
     border-top: 5px solid var(--rosa-donut);
     border-bottom: 5px solid var(--rosa-donut);
@@ -246,7 +300,7 @@
   .pedidos form input[type="text"],
   .pedidos form input[type="tel"],
   .pedidos form textarea {
-    width: 100%; /* Asegura que tomen el 100% del ancho del padre */
+    width: 100%;
     padding: 15px;
     border: 2px solid var(--rosa-donut);
     border-radius: 10px;
@@ -256,7 +310,7 @@
     outline: none;
     transition: border-color 0.3s ease;
     background-color: var(--crema);
-    box-sizing: border-box; /* Muy importante para que el padding no desborde el 100% de width */
+    box-sizing: border-box;
   }
   
   .pedidos form input[type="text"]:focus,
@@ -265,23 +319,23 @@
     border-color: var(--negro);
   }
   
-  /* --- Estilos para la selección de cantidad de donas (radio buttons) --- */
+  /* Radio Buttons de Cantidad (Mantener estos intactos) */
   .cantidad-donas {
     text-align: left;
     margin-bottom: 10px;
     font-family: var(--font-secundaria);
     color: var(--marron-choco);
-    display: flex; /* Mantiene la flexibilidad */
-    flex-wrap: wrap; /* Permite que los elementos salten de línea en pantallas pequeñas */
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 15px; /* Espacio entre los radios y labels */
+    gap: 15px;
   }
   
   .cantidad-donas p {
     font-weight: bold;
     margin-bottom: 0;
     font-size: 1.1em;
-    flex-basis: 100%; /* Hace que ocupe todo el ancho disponible para un salto de línea si es necesario */
+    flex-basis: 100%;
   }
   
   .cantidad-donas input[type="radio"] {
@@ -296,7 +350,7 @@
     cursor: pointer;
     position: relative;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-    flex-shrink: 0; /* Evita que los radios se achiquen */
+    flex-shrink: 0;
   }
   
   .cantidad-donas input[type="radio"]:checked {
@@ -320,10 +374,10 @@
   .cantidad-donas label {
     font-size: 1em;
     cursor: pointer;
-    margin-right: 0; /* No es necesario si hay gap */
+    margin-right: 0;
   }
   
-  /* --- Estilos para la lista de sabores seleccionados (los "chips") --- */
+  /* Chips de Sabores (Mantener estos intactos) */
   #sabores-seleccionados {
     text-align: left;
     margin-top: 15px;
@@ -338,9 +392,9 @@
   }
   
   #contador-donas {
-      font-weight: normal; /* El contador no necesita ser negrita */
-      margin-left: 5px; /* Pequeño espacio del texto "Sabores seleccionados:" */
-      color: var(--rosa-donut); /* Un color que destaque el contador */
+      font-weight: normal;
+      margin-left: 5px;
+      color: var(--rosa-donut);
   }
   
   
@@ -349,9 +403,9 @@
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Permitir que los chips salten de línea */
+    flex-wrap: wrap;
     gap: 10px;
-    justify-content: flex-start; /* Alinear los chips a la izquierda */
+    justify-content: flex-start;
   }
   
   #lista-sabores li {
@@ -366,8 +420,8 @@
     font-size: 0.95em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     flex-shrink: 0; 
-    max-width: calc(100% - 20px); /* Ajuste por el padding del padre */
-    word-break: break-word; /* Romper palabras largas si es necesario */
+    max-width: calc(100% - 20px);
+    word-break: break-word;
   }
   
   .boton-eliminar-sabor {
@@ -391,27 +445,27 @@
     transform: scale(1.05);
   }
   
-  /* --- Estilos para el textarea de detalles adicionales --- */
+  /* Textarea de Detalles Adicionales (Mantener estos intactos) */
   #detalle-pedido {
     resize: vertical;
     min-height: 80px;
   }
   
-  /* --- Estilos para el botón de Enviar Pedido (submit) --- */
+  /* Botón de Enviar Pedido (Mantener estos intactos) */
   .pedidos button[type="submit"] {
-    background-color: var(--rosa-donut); /* Tu rosa principal */
+    background-color: var(--rosa-donut);
     color: var(--blanco);
-    padding: 18px 30px; /* Tamaño del botón */
+    padding: 18px 30px;
     border: none;
-    border-radius: 15px; /* Bordes redondeados */
-    font-family: var(--font-principal); /* Tu fuente principal, Fredoka One */
-    font-size: 1.5em; /* Tamaño de la fuente del botón */
+    border-radius: 15px;
+    font-family: var(--font-principal);
+    font-size: 1.5em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px; /* Espacio por encima del botón */
-    width: auto; /* Asegura que no se estire al 100% si no lo deseas, o pon 100% si lo prefieres */
-    align-self: center; /* Centra el botón si el padre es un flex container (que lo es, .pedidos form) */
+    margin-top: 20px;
+    width: auto;
+    align-self: center;
   }
   
   .pedidos button[type="submit"]:hover {
@@ -419,125 +473,159 @@
     transform: translateY(-2px);
   }
   
-  /* Footer */
+  /* Footer (Mantener este intacto) */
   footer {
     background-color: var(--marron-choco);
     color: var(--crema-vainilla);
-    text-align: center; /* Esto debería centrar el texto */
+    text-align: center;
     padding: 25px 20px;
     font-size: 1.1em;
-    /* Añadir display: flex y justify-content: center; como un método más robusto para centrar si text-align no es suficiente por algún motivo */
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Por si el texto se hace muy largo en móviles */
+    flex-wrap: wrap;
   }
   
-  /* --- Responsive Design --- */
+  /* --- Responsive Design (AJUSTES CLAVE AQUÍ) --- */
   @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      padding: 15px 0;
-    }
+      /* Header para Móviles */
+      header {
+          flex-direction: row; /* Mantener logo y hamburguesa en fila */
+          justify-content: space-between; /* Espacio entre logo y hamburguesa */
+          padding: 15px 20px; /* Ajusta el padding para que el hamburguesa no esté pegado */
+      }
   
-    header .logo {
-      margin-left: 0;
-      margin-bottom: 15px;
-    }
+      header .logo {
+          margin-left: 0; /* Asegura que el logo esté alineado */
+      }
   
-    header nav ul {
-      flex-direction: column;
-      align-items: center;
-      margin-right: 0;
-      width: 100%;
-    }
+      /* Mostrar el botón de hamburguesa en móvil */
+      .hamburger-menu {
+          display: block; 
+      }
   
-    header nav ul li {
-      margin: 10px 0;
-    }
+      /* Ocultar la navegación normal en móvil */
+      header nav {
+          position: absolute;
+          top: 110px; /* Ajusta según la altura de tu header para que el menú caiga bien */
+          left: 0;
+          width: 100%;
+          background-color: var(--blanco); /* Fondo del menú desplegado */
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+          flex-direction: column;
+          align-items: center;
+          transform: translateY(-100%); /* Oculta el menú por defecto (se desliza hacia arriba) */
+          opacity: 0;
+          pointer-events: none; /* Deshabilita clics cuando está oculto */
+          z-index: 1000;
+      }
   
-    /* Ajustes para la sección HERO en móviles */
-    .hero {
-      flex-direction: column; /* Apila los elementos: video arriba, texto abajo */
-      align-items: center; /* Centra los elementos apilados */
-      padding: 40px 15px; /* Ajusta el padding en móvil */
-    }
+      /* Menú móvil activo */
+      header nav.active {
+          transform: translateY(0); /* Muestra el menú deslizándose hacia abajo */
+          opacity: 1;
+          pointer-events: all; /* Habilita clics */
+      }
   
-    .hero-texto {
-      max-width: 90%; /* Ocupa casi todo el ancho en móvil */
-      margin: 20px auto 0 auto; /* Margen superior y centrado */
-      text-align: center; /* Centra el texto en móvil */
-    }
+      header nav ul {
+          flex-direction: column; /* Apila los elementos del menú */
+          width: 100%;
+          padding: 20px 0;
+      }
   
-    .hero-texto h1,
-    .hero-texto p {
-      text-align: center; /* Asegura que los elementos de texto dentro del hero-texto estén centrados */
-    }
+      header nav ul li {
+          margin: 15px 0; /* Espacio entre los ítems del menú móvil */
+      }
   
-    .hero-video {
-      max-width: 300px; /* Ancho máximo fijo para mantener verticalidad en tabletas */
-      height: 400px; /* Altura aumentada para mantener la verticalidad en tabletas */
-      margin: 0 auto 20px auto;
-    }
+      header nav ul li a {
+          font-size: 1.5em; /* Un poco más grande para facilitar el toque */
+          padding: 10px 20px;
+          display: block; /* Para que el área de clic sea más grande */
+          text-align: center;
+      }
   
-    h2 {
-      font-size: 2em;
-    }
+      /* Ajustes para la sección HERO en móviles */
+      .hero {
+        flex-direction: column; /* Apila los elementos: video arriba, texto abajo */
+        align-items: center; /* Centra los elementos apilados */
+        padding: 40px 15px; /* Ajusta el padding en móvil */
+      }
   
-    .sabores .card {
-      width: 100%;
-      max-width: 300px; /* Asegura que la tarjeta no se haga más grande de 300px aunque el contenedor sea más amplio */
-    }
+      .hero-texto {
+        max-width: 90%; /* Ocupa casi todo el ancho en móvil */
+        margin: 20px auto 0 auto; /* Margen superior y centrado */
+        text-align: center; /* Centra el texto en móvil */
+      }
   
-    .sobre p {
-      font-size: 1.1em;
-    }
+      .hero-texto h1,
+      .hero-texto p {
+        text-align: center; /* Asegura que los elementos de texto dentro del hero-texto estén centrados */
+      }
   
-    /* AJUSTES IMPORTANTES PARA EL FORMULARIO EN MÓVIL */
-    .pedidos form {
-      padding: 20px; /* Reduce el padding en móviles */
-      gap: 15px;
-    }
+      .hero-video {
+        max-width: 300px; /* Ancho máximo fijo para mantener verticalidad en tabletas */
+        height: 400px; /* Altura aumentada para mantener la verticalidad en tabletas */
+        margin: 0 auto 20px auto;
+      }
   
-    .pedidos form input[type="text"],
-    .pedidos form input[type="tel"],
-    .pedidos form textarea {
-      padding: 12px; /* Reduce el padding de inputs en móviles */
-      font-size: 1em; /* Ajusta el tamaño de fuente */
-    }
+      h2 {
+        font-size: 2em;
+      }
   
-    /* Radio Buttons de Cantidad: Asegurar que se vean bien */
-    .cantidad-donas {
-      flex-direction: column; /* Apila los elementos verticalmente */
-      align-items: flex-start; /* Alinea a la izquierda si están apilados */
-      gap: 10px; /* Espacio entre los radios apilados */
-    }
-    .cantidad-donas p {
-      margin-bottom: 5px; /* Espacio debajo del texto principal */
-    }
-    .cantidad-donas label {
-      margin-right: 0; /* Eliminar margen derecho si están apilados */
-    }
+      .sabores .card {
+        width: 100%;
+        max-width: 300px; /* Asegura que la tarjeta no se haga más grande de 300px aunque el contenedor sea más amplio */
+      }
   
-    /* Chips de Sabores: Asegurar que no desborden */
-    #lista-sabores {
-      justify-content: flex-start; /* Asegura alineación a la izquierda */
-      gap: 8px; /* Espacio entre los chips */
-    }
-    #lista-sabores li {
-      padding: 6px 12px; /* Reduce el padding de los chips */
-      font-size: 0.9em; /* Reduce el tamaño de fuente de los chips */
-    }
-    .boton-eliminar-sabor {
-      width: 22px;
-      height: 22px;
-      font-size: 0.8em;
-    }
+      .sobre p {
+        font-size: 1.1em;
+      }
   
-    .pedidos button[type="submit"] {
-      font-size: 1.2em;
-      padding: 15px 25px;
-    }
+      /* AJUSTES IMPORTANTES PARA EL FORMULARIO EN MÓVIL */
+      .pedidos form {
+        padding: 20px; /* Reduce el padding en móviles */
+        gap: 15px;
+      }
+  
+      .pedidos form input[type="text"],
+      .pedidos form input[type="tel"],
+      .pedidos form textarea {
+        padding: 12px; /* Reduce el padding de inputs en móviles */
+        font-size: 1em; /* Ajusta el tamaño de fuente */
+      }
+  
+      /* Radio Buttons de Cantidad: Asegurar que se vean bien */
+      .cantidad-donas {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start; /* Alinea a la izquierda si están apilados */
+        gap: 10px; /* Espacio entre los radios apilados */
+      }
+      .cantidad-donas p {
+        margin-bottom: 5px; /* Espacio debajo del texto principal */
+      }
+      .cantidad-donas label {
+        margin-right: 0; /* Eliminar margen derecho si están apilados */
+      }
+  
+      /* Chips de Sabores: Asegurar que no desborden */
+      #lista-sabores {
+        justify-content: flex-start; /* Asegura alineación a la izquierda */
+        gap: 8px; /* Espacio entre los chips */
+      }
+      #lista-sabores li {
+        padding: 6px 12px; /* Reduce el padding de los chips */
+        font-size: 0.9em; /* Reduce el tamaño de fuente de los chips */
+      }
+      .boton-eliminar-sabor {
+        width: 22px;
+        height: 22px;
+        font-size: 0.8em;
+      }
+  
+      .pedidos button[type="submit"] {
+        font-size: 1.2em;
+        padding: 15px 25px;
+      }
   }
   
   @media (max-width: 480px) {
