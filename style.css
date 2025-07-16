@@ -1,795 +1,558 @@
-/* Variables de color y tipografías */
+/* Variables de colores de Catitas Donuts */
 :root {
-    --rosa-donut: #F47EBB;
-    --celeste-glaseado: #AEE9F6;
-    --marron-choco: #8B5E3C;
-    --crema-vainilla: #FFF4E6;
-    --blanco: #FFFFFF;
-    --negro: #000000;
-    --crema: #FFEFC5;
-    --font-principal: 'Fredoka One', cursive;
-    --font-secundaria: 'Quicksand', sans-serif;
-    --font-baloo: 'Baloo 2', cursive;
+    --rosa-donut: #e267b0;
+    --celeste-glaseado: #3ec6ea;
+    --rosa-fondo: #ffe0f0;
+    --gris-oscuro: #333;
+    --gris-claro: #666;
+    --blanco: #fff;
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Animación del Logo */
-@keyframes fallFromTop {
-    0% {
-        transform: translateY(-100px); 
-        opacity: 0; 
-    }
-    100% {
-        transform: translateY(0); 
-        opacity: 1; 
-    }
-}
-
-/* Estilos generales */
+/* --- ESTILOS GENERALES Y FUENTES --- */
 body {
-    font-family: var(--font-secundaria);
+    font-family: 'Baloo 2', cursive; /* Usa la fuente de Catita */
+    background-color: #f7f7f7;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: var(--crema-vainilla);
-    color: var(--marron-choco);
+    color: var(--gris-oscuro);
     line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal */
 }
 
 h1, h2, h3 {
-    font-family: var(--font-principal);
-    color: var(--negro);
+    font-family: 'Fredoka One', cursive; /* Fuente para títulos */
+    color: var(--rosa-donut);
     text-align: center;
     margin-bottom: 20px;
 }
 
-h1 {
-    font-size: 3.5em;
-    color: var(--rosa-donut);
+h1 { font-size: 2.8em; }
+h2 { font-size: 2.2em; }
+h3 { font-size: 1.8em; }
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
 }
 
-h2 {
-    font-size: 2.5em;
-    color: var(--rosa-donut);
-}
-
-h3 {
-    font-size: 1.8em;
-    color: var(--rosa-donut);
-}
-
-a {
+.boton, .boton-juego, .next-step-button {
+    display: inline-block;
+    background-color: var(--celeste-glaseado);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
     text-decoration: none;
-    color: var(--rosa-donut);
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none; /* Asegura que no tenga borde por defecto */
+    cursor: pointer;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1em;
 }
 
-/* --- Header y Navegación (Escritorio) --- */
+.boton:hover, .boton-juego:hover, .next-step-button:hover:not(:disabled) {
+    background-color: var(--rosa-donut);
+    transform: translateY(-3px);
+}
+
+.next-step-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- HEADER --- */
 header {
     background-color: var(--blanco);
-    padding: 15px 0;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    border-bottom: 5px solid var(--negro);
-    position: relative;
+    box-shadow: var(--sombra);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-header .logo img {
-    height: 150px; 
-    margin-left: 30px;
-    animation: fallFromTop 1s ease-out forwards;
+.logo img {
+    height: 60px;
+    animation: flotar 3s ease-in-out infinite alternate;
 }
 
-/* Estilos de la navegación principal (visible en escritorio) */
-header nav {
-    flex-grow: 1;
-    text-align: right;
-    margin-right: 30px;
-    transition: all 0.3s ease-in-out;
+.logo-animado {
+    animation: flotar 3s ease-in-out infinite alternate;
 }
 
-header nav ul {
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: flex-end;
 }
 
-header nav ul li {
-    margin-left: 25px;
+nav ul li {
+    margin-left: 30px;
 }
 
-header nav ul li a {
-    font-family: var(--font-principal);
-    color: var(--marron-choco);
-    font-size: 1.3em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+nav ul li a {
+    text-decoration: none;
+    color: var(--rosa-donut);
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
 }
 
-header nav ul li a:hover {
-    background-color: var(--rosa-donut);
-    color: var(--blanco);
+nav ul li a:hover {
+    color: var(--celeste-glaseado);
 }
 
-/* --- Menú Hamburguesa (Oculto en Escritorio) --- */
+/* Menú Hamburguesa (para móviles) */
 .hamburger-menu {
-    display: none; 
+    display: none; /* Oculto por defecto en desktop */
     background: none;
     border: none;
+    font-size: 1.8em;
+    color: var(--rosa-donut);
     cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    margin-right: 20px;
-    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    padding: 0;
+    z-index: 1001; /* Para que esté sobre el menú */
 }
 
 .hamburger-menu .bar {
-    display: block;
-    width: 30px;
+    width: 100%;
     height: 3px;
-    background-color: var(--marron-choco);
-    margin: 6px 0;
+    background-color: var(--rosa-donut);
+    border-radius: 2px;
     transition: all 0.3s ease-in-out;
 }
 
-
+/* Animación del menú hamburguesa */
 .hamburger-menu.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(11px) rotate(45deg);
 }
-
 .hamburger-menu.active .bar:nth-child(2) {
     opacity: 0;
 }
-
 .hamburger-menu.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-11px) rotate(-45deg);
 }
 
 
-/* Hero Section */
+/* --- HERO SECTION --- */
 .hero {
+    background-image: url('images/fondo-hero.jpg'); /* Asegúrate de tener una imagen */
+    background-size: cover;
+    background-position: center;
+    height: 600px; /* Ajusta la altura según necesites */
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 60px 20px;
-    background: linear-gradient(to right, var(--blanco), var(--blanco));
-    flex-wrap: wrap-reverse;
+    text-align: center;
+    color: var(--blanco);
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Capa semitransparente para mejor lectura del texto */
+    z-index: 1;
 }
 
 .hero-texto {
-    text-align: left;
-    max-width: 45%;
-    margin: 20px;
+    z-index: 2;
+    position: relative;
 }
 
 .hero-texto h1 {
+    color: white; /* Blanco para el hero */
     font-size: 3.5em;
-    line-height: 1.1;
-    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
 }
 
 .hero-texto p {
+    color: white;
     font-size: 1.4em;
     margin-bottom: 30px;
-    color: var(--marron-choco);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .hero-video {
-    max-width: 300px;
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    margin: 20px;
-}
-
-.boton {
-    display: inline-block;
-    background-color: var(--rosa-donut);
-    color: var(--blanco);
-    font-family: var(--font-principal);
-    font-size: 1.5em;
-    padding: 15px 30px;
-    border-radius: 50px;
-    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.boton:hover {
-    transform: translateY(-5px);
-    background-color: #e06bb0;
-}
-
-/* Sections generales */
-section {
-    padding: 60px 20px;
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-section:nth-of-type(odd) {
-    background-color: var(--blanco);
-}
-
-section:nth-of-type(even) {
-    background-color: var(--crema-vainilla);
-}
-
-/* Sabores Section */
-.sabores .cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.sabores .card {
-    background-color: var(--blanco);
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    width: 280px;
-    text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    border: 3px solid var(--rosa-donut);
-    cursor: pointer;
-}
-
-.sabores .card:hover {
-    transform: translateY(-10px) scale(1.03);
-}
-
-.sabores .card.seleccionada {
-    border-color: var(--negro);
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3), 0 0 0 5px var(--rosa-donut);
-    transform: scale(1.02);
-    background-color: var(--crema);
-}
-
-.sabores .card img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-/* Sobre Catita Section */
-.sobre p {
-    font-size: 1.3em;
-    max-width: 800px;
-    margin: 0 auto;
-    color: var(--marron-choco);
-}
-
-/* Pedidos Section */
-.pedidos {
-    padding: 50px 20px;
-    background-color: var(--crema-vainilla);
-    text-align: center;
-    border-top: 5px solid var(--rosa-donut);
-    border-bottom: 5px solid var(--rosa-donut);
-}
-
-.pedidos h2 {
-    font-family: var(--font-principal);
-    color: var(--rosa-donut);
-    margin-bottom: 30px;
-    font-size: 2.5em;
-}
-
-.pedidos form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--blanco);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.pedidos form input[type="text"],
-.pedidos form input[type="tel"],
-.pedidos form textarea {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid var(--rosa-donut);
-    border-radius: 10px;
-    font-family: var(--font-secundaria);
-    font-size: 1.1em;
-    color: var(--marron-choco);
-    outline: none;
-    transition: border-color 0.3s ease;
-    background-color: var(--crema);
-    box-sizing: border-box;
-}
-
-.pedidos form input[type="text"]:focus,
-.pedidos form input[type="tel"]:focus,
-.pedidos form textarea:focus {
-    border-color: var(--negro);
-}
-
-/* Radio Buttons de Cantidad */
-.cantidad-donas {
-    text-align: left;
-    margin-bottom: 10px;
-    font-family: var(--font-secundaria);
-    color: var(--marron-choco);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 15px;
-}
-
-.cantidad-donas p {
-    font-weight: bold;
-    margin-bottom: 0;
-    font-size: 1.1em;
-    flex-basis: 100%;
-}
-
-.cantidad-donas input[type="radio"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--rosa-donut);
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-    flex-shrink: 0;
-}
-
-.cantidad-donas input[type="radio"]:checked {
-    background-color: var(--rosa-donut);
-    border-color: var(--rosa-donut);
-}
-
-.cantidad-donas input[type="radio"]:checked::before {
-    content: '';
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: var(--blanco);
-    border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
 }
 
-.cantidad-donas label {
-    font-size: 1em;
-    cursor: pointer;
-    margin-right: 0;
+/* --- SECCIÓN SABORES (Ajustes para la lógica del carrito) --- */
+.sabores {
+    padding: 40px 20px;
+    background-color: var(--blanco);
+    text-align: center;
 }
 
-/* Chips de Sabores */
-#sabores-seleccionados {
-    text-align: left;
-    margin-top: 15px;
+.sabores h2 {
+    margin-bottom: 30px;
 }
 
-#sabores-seleccionados p {
-    font-family: var(--font-secundaria);
+.limit-selection {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column; /* Para apilar en móvil */
+    align-items: center;
+    gap: 10px;
+}
+
+.limit-selection p {
+    font-size: 1.2em;
     font-weight: bold;
-    color: var(--marron-choco);
-    margin-bottom: 10px;
-    font-size: 1.1em;
+    color: var(--gris-oscuro);
+    margin-bottom: 5px;
 }
 
-#contador-donas {
-    font-weight: normal;
-    margin-left: 5px;
+.limit-selection button {
+    background-color: var(--celeste-glaseado);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.limit-selection button.active {
+    background-color: var(--rosa-donut);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.limit-selection button:hover {
+    opacity: 0.9;
+}
+
+.total-selected {
+    margin-top: 20px;
+    font-size: 1.4em;
+    font-weight: bold;
     color: var(--rosa-donut);
 }
 
-
-#lista-sabores {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: flex-start;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ajustado para tarjetas más grandes */
+    gap: 25px;
+    margin-top: 30px;
+    padding: 0 15px;
 }
 
-#lista-sabores li {
-    background-color: var(--rosa-donut);
-    color: var(--blanco);
-    font-family: var(--font-secundaria);
-    padding: 8px 15px;
-    border-radius: 20px;
+.card {
+    background-color: var(--rosa-fondo);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card img {
+    width: 120px; /* Tamaño más grande para las donas */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid var(--rosa-donut);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: var(--rosa-donut);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--gris-claro);
+    font-size: 1em;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Para que el texto ocupe el espacio */
+}
+
+.cantidad-selector {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.95em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0; 
-    max-width: calc(100% - 20px);
-    word-break: break-word;
+    justify-content: center;
+    margin-top: 10px;
+    background-color: var(--blanco);
+    border-radius: 30px;
+    padding: 5px 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    width: fit-content;
 }
 
-.boton-eliminar-sabor {
-    background-color: var(--marron-choco);
-    color: var(--blanco);
+.cantidad-selector button {
+    background-color: var(--celeste-glaseado);
+    color: white;
     border: none;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+    margin: 0 5px;
 }
 
-.boton-eliminar-sabor:hover {
-    background-color: var(--negro);
-    transform: scale(1.05);
+.cantidad-selector button:hover {
+    background-color: #2dafd4; /* Un celeste un poco más oscuro */
 }
 
-/* Textarea de Detalles Adicionales */
-#detalle-pedido {
-    resize: vertical;
-    min-height: 80px;
+.cantidad-selector span {
+    margin: 0 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--rosa-donut);
+    min-width: 25px; /* Para que no se mueva mucho */
+    text-align: center;
 }
 
-/* Botón de Enviar Pedido */
+/* --- SECCIÓN SOBRE CATITA --- */
+.sobre {
+    background-color: var(--rosa-fondo);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* --- SECCIÓN JUEGOS --- */
+.juegos-catita {
+    background-color: var(--celeste-glaseado);
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.juegos-catita h2, .juegos-catita p {
+    color: white;
+}
+
+.boton-juego {
+    background-color: var(--rosa-donut);
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- SECCIÓN PEDIDOS (Ajustes para el resumen del carrito) --- */
+.pedidos {
+    padding: 40px 20px;
+    background-color: var(--blanco);
+    text-align: center;
+}
+
+.pedidos form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.pedidos input[type="text"],
+.pedidos input[type="tel"],
+.pedidos textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y border en el width */
+}
+
+.pedidos textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
 .pedidos button[type="submit"] {
     background-color: var(--rosa-donut);
-    color: var(--blanco);
-    padding: 18px 30px;
+    color: white;
+    padding: 15px 30px;
     border: none;
-    border-radius: 15px;
-    font-family: var(--font-principal);
-    font-size: 1.5em;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.pedidos button[type="submit"]:hover:not(:disabled) {
+    background-color: #d15a9f; /* Un rosa un poco más oscuro */
+}
+
+.pedidos button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#sabores-seleccionados-resumen {
+    background-color: var(--rosa-fondo);
+    border-radius: 10px;
+    padding: 15px;
     margin-top: 20px;
-    width: auto;
-    align-self: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.pedidos button[type="submit"]:hover {
-    background-color: var(--negro);
-    transform: translateY(-2px);
+#sabores-seleccionados-resumen p {
+    font-weight: bold;
+    color: var(--gris-oscuro);
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }
 
-/* Estilos generales del botón flotante */
+#lista-sabores-resumen {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    color: var(--gris-claro);
+    font-size: 0.95em;
+    max-height: 150px; /* Para que no ocupe mucho espacio si hay muchos sabores */
+    overflow-y: auto; /* Permite scroll si la lista es larga */
+}
+
+#lista-sabores-resumen li {
+    padding: 5px 0;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.1);
+}
+
+#lista-sabores-resumen li:last-child {
+    border-bottom: none;
+}
+
+
+/* --- WHATSAPP FLOAT BUTTON --- */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #FFD1DC; 
-    border: 2px solid #FFA07A; 
-    border-radius: 50%;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1);
-    background-color: #FFC0CB;
 }
 
-/* Estilos para el ícono de Font Awesome dentro del botón */
-.whatsapp-float i {
-    color: #8A2BE2; 
-    font-size: 30px;
-    line-height: 1;
-}
-
-/* Footer */
+/* --- FOOTER --- */
 footer {
-    background-color: var(--marron-choco);
-    color: var(--crema-vainilla);
+    background-color: var(--rosa-donut);
+    color: white;
     text-align: center;
-    padding: 25px 20px;
-    font-size: 1.1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    padding: 20px;
+    font-size: 0.9em;
 }
 
-
+/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    /* Header para Móviles */
     header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 15px 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
-    header .logo {
-        margin-left: 0;
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
     }
-
-    header .logo img { /* Ajuste de tamaño de logo para pantallas medianas (tablets) */
-        height: 100px;
+    nav {
+        display: none; /* Ocultar nav por defecto en móvil */
+        width: 100%;
+        order: 3; /* Para que aparezca debajo de logo y hamburguesa */
     }
-
-  
+    nav.active {
+        display: block; /* Mostrar cuando está activo */
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
     .hamburger-menu {
-        display: block;
-    }
-
-    header nav {
+        display: flex; /* Mostrar en móvil */
         position: absolute;
-        top: 110px;
-        left: 0;
-        width: 100%;
-        background-color: var(--blanco);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        flex-direction: column;
-        align-items: center;
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-        z-index: 1000;
-    }
-
-    /* Menú móvil activo */
-    header nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-    }
-
-    header nav ul li {
-        margin: 15px 0;
-    }
-
-    header nav ul li a {
-        font-size: 1.5em;
-        padding: 10px 20px;
-        display: block;
-        text-align: center;
-    }
-
-
-    .hero {
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 15px;
-    }
-
-    .hero-texto {
-        max-width: 90%;
-        margin: 20px auto 0 auto;
-        text-align: center;
-    }
-
-    .hero-texto h1,
-    .hero-texto p {
-        text-align: center;
-    }
-
-    .hero-video {
-        max-width: 300px;
-        height: 400px;
-        margin: 0 auto 20px auto;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .sabores .card {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    .sobre p {
-        font-size: 1.1em;
-    }
-
-    .pedidos form {
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .pedidos form input[type="text"],
-    .pedidos form input[type="tel"],
-    .pedidos form textarea {
-        padding: 12px;
-        font-size: 1em;
-    }
-
-
-    .cantidad-donas {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    .cantidad-donas p {
-        margin-bottom: 5px;
-    }
-    .cantidad-donas label {
-        margin-right: 0;
-    }
-
-
-    #lista-sabores {
-        justify-content: flex-start;
-        gap: 8px;
-    }
-    #lista-sabores li {
-        padding: 6px 12px;
-        font-size: 0.9em;
-    }
-    .boton-eliminar-sabor {
-        width: 22px;
-        height: 22px;
-        font-size: 0.8em;
-    }
-
-    .pedidos button[type="submit"] {
-        font-size: 1.2em;
-        padding: 15px 25px;
-    }
-  
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
         right: 20px;
-    }
-    .whatsapp-float i {
-        font-size: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    header .logo img {
-      height: 80px; 
-    }
-
-    header nav ul li a {
-        font-size: 1.1em;
+        top: 25px;
     }
 
     .hero-texto h1 {
-        font-size: 2.2em;
+        font-size: 2.5em;
     }
-
     .hero-texto p {
-        font-size: 1em;
-    }
-
-    .boton {
-        font-size: 1.2em;
-        padding: 12px 25px;
-    }
-
-    h2 {
-        font-size: 1.8em;
-    }
-
-    
-    .pedidos form {
-        padding: 15px;
-    }
-
-    .cantidad-donas {
-        gap: 8px;
-    }
-    .cantidad-donas label {
-        font-size: 0.95em;
-    }
-
-    #lista-sabores li {
-        padding: 5px 10px;
-        font-size: 0.85em;
-    }
-    .boton-eliminar-sabor {
-        width: 20px;
-        height: 20px;
-        font-size: 0.75em;
-    }
-
-    .pedidos button[type="submit"] {
         font-size: 1.1em;
-        padding: 10px 20px;
     }
-}
 
-
-.juegos-catita {
-    background-color: var(--crema-vainilla);
-    padding: 60px 20px;
-    text-align: center;
-    border-radius: 15px;
-    margin: 40px auto;
-    max-width: 900px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
-
-.juegos-catita h2 {
-    color: var(--rosa-donut);
-    font-family: var(--font-principal);
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.juegos-catita p {
-    color: var(--marron-choco);
-    font-family: var(--font-secundaria);
-    font-size: 1.1em;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.boton-juego {
-    display: inline-block;
-    background-color: var(--celeste-glaseado);
-    color: var(--marron-choco);
-    font-family: var(--font-principal);
-    font-weight: bold;
-    font-size: 1.3em;
-    padding: 15px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    animation: bounce 2s infinite ease-in-out;
-}
-
-.boton-juego:hover {
-    background-color: var(--rosa-donut);
-    color: var(--blanco);
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.boton-juego i {
-    margin: 0 8px;
-}
-
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-
-@media (max-width: 768px) {
-    .juegos-catita {
-        padding: 40px 15px;
-        margin: 30px 15px;
+    .cards {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        max-width: 300px; /* Ancho máximo para tarjetas en móvil */
+        margin-left: auto;
+        margin-right: auto;
     }
-    .juegos-catita h2 {
-        font-size: 2em;
-    }
-    .boton-juego {
-        font-size: 1.1em;
-        padding: 12px 25px;
+
+    .limit-selection {
+        flex-direction: column;
     }
 }
