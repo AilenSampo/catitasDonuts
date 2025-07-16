@@ -1,4 +1,4 @@
-/* Variables de color y tipografías (Mantener estas intactas) */
+/* Variables de color y tipografías */
 :root {
     --rosa-donut: #F47EBB;
     --celeste-glaseado: #AEE9F6;
@@ -10,23 +10,22 @@
     --font-principal: 'Fredoka One', cursive;
     --font-secundaria: 'Quicksand', sans-serif;
     --font-baloo: 'Baloo 2', cursive;
-  }
-  
-  /* Animación del Logo (Mantener esta intacta) */
-  @keyframes fallFromTop {
-      0% {
-          transform: translateY(-100px); /* Empieza 100px arriba */
-          opacity: 0; /* Invisible al inicio */
-      }
-      100% {
-          transform: translateY(0); /* Cae a su posición normal */
-          opacity: 1; /* Completamente visible */
-      }
-  }
-  
-  
-  /* Estilos generales (Mantener estos intactos) */
-  body {
+}
+
+/* Animación del Logo */
+@keyframes fallFromTop {
+    0% {
+        transform: translateY(-100px); /* Empieza 100px arriba */
+        opacity: 0; /* Invisible al inicio */
+    }
+    100% {
+        transform: translateY(0); /* Cae a su posición normal */
+        opacity: 1; /* Completamente visible */
+    }
+}
+
+/* Estilos generales */
+body {
     font-family: var(--font-secundaria);
     margin: 0;
     padding: 0;
@@ -34,152 +33,151 @@
     background-color: var(--crema-vainilla);
     color: var(--marron-choco);
     line-height: 1.6;
-  }
-  
-  h1, h2, h3 {
+}
+
+h1, h2, h3 {
     font-family: var(--font-principal);
     color: var(--negro);
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-size: 3.5em;
     color: var(--rosa-donut);
-  }
-  
-  h2 {
+}
+
+h2 {
     font-size: 2.5em;
     color: var(--rosa-donut);
-  }
-  
-  h3 {
+}
+
+h3 {
     font-size: 1.8em;
     color: var(--rosa-donut);
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: var(--rosa-donut);
-  }
-  
-  /* --- Header y Navegación (Escritorio) --- */
-  header {
-      background-color: var(--blanco);
-      padding: 15px 0;
-      display: flex;
-      justify-content: space-between; /* Espacio entre logo y nav/hamburguesa */
-      align-items: center;
-      flex-wrap: wrap; /* Permite que los elementos se envuelvan si la pantalla es muy estrecha */
-      border-bottom: 5px solid var(--negro); /* Borde inferior */
-      position: relative; /* Necesario para posicionamiento absoluto del menú móvil */
-  }
-  
-  header .logo img {
-      height: 150px;
-      margin-left: 30px;
-      animation: fallFromTop 1s ease-out forwards; /* Aplica la animación al logo */
-  }
-  
-  /* Estilos de la navegación principal (visible en escritorio) */
-  header nav {
-      flex-grow: 1; /* Permite que la navegación ocupe el espacio restante */
-      text-align: right; /* Alinea los enlaces a la derecha dentro de su espacio */
-      margin-right: 30px; /* Margen a la derecha del último enlace */
-      transition: all 0.3s ease-in-out; /* Para la transición de menú hamburguesa */
-  }
-  
-  header nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex; /* Mantiene los elementos de lista en línea */
-      justify-content: flex-end; /* Alinea los ítems de menú a la derecha */
-  }
-  
-  header nav ul li {
-      margin-left: 25px; /* Espacio entre los ítems del menú */
-  }
-  
-  header nav ul li a {
-      font-family: var(--font-principal);
-      color: var(--marron-choco);
-      font-size: 1.3em;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-  }
-  
-  header nav ul li a:hover {
-      background-color: var(--rosa-donut);
-      color: var(--blanco);
-  }
-  
-  /* --- Menú Hamburguesa (Oculto en Escritorio) --- */
-  .hamburger-menu {
-      display: none; /* OCULTA el botón de hamburguesa por defecto en desktop */
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      z-index: 1001; /* Asegura que esté por encima de otros elementos si se muestra */
-      margin-right: 20px; /* Espacio a la derecha del botón */
-      position: relative; /* Para la animación de la X */
-  }
-  
-  .hamburger-menu .bar {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: var(--marron-choco);
-      margin: 6px 0;
-      transition: all 0.3s ease-in-out;
-  }
-  
-  /* Animación del icono hamburguesa a "X" */
-  .hamburger-menu.active .bar:nth-child(1) {
-      transform: translateY(9px) rotate(45deg);
-  }
-  
-  .hamburger-menu.active .bar:nth-child(2) {
-      opacity: 0;
-  }
-  
-  .hamburger-menu.active .bar:nth-child(3) {
-      transform: translateY(-9px) rotate(-45deg);
-  }
-  
-  
-  /* Hero Section - Opción 2: Texto izquierda, Video derecha (Video arriba en móvil) */
-  /* (Mantener esta sección intacta de tu último código, la incluyo por completitud) */
-  .hero {
+}
+
+/* --- Header y Navegación (Escritorio) --- */
+header {
+    background-color: var(--blanco);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 5px solid var(--negro);
+    position: relative;
+}
+
+header .logo img {
+    height: 150px; /* Tamaño por defecto para escritorio */
+    margin-left: 30px;
+    animation: fallFromTop 1s ease-out forwards;
+}
+
+/* Estilos de la navegación principal (visible en escritorio) */
+header nav {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    font-family: var(--font-principal);
+    color: var(--marron-choco);
+    font-size: 1.3em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: var(--rosa-donut);
+    color: var(--blanco);
+}
+
+/* --- Menú Hamburguesa (Oculto en Escritorio) --- */
+.hamburger-menu {
+    display: none; /* OCULTA el botón de hamburguesa por defecto en desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    margin-right: 20px;
+    position: relative;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--marron-choco);
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animación del icono hamburguesa a "X" */
+.hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* Hero Section */
+.hero {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 60px 20px;
     background: linear-gradient(to right, var(--blanco), var(--blanco));
     flex-wrap: wrap-reverse;
-  }
-  
-  .hero-texto {
+}
+
+.hero-texto {
     text-align: left;
     max-width: 45%;
     margin: 20px;
-  }
-  
-  .hero-texto h1 {
+}
+
+.hero-texto h1 {
     font-size: 3.5em;
     line-height: 1.1;
     margin-bottom: 15px;
-  }
-  
-  .hero-texto p {
+}
+
+.hero-texto p {
     font-size: 1.4em;
     margin-bottom: 30px;
     color: var(--marron-choco);
-  }
-  
-  .hero-video {
+}
+
+.hero-video {
     max-width: 300px;
     width: 100%;
     height: 450px;
@@ -187,9 +185,9 @@
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 20px;
-  }
-  
-  .boton {
+}
+
+.boton {
     display: inline-block;
     background-color: var(--rosa-donut);
     color: var(--blanco);
@@ -199,39 +197,39 @@
     border-radius: 50px;
     transition: transform 0.2s ease-in-out, background-color 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .boton:hover {
+}
+
+.boton:hover {
     transform: translateY(-5px);
     background-color: #e06bb0;
-  }
-  
-  /* Sections generales (Mantener estas intactas) */
-  section {
+}
+
+/* Sections generales */
+section {
     padding: 60px 20px;
     text-align: center;
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  section:nth-of-type(odd) {
+}
+
+section:nth-of-type(odd) {
     background-color: var(--blanco);
-  }
-  
-  section:nth-of-type(even) {
+}
+
+section:nth-of-type(even) {
     background-color: var(--crema-vainilla);
-  }
-  
-  /* Sabores Section (Mantener estas intactas) */
-  .sabores .cards {
+}
+
+/* Sabores Section */
+.sabores .cards {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 40px;
-  }
-  
-  .sabores .card {
+}
+
+.sabores .card {
     background-color: var(--blanco);
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -241,51 +239,51 @@
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     border: 3px solid var(--rosa-donut);
     cursor: pointer;
-  }
-  
-  .sabores .card:hover {
+}
+
+.sabores .card:hover {
     transform: translateY(-10px) scale(1.03);
-  }
-  
-  .sabores .card.seleccionada {
+}
+
+.sabores .card.seleccionada {
     border-color: var(--negro);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.3), 0 0 0 5px var(--rosa-donut);
     transform: scale(1.02);
     background-color: var(--crema);
-  }
-  
-  .sabores .card img {
+}
+
+.sabores .card img {
     max-width: 100%;
     height: 200px;
     object-fit: contain;
     margin-bottom: 15px;
-  }
-  
-  /* Sobre Catita Section (Mantener esta intacta) */
-  .sobre p {
+}
+
+/* Sobre Catita Section */
+.sobre p {
     font-size: 1.3em;
     max-width: 800px;
     margin: 0 auto;
     color: var(--marron-choco);
-  }
-  
-  /* Pedidos Section (Mantener esta intacta) */
-  .pedidos {
+}
+
+/* Pedidos Section */
+.pedidos {
     padding: 50px 20px;
     background-color: var(--crema-vainilla);
     text-align: center;
     border-top: 5px solid var(--rosa-donut);
     border-bottom: 5px solid var(--rosa-donut);
-  }
-  
-  .pedidos h2 {
+}
+
+.pedidos h2 {
     font-family: var(--font-principal);
     color: var(--rosa-donut);
     margin-bottom: 30px;
     font-size: 2.5em;
-  }
-  
-  .pedidos form {
+}
+
+.pedidos form {
     max-width: 600px;
     margin: 0 auto;
     background-color: var(--blanco);
@@ -295,11 +293,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
-  
-  .pedidos form input[type="text"],
-  .pedidos form input[type="tel"],
-  .pedidos form textarea {
+}
+
+.pedidos form input[type="text"],
+.pedidos form input[type="tel"],
+.pedidos form textarea {
     width: 100%;
     padding: 15px;
     border: 2px solid var(--rosa-donut);
@@ -311,16 +309,16 @@
     transition: border-color 0.3s ease;
     background-color: var(--crema);
     box-sizing: border-box;
-  }
-  
-  .pedidos form input[type="text"]:focus,
-  .pedidos form input[type="tel"]:focus,
-  .pedidos form textarea:focus {
+}
+
+.pedidos form input[type="text"]:focus,
+.pedidos form input[type="tel"]:focus,
+.pedidos form textarea:focus {
     border-color: var(--negro);
-  }
-  
-  /* Radio Buttons de Cantidad (Mantener estos intactos) */
-  .cantidad-donas {
+}
+
+/* Radio Buttons de Cantidad */
+.cantidad-donas {
     text-align: left;
     margin-bottom: 10px;
     font-family: var(--font-secundaria);
@@ -329,16 +327,16 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 15px;
-  }
-  
-  .cantidad-donas p {
+}
+
+.cantidad-donas p {
     font-weight: bold;
     margin-bottom: 0;
     font-size: 1.1em;
     flex-basis: 100%;
-  }
-  
-  .cantidad-donas input[type="radio"] {
+}
+
+.cantidad-donas input[type="radio"] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -351,14 +349,14 @@
     position: relative;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     flex-shrink: 0;
-  }
-  
-  .cantidad-donas input[type="radio"]:checked {
+}
+
+.cantidad-donas input[type="radio"]:checked {
     background-color: var(--rosa-donut);
     border-color: var(--rosa-donut);
-  }
-  
-  .cantidad-donas input[type="radio"]:checked::before {
+}
+
+.cantidad-donas input[type="radio"]:checked::before {
     content: '';
     display: block;
     width: 10px;
@@ -369,36 +367,36 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
-  
-  .cantidad-donas label {
+}
+
+.cantidad-donas label {
     font-size: 1em;
     cursor: pointer;
     margin-right: 0;
-  }
-  
-  /* Chips de Sabores (Mantener estos intactos) */
-  #sabores-seleccionados {
+}
+
+/* Chips de Sabores */
+#sabores-seleccionados {
     text-align: left;
     margin-top: 15px;
-  }
-  
-  #sabores-seleccionados p {
+}
+
+#sabores-seleccionados p {
     font-family: var(--font-secundaria);
     font-weight: bold;
     color: var(--marron-choco);
     margin-bottom: 10px;
     font-size: 1.1em;
-  }
-  
-  #contador-donas {
-      font-weight: normal;
-      margin-left: 5px;
-      color: var(--rosa-donut);
-  }
-  
-  
-  #lista-sabores {
+}
+
+#contador-donas {
+    font-weight: normal;
+    margin-left: 5px;
+    color: var(--rosa-donut);
+}
+
+
+#lista-sabores {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -406,9 +404,9 @@
     flex-wrap: wrap;
     gap: 10px;
     justify-content: flex-start;
-  }
-  
-  #lista-sabores li {
+}
+
+#lista-sabores li {
     background-color: var(--rosa-donut);
     color: var(--blanco);
     font-family: var(--font-secundaria);
@@ -422,9 +420,9 @@
     flex-shrink: 0; 
     max-width: calc(100% - 20px);
     word-break: break-word;
-  }
-  
-  .boton-eliminar-sabor {
+}
+
+.boton-eliminar-sabor {
     background-color: var(--marron-choco);
     color: var(--blanco);
     border: none;
@@ -438,21 +436,21 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     flex-shrink: 0;
-  }
-  
-  .boton-eliminar-sabor:hover {
+}
+
+.boton-eliminar-sabor:hover {
     background-color: var(--negro);
     transform: scale(1.05);
-  }
-  
-  /* Textarea de Detalles Adicionales (Mantener estos intactos) */
-  #detalle-pedido {
+}
+
+/* Textarea de Detalles Adicionales */
+#detalle-pedido {
     resize: vertical;
     min-height: 80px;
-  }
-  
-  /* Botón de Enviar Pedido (Mantener estos intactos) */
-  .pedidos button[type="submit"] {
+}
+
+/* Botón de Enviar Pedido */
+.pedidos button[type="submit"] {
     background-color: var(--rosa-donut);
     color: var(--blanco);
     padding: 18px 30px;
@@ -466,62 +464,45 @@
     margin-top: 20px;
     width: auto;
     align-self: center;
-  }
-  
-  .pedidos button[type="submit"]:hover {
+}
+
+.pedidos button[type="submit"]:hover {
     background-color: var(--negro);
     transform: translateY(-2px);
-  }
+}
 
- /* Estilos generales del botón flotante */
+/* Estilos generales del botón flotante */
 .whatsapp-float {
     position: fixed;
-    width: 60px; /* Tamaño del círculo base */
+    width: 60px;
     height: 60px;
-    bottom: 40px; /* Distancia desde abajo */
-    right: 40px;  /* Distancia desde la derecha */
+    bottom: 40px;
+    right: 40px;
     background-color: #FFD1DC; /* Rosa pastel, puedes cambiarlo */
     border: 2px solid #FFA07A; /* Borde coral suave, puedes cambiarlo */
-    border-radius: 50%; /* Para un círculo perfecto */
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.2); /* Sombra suave */
-    z-index: 100; /* Asegura que esté por encima de otros elementos */
-
-    /* Centra el ícono dentro del círculo */
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Animación al pasar el mouse */
     transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1); /* Agranda ligeramente al pasar el mouse */
-    background-color: #FFC0CB; /* Un tono de rosa un poco más fuerte al pasar el mouse */
+    transform: scale(1.1);
+    background-color: #FFC0CB;
 }
 
 /* Estilos para el ícono de Font Awesome dentro del botón */
 .whatsapp-float i {
     color: #8A2BE2; /* Violeta vibrante, ¡puedes elegir el color que más te guste! */
-    font-size: 30px; /* Tamaño del ícono */
-    line-height: 1; /* Asegura que el ícono esté bien alineado verticalmente */
+    font-size: 30px;
+    line-height: 1;
 }
 
-/* Opcional: para hacerlo responsivo en pantallas más pequeñas */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-    }
-    .whatsapp-float i {
-        font-size: 25px; /* Tamaño del ícono en pantallas más chicas */
-    }
-}
-  
-  /* Footer (Mantener este intacto) */
-  footer {
+/* Footer */
+footer {
     background-color: var(--marron-choco);
     color: var(--crema-vainilla);
     text-align: center;
@@ -531,207 +512,221 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-  }
-  
-  /* --- Responsive Design (AJUSTES CLAVE AQUÍ) --- */
-  @media (max-width: 768px) {
-      /* Header para Móviles */
-      header {
-          flex-direction: row; /* Mantener logo y hamburguesa en fila */
-          justify-content: space-between; /* Espacio entre logo y hamburguesa */
-          padding: 15px 20px; /* Ajusta el padding para que el hamburguesa no esté pegado */
-      }
-  
-      header .logo {
-          margin-left: 0; /* Asegura que el logo esté alineado */
-      }
-  
-      /* Mostrar el botón de hamburguesa en móvil */
-      .hamburger-menu {
-          display: block; 
-      }
-  
-      /* Ocultar la navegación normal en móvil */
-      header nav {
-          position: absolute;
-          top: 110px; /* Ajusta según la altura de tu header para que el menú caiga bien */
-          left: 0;
-          width: 100%;
-          background-color: var(--blanco); /* Fondo del menú desplegado */
-          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-          flex-direction: column;
-          align-items: center;
-          transform: translateY(-100%); /* Oculta el menú por defecto (se desliza hacia arriba) */
-          opacity: 0;
-          pointer-events: none; /* Deshabilita clics cuando está oculto */
-          z-index: 1000;
-      }
-  
-      /* Menú móvil activo */
-      header nav.active {
-          transform: translateY(0); /* Muestra el menú deslizándose hacia abajo */
-          opacity: 1;
-          pointer-events: all; /* Habilita clics */
-      }
-  
-      header nav ul {
-          flex-direction: column; /* Apila los elementos del menú */
-          width: 100%;
-          padding: 20px 0;
-      }
-  
-      header nav ul li {
-          margin: 15px 0; /* Espacio entre los ítems del menú móvil */
-      }
-  
-      header nav ul li a {
-          font-size: 1.5em; /* Un poco más grande para facilitar el toque */
-          padding: 10px 20px;
-          display: block; /* Para que el área de clic sea más grande */
-          text-align: center;
-      }
-  
-      /* Ajustes para la sección HERO en móviles */
-      .hero {
-        flex-direction: column; /* Apila los elementos: video arriba, texto abajo */
-        align-items: center; /* Centra los elementos apilados */
-        padding: 40px 15px; /* Ajusta el padding en móvil */
-      }
-  
-      .hero-texto {
-        max-width: 90%; /* Ocupa casi todo el ancho en móvil */
-        margin: 20px auto 0 auto; /* Margen superior y centrado */
-        text-align: center; /* Centra el texto en móvil */
-      }
-  
-      .hero-texto h1,
-      .hero-texto p {
-        text-align: center; /* Asegura que los elementos de texto dentro del hero-texto estén centrados */
-      }
-  
-      .hero-video {
-        max-width: 300px; /* Ancho máximo fijo para mantener verticalidad en tabletas */
-        height: 400px; /* Altura aumentada para mantener la verticalidad en tabletas */
-        margin: 0 auto 20px auto;
-      }
-  
-      h2 {
-        font-size: 2em;
-      }
-  
-      .sabores .card {
+}
+
+/* --- Responsive Design (AJUSTES CLAVE AQUÍ) --- */
+@media (max-width: 768px) {
+    /* Header para Móviles */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+
+    header .logo {
+        margin-left: 0;
+    }
+
+    header .logo img { /* Ajuste de tamaño de logo para pantallas medianas (tablets) */
+        height: 100px;
+    }
+
+    /* Mostrar el botón de hamburguesa en móvil */
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Ocultar la navegación normal en móvil */
+    header nav {
+        position: absolute;
+        top: 110px;
+        left: 0;
         width: 100%;
-        max-width: 300px; /* Asegura que la tarjeta no se haga más grande de 300px aunque el contenedor sea más amplio */
-      }
-  
-      .sobre p {
+        background-color: var(--blanco);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1000;
+    }
+
+    /* Menú móvil activo */
+    header nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    header nav ul li {
+        margin: 15px 0;
+    }
+
+    header nav ul li a {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        display: block;
+        text-align: center;
+    }
+
+    /* Ajustes para la sección HERO en móviles */
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 15px;
+    }
+
+    .hero-texto {
+        max-width: 90%;
+        margin: 20px auto 0 auto;
+        text-align: center;
+    }
+
+    .hero-texto h1,
+    .hero-texto p {
+        text-align: center;
+    }
+
+    .hero-video {
+        max-width: 300px;
+        height: 400px;
+        margin: 0 auto 20px auto;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .sabores .card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .sobre p {
         font-size: 1.1em;
-      }
-  
-      /* AJUSTES IMPORTANTES PARA EL FORMULARIO EN MÓVIL */
-      .pedidos form {
-        padding: 20px; /* Reduce el padding en móviles */
+    }
+
+    /* AJUSTES IMPORTANTES PARA EL FORMULARIO EN MÓVIL */
+    .pedidos form {
+        padding: 20px;
         gap: 15px;
-      }
-  
-      .pedidos form input[type="text"],
-      .pedidos form input[type="tel"],
-      .pedidos form textarea {
-        padding: 12px; /* Reduce el padding de inputs en móviles */
-        font-size: 1em; /* Ajusta el tamaño de fuente */
-      }
-  
-      /* Radio Buttons de Cantidad: Asegurar que se vean bien */
-      .cantidad-donas {
-        flex-direction: column; /* Apila los elementos verticalmente */
-        align-items: flex-start; /* Alinea a la izquierda si están apilados */
-        gap: 10px; /* Espacio entre los radios apilados */
-      }
-      .cantidad-donas p {
-        margin-bottom: 5px; /* Espacio debajo del texto principal */
-      }
-      .cantidad-donas label {
-        margin-right: 0; /* Eliminar margen derecho si están apilados */
-      }
-  
-      /* Chips de Sabores: Asegurar que no desborden */
-      #lista-sabores {
-        justify-content: flex-start; /* Asegura alineación a la izquierda */
-        gap: 8px; /* Espacio entre los chips */
-      }
-      #lista-sabores li {
-        padding: 6px 12px; /* Reduce el padding de los chips */
-        font-size: 0.9em; /* Reduce el tamaño de fuente de los chips */
-      }
-      .boton-eliminar-sabor {
+    }
+
+    .pedidos form input[type="text"],
+    .pedidos form input[type="tel"],
+    .pedidos form textarea {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    /* Radio Buttons de Cantidad: Asegurar que se vean bien */
+    .cantidad-donas {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cantidad-donas p {
+        margin-bottom: 5px;
+    }
+    .cantidad-donas label {
+        margin-right: 0;
+    }
+
+    /* Chips de Sabores: Asegurar que no desborden */
+    #lista-sabores {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+    #lista-sabores li {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+    .boton-eliminar-sabor {
         width: 22px;
         height: 22px;
         font-size: 0.8em;
-      }
-  
-      .pedidos button[type="submit"] {
+    }
+
+    .pedidos button[type="submit"] {
         font-size: 1.2em;
         padding: 15px 25px;
-      }
-  }
-  
-  @media (max-width: 480px) {
+    }
+    /* Opcional: para hacerlo responsivo en pantallas más pequeñas */
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float i {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
     header .logo img {
-      height: 60px;
+      height: 80px; /* Tamaño del logo para celulares muy pequeños */
     }
-  
+
     header nav ul li a {
-      font-size: 1.1em;
+        font-size: 1.1em;
     }
-  
+
     .hero-texto h1 {
-      font-size: 2.2em;
+        font-size: 2.2em;
     }
-  
+
     .hero-texto p {
-      font-size: 1em;
+        font-size: 1em;
     }
-  
+
     .boton {
-      font-size: 1.2em;
-      padding: 12px 25px;
+        font-size: 1.2em;
+        padding: 12px 25px;
     }
-  
+
     h2 {
-      font-size: 1.8em;
+        font-size: 1.8em;
     }
-    
+
     /* Ajustes finos para el formulario en móviles muy pequeños */
     .pedidos form {
-      padding: 15px; /* Aún menos padding */
+        padding: 15px;
     }
-  
+
     .cantidad-donas {
-      gap: 8px; /* Reduce aún más el espacio */
+        gap: 8px;
     }
     .cantidad-donas label {
-      font-size: 0.95em; /* Ajusta el tamaño de fuente */
+        font-size: 0.95em;
     }
-  
+
     #lista-sabores li {
-      padding: 5px 10px;
-      font-size: 0.85em;
+        padding: 5px 10px;
+        font-size: 0.85em;
     }
     .boton-eliminar-sabor {
-      width: 20px;
-      height: 20px;
-      font-size: 0.75em;
+        width: 20px;
+        height: 20px;
+        font-size: 0.75em;
     }
-    
-    .pedidos button[type="submit"] {
-      font-size: 1.1em;
-      padding: 10px 20px;
-    }
-  }
 
-  /* Estilos para la sección de juegos de Catita */
+    .pedidos button[type="submit"] {
+        font-size: 1.1em;
+        padding: 10px 20px;
+    }
+}
+
+/* Estilos para la sección de juegos de Catita (agregados recientemente) */
 .juegos-catita {
-    background-color: var(--crema-vainilla); /* Usamos una de tus variables de color */
+    background-color: var(--crema-vainilla);
     padding: 60px 20px;
     text-align: center;
     border-radius: 15px;
@@ -741,14 +736,14 @@
 }
 
 .juegos-catita h2 {
-    color: var(--rosa-donut); /* Rosa de tu marca */
+    color: var(--rosa-donut);
     font-family: var(--font-principal);
     font-size: 2.5em;
     margin-bottom: 20px;
 }
 
 .juegos-catita p {
-    color: var(--marron-choco); /* Color chocolate suave */
+    color: var(--marron-choco);
     font-family: var(--font-secundaria);
     font-size: 1.1em;
     margin-bottom: 30px;
@@ -757,9 +752,9 @@
 
 .boton-juego {
     display: inline-block;
-    background-color: var(--celeste-glaseado); /* Celeste de tu marca */
-    color: var(--marron-choco); /* Color para el texto del botón, un contraste con el celeste */
-    font-family: var(--font-principal); /* Usamos tu fuente principal */
+    background-color: var(--celeste-glaseado);
+    color: var(--marron-choco);
+    font-family: var(--font-principal);
     font-weight: bold;
     font-size: 1.3em;
     padding: 15px 30px;
@@ -767,27 +762,27 @@
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    animation: bounce 2s infinite ease-in-out; /* Animación divertida */
+    animation: bounce 2s infinite ease-in-out;
 }
 
 .boton-juego:hover {
-    background-color: var(--rosa-donut); /* Rosa al pasar el mouse */
-    color: var(--blanco); /* Texto blanco al pasar el mouse */
+    background-color: var(--rosa-donut);
+    color: var(--blanco);
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .boton-juego i {
-    margin: 0 8px; /* Espacio entre el icono y el texto */
+    margin: 0 8px;
 }
 
-/* Animación de "rebote" para el botón del juego */
+/* Animación de "rebote" para el botón del juego (duplicada, se mantiene por si el navegador las lee diferente) */
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
 
-/* Adaptación para pantallas más pequeñas (Responsive Design) */
+/* Adaptación para pantallas más pequeñas (Responsive Design para el juego) */
 @media (max-width: 768px) {
     .juegos-catita {
         padding: 40px 15px;
@@ -799,186 +794,5 @@
     .boton-juego {
         font-size: 1.1em;
         padding: 12px 25px;
-    }
-}
-
-
-/* Estilos específicos para el juego "Arma tu Dona Soñada" */
-
-body {
-    /* Usamos las variables de color y tipografía de tu style.css principal */
-    font-family: var(--font-secundaria); /* Reemplazamos la fuente hardcodeada */
-    background-color: var(--crema-vainilla); /* Usamos tu variable de color */
-    color: var(--marron-choco); /* Usamos tu variable de color */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-h1 {
-    color: var(--rosa-donut); /* Usamos tu variable de color */
-    font-family: var(--font-principal); /* Usamos tu variable de tipografía */
-    font-size: 2.8em;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-p {
-    font-family: var(--font-secundaria); /* Usamos tu variable de tipografía */
-    font-size: 1.2em;
-    margin-bottom: 25px;
-    color: var(--marron-choco); /* Para asegurar que tenga el color de texto principal */
-}
-
-.dona-builder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    background-color: var(--blanco); /* Usamos tu variable de color */
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.dona-preview {
-    position: relative;
-    width: 250px; /* Tamaño del contenedor de la dona */
-    height: 250px;
-    margin-bottom: 20px;
-}
-
-.dona-part {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* Orden de las capas con z-index para asegurar que se superponen bien */
-#dona-base { z-index: 1; }
-#dona-glaze { z-index: 2; }
-#dona-sprinkles { z-index: 3; }
-
-.controls {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 400px;
-}
-
-.control-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.control-group h3 {
-    font-family: var(--font-principal); /* Usa la fuente principal para h3 también */
-    color: var(--marron-choco); /* Un color más oscuro para los títulos de control */
-    font-size: 1.5em; /* Ajuste para que no sea tan grande como el h1 principal */
-    margin-bottom: 10px;
-}
-
-.control-group button {
-    background-color: var(--crema); /* Usamos tu variable crema */
-    color: var(--marron-choco); /* Color oscuro para el texto del botón */
-    font-family: var(--font-secundaria); /* Fuente para los botones de control */
-    font-weight: bold; /* Un poco de negrita para que destaquen */
-    padding: 10px 15px;
-    border: 2px solid var(--rosa-donut); /* Borde con tu rosa principal */
-    border-radius: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px var(--rosa-donut); /* Sombra con tu rosa principal */
-}
-
-.control-group button:hover {
-    background-color: var(--rosa-donut); /* Rosa al pasar el mouse */
-    color: var(--blanco); /* Texto blanco al pasar el mouse */
-    transform: translateY(-2px);
-    box-shadow: 0 6px var(--rosa-donut);
-}
-
-.control-group button.active {
-    background-color: var(--marron-choco); /* Marrón choco cuando está activo */
-    color: var(--blanco); /* Texto blanco cuando está activo */
-    box-shadow: 0 2px var(--negro); /* Sombra más oscura cuando está activo */
-    transform: translateY(2px);
-}
-
-#reset-button {
-    background-color: var(--celeste-glaseado); /* Usamos tu variable de celeste */
-    color: var(--marron-choco); /* Texto marrón para este botón */
-    font-family: var(--font-principal); /* Usamos tu fuente principal */
-    font-weight: bold;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1.1em;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 5px var(--celeste-glaseado); /* Sombra con tu celeste */
-}
-
-#reset-button:hover {
-    background-color: var(--rosa-donut); /* Rosa al pasar el mouse */
-    color: var(--blanco); /* Texto blanco al pasar el mouse */
-    transform: translateY(-2px);
-    box-shadow: 0 7px var(--rosa-donut);
-}
-
-/* ✨ RUTAS A TUS IMÁGENES DENTRO DE 'images/arma tu dona/' ✨ */
-/* Asegúrate de que las rutas y los nombres de archivo sean EXACTOS */
-.base-img { background-image: url('images/arma tu dona/Glaseado Blanco.png'); } /* Esta será la dona base visible */
-.glaseado-blanco { background-image: url('images/arma tu dona/Glaseado Blanco.png'); }
-.glaseado-celeste { background-image: url('images/arma tu dona/Glaseado Celeste.png'); }
-.glaseado-chocolate { background-image: url('images/arma tu dona/Glaseado Chocolate.png'); }
-.glaseado-rosa { background-image: url('images/arma tu dona/Glaseado Rosa.png'); }
-
-.chispitas-colores { background-image: url('images/arma tu dona/sprinkles colorfull.png'); }
-.chispitas-corazones { background-image: url('images/arma tu dona/heart sprinkles.png'); }
-.chispitas-estrellas { background-image: url('images/arma tu dona/stars sprinkles.png'); }
-
-/* Responsive para el juego */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2.2em;
-    }
-    p {
-        font-size: 1em;
-    }
-    .dona-preview {
-        width: 200px;
-        height: 200px;
-    }
-    .dona-builder {
-        padding: 20px;
-        gap: 15px;
-    }
-    .control-group h3 {
-        font-size: 1.3em;
-    }
-    .control-group button {
-        font-size: 0.9em;
-        padding: 8px 12px;
-    }
-    #reset-button {
-        font-size: 1em;
-        padding: 12px 20px;
     }
 }
