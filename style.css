@@ -801,3 +801,184 @@
         padding: 12px 25px;
     }
 }
+
+
+/* Estilos específicos para el juego "Arma tu Dona Soñada" */
+
+body {
+    /* Usamos las variables de color y tipografía de tu style.css principal */
+    font-family: var(--font-secundaria); /* Reemplazamos la fuente hardcodeada */
+    background-color: var(--crema-vainilla); /* Usamos tu variable de color */
+    color: var(--marron-choco); /* Usamos tu variable de color */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--rosa-donut); /* Usamos tu variable de color */
+    font-family: var(--font-principal); /* Usamos tu variable de tipografía */
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    font-family: var(--font-secundaria); /* Usamos tu variable de tipografía */
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: var(--marron-choco); /* Para asegurar que tenga el color de texto principal */
+}
+
+.dona-builder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--blanco); /* Usamos tu variable de color */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.dona-preview {
+    position: relative;
+    width: 250px; /* Tamaño del contenedor de la dona */
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.dona-part {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Orden de las capas con z-index para asegurar que se superponen bien */
+#dona-base { z-index: 1; }
+#dona-glaze { z-index: 2; }
+#dona-sprinkles { z-index: 3; }
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.control-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.control-group h3 {
+    font-family: var(--font-principal); /* Usa la fuente principal para h3 también */
+    color: var(--marron-choco); /* Un color más oscuro para los títulos de control */
+    font-size: 1.5em; /* Ajuste para que no sea tan grande como el h1 principal */
+    margin-bottom: 10px;
+}
+
+.control-group button {
+    background-color: var(--crema); /* Usamos tu variable crema */
+    color: var(--marron-choco); /* Color oscuro para el texto del botón */
+    font-family: var(--font-secundaria); /* Fuente para los botones de control */
+    font-weight: bold; /* Un poco de negrita para que destaquen */
+    padding: 10px 15px;
+    border: 2px solid var(--rosa-donut); /* Borde con tu rosa principal */
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px var(--rosa-donut); /* Sombra con tu rosa principal */
+}
+
+.control-group button:hover {
+    background-color: var(--rosa-donut); /* Rosa al pasar el mouse */
+    color: var(--blanco); /* Texto blanco al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 6px var(--rosa-donut);
+}
+
+.control-group button.active {
+    background-color: var(--marron-choco); /* Marrón choco cuando está activo */
+    color: var(--blanco); /* Texto blanco cuando está activo */
+    box-shadow: 0 2px var(--negro); /* Sombra más oscura cuando está activo */
+    transform: translateY(2px);
+}
+
+#reset-button {
+    background-color: var(--celeste-glaseado); /* Usamos tu variable de celeste */
+    color: var(--marron-choco); /* Texto marrón para este botón */
+    font-family: var(--font-principal); /* Usamos tu fuente principal */
+    font-weight: bold;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 5px var(--celeste-glaseado); /* Sombra con tu celeste */
+}
+
+#reset-button:hover {
+    background-color: var(--rosa-donut); /* Rosa al pasar el mouse */
+    color: var(--blanco); /* Texto blanco al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 7px var(--rosa-donut);
+}
+
+/* ✨ RUTAS A TUS IMÁGENES DENTRO DE 'images/arma tu dona/' ✨ */
+/* Asegúrate de que las rutas y los nombres de archivo sean EXACTOS */
+.base-img { background-image: url('images/arma tu dona/Glaseado Blanco.png'); } /* Esta será la dona base visible */
+.glaseado-blanco { background-image: url('images/arma tu dona/Glaseado Blanco.png'); }
+.glaseado-celeste { background-image: url('images/arma tu dona/Glaseado Celeste.png'); }
+.glaseado-chocolate { background-image: url('images/arma tu dona/Glaseado Chocolate.png'); }
+.glaseado-rosa { background-image: url('images/arma tu dona/Glaseado Rosa.png'); }
+
+.chispitas-colores { background-image: url('images/arma tu dona/sprinkles colorfull.png'); }
+.chispitas-corazones { background-image: url('images/arma tu dona/heart sprinkles.png'); }
+.chispitas-estrellas { background-image: url('images/arma tu dona/stars sprinkles.png'); }
+
+/* Responsive para el juego */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .dona-preview {
+        width: 200px;
+        height: 200px;
+    }
+    .dona-builder {
+        padding: 20px;
+        gap: 15px;
+    }
+    .control-group h3 {
+        font-size: 1.3em;
+    }
+    .control-group button {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+    #reset-button {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+}
