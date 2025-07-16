@@ -472,6 +472,53 @@
     background-color: var(--negro);
     transform: translateY(-2px);
   }
+
+ /* Estilos generales del botón flotante */
+.whatsapp-float {
+    position: fixed;
+    width: 60px; /* Tamaño del círculo base */
+    height: 60px;
+    bottom: 40px; /* Distancia desde abajo */
+    right: 40px;  /* Distancia desde la derecha */
+    background-color: #FFD1DC; /* Rosa pastel, puedes cambiarlo */
+    border: 2px solid #FFA07A; /* Borde coral suave, puedes cambiarlo */
+    border-radius: 50%; /* Para un círculo perfecto */
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2); /* Sombra suave */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+
+    /* Centra el ícono dentro del círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Animación al pasar el mouse */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Agranda ligeramente al pasar el mouse */
+    background-color: #FFC0CB; /* Un tono de rosa un poco más fuerte al pasar el mouse */
+}
+
+/* Estilos para el ícono de Font Awesome dentro del botón */
+.whatsapp-float i {
+    color: #8A2BE2; /* Violeta vibrante, ¡puedes elegir el color que más te guste! */
+    font-size: 30px; /* Tamaño del ícono */
+    line-height: 1; /* Asegura que el ícono esté bien alineado verticalmente */
+}
+
+/* Opcional: para hacerlo responsivo en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float i {
+        font-size: 25px; /* Tamaño del ícono en pantallas más chicas */
+    }
+}
   
   /* Footer (Mantener este intacto) */
   footer {
