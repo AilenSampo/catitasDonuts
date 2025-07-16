@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         li.appendChild(botonEliminar);
         listaSabores.appendChild(li);
       });
-      actualizarContadorDonas(); // Asegúrate de que el contador se actualice después de renderizar la lista
+      actualizarContadorDonas(); 
     }
   
-    // Actualiza el estado visual de las tarjetas (clase 'seleccionada')
+
     function actualizarEstadoTarjetas() {
       cardsDona.forEach(card => {
         const sabor = card.dataset.sabor;
@@ -59,25 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   
-    // NUEVA FUNCIÓN: Actualiza el texto del contador de donas
+
     function actualizarContadorDonas() {
       contadorDonas.textContent = `${saboresSeleccionados.length}/${cantidadDonas}`;
     }
-  
-    // --- Manejo de la Cantidad de Donas (Radio Buttons) ---
+
     cantidadRadios.forEach(radio => {
       radio.addEventListener('change', () => {
         cantidadDonas = parseInt(radio.value);
         saboresSeleccionados.length = 0; 
         actualizarListaSabores();
         actualizarEstadoTarjetas();
-        actualizarContadorDonas(); // Actualiza el contador al cambiar la cantidad
+        actualizarContadorDonas(); /
         
         document.getElementById('sabores').scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     });
   
-    // --- Manejo de la Selección de Sabores por Tarjetas (Donas) ---
+
     cardsDona.forEach(card => {
       card.addEventListener('click', () => {
         const sabor = card.dataset.sabor;
@@ -96,11 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         actualizarListaSabores();
         actualizarEstadoTarjetas();
-        actualizarContadorDonas(); // Actualiza el contador al seleccionar/deseleccionar sabores
+        actualizarContadorDonas(); 
       });
     });
   
-    // --- Manejo del Envío del Formulario ---
+    //  Envío del Formulario 
     if (formulario) {
       formulario.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -126,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
         const saboresFinal = saboresSeleccionados.join(', ');
   
-        const numeroCatita = '549351XXXXXXXX'; // <<-- ¡IMPORTANTE! Cambia esto por el número de WhatsApp de Catita
+        const numeroCatita = '5493517918029'; 
         
         let mensajeWhatsapp = `¡Hola! Soy ${nombre} y quiero hacer un pedido de Catita's Donuts.\n`;
         mensajeWhatsapp += `Cantidad: ${cantidadDonas} donas.\n`;
@@ -151,20 +150,20 @@ document.addEventListener('DOMContentLoaded', () => {
   
         window.open(`https://wa.me/${numeroCatita}?text=${encodeURIComponent(mensajeWhatsapp)}`, '_blank');
   
-        // Limpiar el formulario y los estados después del envío
+       
         formulario.reset();
         saboresSeleccionados.length = 0;
         cantidadDonas = 0;
         actualizarListaSabores();
         actualizarEstadoTarjetas();
-        actualizarContadorDonas(); // Actualiza el contador al resetear el formulario
+        actualizarContadorDonas(); 
   
         cantidadRadios.forEach(radio => radio.checked = false);
       });
     }
   
-    // --- Inicialización al cargar la página ---
+
     actualizarListaSabores();
     actualizarEstadoTarjetas();
-    actualizarContadorDonas(); // Inicializa el contador al cargar la página
+    actualizarContadorDonas(); 
   });

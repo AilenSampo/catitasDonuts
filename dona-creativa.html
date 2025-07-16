@@ -10,9 +10,9 @@
     <title>¡Arma tu Dona Soñada! 🍩✨ Catitas Donuts</title>
     <style>
         body {
-            font-family: '', cursive, sans-serif;
-            background-color: #e2f7ff; /* Celeste pastel claro */
-            color: #d81b60; /* Rosa oscuro para el texto */
+            font-family: '',var(--font-principal) , sans-serif;
+            background-color: #e2f7ff; 
+            color: #d81b60; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -24,7 +24,7 @@
             box-sizing: border-box;
         }
         h1 {
-            color: #3ec6ea; /* Celeste vibrante */
+            color: #3ec6ea; 
             font-size: 2.8em;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
@@ -45,7 +45,7 @@
         }
         .dona-preview {
             position: relative;
-            width: 250px; /* Tamaño del contenedor de la dona */
+            width: 250px; 
             height: 250px;
             margin-bottom: 20px;
         }
@@ -59,7 +59,7 @@
             background-repeat: no-repeat;
             background-position: center;
         }
-        /* Orden de las capas con z-index para asegurar que se superponen bien */
+      
         #dona-base { z-index: 1; }
         #dona-glaze { z-index: 2; }
         #dona-sprinkles { z-index: 3; }
@@ -78,8 +78,8 @@
             flex-wrap: wrap;
         }
         .control-group button {
-            background-color: #ffe0b2; /* Naranja pastel */
-            color: #880e4f; /* Rosa oscuro */
+            background-color: #ffe0b2; 
+            color: #880e4f; 
             padding: 10px 15px;
             border: 2px solid #ffab91;
             border-radius: 10px;
@@ -100,7 +100,7 @@
             transform: translateY(2px);
         }
         #reset-button {
-            background-color: #ff7043; /* Naranja más fuerte */
+            background-color: #ff7043; 
             color: white;
             padding: 15px 25px;
             border: none;
@@ -117,11 +117,9 @@
             box-shadow: 0 7px #bf360c;
         }
 
-        /* ✨ RUTAS A TUS IMÁGENES DENTRO DE 'images/arma tu dona/' ✨ */
-        /* Asegúrate de que las rutas y los nombres de archivo sean EXACTOS */
-        .base-img { background-image: url('images/arma tu dona/Glaseado Blanco.png'); } /* Esta será la dona base visible */
+    
+        .base-img { background-image: url('images/arma tu dona/Glaseado Blanco.png'); } 
         .glaseado-blanco { background-image: url('images/arma tu dona/Glaseado Blanco.png'); }
-        /* .glaseado-celeste { background-image: url('images/arma tu dona/Glaseado Celeste.png'); } */
         .glaseado-chocolate { background-image: url('images/arma tu dona/Glaseado Chocolate.png'); }
         .glaseado-rosa { background-image: url('images/arma tu dona/Glaseado Rosa.png'); }
 
@@ -180,30 +178,26 @@
         }
 
         function setGlaze(type) {
-            // Esto QUITA cualquier glaseado anterior y APLICA el nuevo.
             donaGlaze.className = 'dona-part glaseado-' + type;
             updateButtonState(glazeButtons, 'glaze-' + type);
         }
 
         function setSprinkles(type) {
-            // Esto QUITA cualquier chispa anterior y APLICA la nueva.
             donaSprinkles.className = 'dona-part chispitas-' + type;
             updateButtonState(sprinklesButtons, 'sprinkles-' + type);
         }
 
         function resetDona() {
-            // Al resetear, quitamos las clases de glaseado y chispitas para que las capas queden "vacías"
             donaGlaze.className = 'dona-part';
             donaSprinkles.className = 'dona-part';
             glazeButtons.forEach(btn => btn.classList.remove('active'));
             sprinklesButtons.forEach(btn => btn.classList.remove('active'));
         }
 
-        // Inicializar el juego cuando la página carga
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Aseguramos que la base esté visible y las capas de glaseado/chispitas empiecen vacías
-            // La clase 'base-img' ya está en el HTML para dona-base.
-            resetDona(); // Llama a reset para limpiar cualquier selección al inicio.
+
+            resetDona(); 
         });
     </script>
 </body>

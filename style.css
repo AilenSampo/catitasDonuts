@@ -15,12 +15,12 @@
 /* Animación del Logo */
 @keyframes fallFromTop {
     0% {
-        transform: translateY(-100px); /* Empieza 100px arriba */
-        opacity: 0; /* Invisible al inicio */
+        transform: translateY(-100px); 
+        opacity: 0; 
     }
     100% {
-        transform: translateY(0); /* Cae a su posición normal */
-        opacity: 1; /* Completamente visible */
+        transform: translateY(0); 
+        opacity: 1; 
     }
 }
 
@@ -75,7 +75,7 @@ header {
 }
 
 header .logo img {
-    height: 150px; /* Tamaño por defecto para escritorio */
+    height: 150px; 
     margin-left: 30px;
     animation: fallFromTop 1s ease-out forwards;
 }
@@ -116,7 +116,7 @@ header nav ul li a:hover {
 
 /* --- Menú Hamburguesa (Oculto en Escritorio) --- */
 .hamburger-menu {
-    display: none; /* OCULTA el botón de hamburguesa por defecto en desktop */
+    display: none; 
     background: none;
     border: none;
     cursor: pointer;
@@ -135,7 +135,7 @@ header nav ul li a:hover {
     transition: all 0.3s ease-in-out;
 }
 
-/* Animación del icono hamburguesa a "X" */
+
 .hamburger-menu.active .bar:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -478,8 +478,8 @@ section:nth-of-type(even) {
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background-color: #FFD1DC; /* Rosa pastel, puedes cambiarlo */
-    border: 2px solid #FFA07A; /* Borde coral suave, puedes cambiarlo */
+    background-color: #FFD1DC; 
+    border: 2px solid #FFA07A; 
     border-radius: 50%;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
     z-index: 100;
@@ -496,7 +496,7 @@ section:nth-of-type(even) {
 
 /* Estilos para el ícono de Font Awesome dentro del botón */
 .whatsapp-float i {
-    color: #8A2BE2; /* Violeta vibrante, ¡puedes elegir el color que más te guste! */
+    color: #8A2BE2; 
     font-size: 30px;
     line-height: 1;
 }
@@ -514,7 +514,7 @@ footer {
     flex-wrap: wrap;
 }
 
-/* --- Responsive Design (AJUSTES CLAVE AQUÍ) --- */
+
 @media (max-width: 768px) {
     /* Header para Móviles */
     header {
@@ -531,12 +531,11 @@ footer {
         height: 100px;
     }
 
-    /* Mostrar el botón de hamburguesa en móvil */
+  
     .hamburger-menu {
         display: block;
     }
 
-    /* Ocultar la navegación normal en móvil */
     header nav {
         position: absolute;
         top: 110px;
@@ -576,7 +575,7 @@ footer {
         text-align: center;
     }
 
-    /* Ajustes para la sección HERO en móviles */
+
     .hero {
         flex-direction: column;
         align-items: center;
@@ -613,7 +612,6 @@ footer {
         font-size: 1.1em;
     }
 
-    /* AJUSTES IMPORTANTES PARA EL FORMULARIO EN MÓVIL */
     .pedidos form {
         padding: 20px;
         gap: 15px;
@@ -626,7 +624,7 @@ footer {
         font-size: 1em;
     }
 
-    /* Radio Buttons de Cantidad: Asegurar que se vean bien */
+
     .cantidad-donas {
         flex-direction: column;
         align-items: flex-start;
@@ -639,7 +637,7 @@ footer {
         margin-right: 0;
     }
 
-    /* Chips de Sabores: Asegurar que no desborden */
+
     #lista-sabores {
         justify-content: flex-start;
         gap: 8px;
@@ -658,7 +656,7 @@ footer {
         font-size: 1.2em;
         padding: 15px 25px;
     }
-    /* Opcional: para hacerlo responsivo en pantallas más pequeñas */
+  
     .whatsapp-float {
         width: 50px;
         height: 50px;
@@ -672,7 +670,7 @@ footer {
 
 @media (max-width: 480px) {
     header .logo img {
-      height: 80px; /* Tamaño del logo para celulares muy pequeños */
+      height: 80px; 
     }
 
     header nav ul li a {
@@ -696,7 +694,7 @@ footer {
         font-size: 1.8em;
     }
 
-    /* Ajustes finos para el formulario en móviles muy pequeños */
+    
     .pedidos form {
         padding: 15px;
     }
@@ -724,7 +722,7 @@ footer {
     }
 }
 
-/* Estilos para la sección de juegos de Catita (agregados recientemente) */
+
 .juegos-catita {
     background-color: var(--crema-vainilla);
     padding: 60px 20px;
@@ -776,13 +774,12 @@ footer {
     margin: 0 8px;
 }
 
-/* Animación de "rebote" para el botón del juego (duplicada, se mantiene por si el navegador las lee diferente) */
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
 }
 
-/* Adaptación para pantallas más pequeñas (Responsive Design para el juego) */
 @media (max-width: 768px) {
     .juegos-catita {
         padding: 40px 15px;
