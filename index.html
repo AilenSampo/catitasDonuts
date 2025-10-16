@@ -23,10 +23,10 @@
         <nav id="main-nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sabores">Sabores</a></li>
                 <li><a href="#sobre">Sobre Catita</a></li>
-                <li><a href="#juegos">Juegos</a></li>
+                <li><a href="#sabores">Sabores</a></li>
                 <li><a href="#pedidos">Pedidos</a></li>
+                <li><a href="#juegos">Juegos</a></li>
             </ul>
         </nav>
     </header>
@@ -38,31 +38,36 @@
             <a href="#pedidos" class="boton">¡Quiero pedir!</a>
         </div>
 
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="videos/Es hora de algo dulce!.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-        </video>
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="videos/Es hora de algo dulce!.mp4" type="video/mp4">
+                <p>💖 Ups, tu navegador no puede mostrar este video. Probá actualizarlo para ver toda la dulzura.</p>   
+            </video>
+        </div>
     </section>
+
 
     <section id="sabores" class="sabores">
         <h2>Nuestros sabores favoritos</h2>
 
         <div class="limit-selection">
             <p>¿Cuántas donitas quieres en tu combo?</p>
-            <button id="select-12" class="active" onclick="setLimit(12)">12 Donitas</button>
-            <button id="select-18" onclick="setLimit(18)">18 Donitas</button>
+            <button id="select-12" type="button" class="active">12 Donitas</button>
+            <button id="select-18" type="button">18 Donitas</button>
         </div>
 
-        <p class="total-selected">Llevas seleccionadas: <span id="selected-count">0</span> de <span id="current-limit">12</span></p>
+        <p class="total-selected">
+            Llevas seleccionadas: <span id="selected-count">0</span> de <span id="current-limit">12</span>
+        </p>
 
 
-        <h3>Donas Clásicas (Con TACC)</h3>
+        <h3>Donas Clásicas</h3>
         <div class="cards" id="donuts-tacc-container">
             </div>
 
-        <h3>Donas Sin TACC</h3>
+        <!-- <h3>Donas Sin TACC</h3>
         <div class="cards" id="donuts-sintacc-container">
-            </div>
+            </div> -->
     </section>
 
     <div id="custom-alert-container"></div>
@@ -105,6 +110,7 @@
         <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="menu.js"></script> </body>
+    <script defer src="script.js"></script>
+    <!-- <script src="menu.js"></script>  -->
+</body>
 </html>

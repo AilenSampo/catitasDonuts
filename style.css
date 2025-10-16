@@ -75,10 +75,13 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 81px;
 }
 
 .logo img {
-    height: 60px;
+    /* height: clamp(80px, 10vw, 140px);  */
+    height: 120px;
+    width: auto;
     animation: flotar 3s ease-in-out infinite alternate;
 }
 
@@ -153,63 +156,109 @@ nav ul li a:hover {
 
 /* --- HERO SECTION --- */
 .hero {
-    background-image: url('images/fondo-hero.jpg'); /* Asegúrate de tener una imagen */
-    background-size: cover;
-    background-position: center;
-    height: 600px; /* Ajusta la altura según necesites */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--blanco);
-    position: relative;
-    overflow: hidden;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 40px;
+  background: var(--rosa-fondo);
+  flex-wrap: wrap;
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Capa semitransparente para mejor lectura del texto */
-    z-index: 1;
-}
-
+/* --- Texto a la izquierda --- */
 .hero-texto {
-    z-index: 2;
-    position: relative;
+  flex: 1 1 400px;
+  max-width: 500px;
 }
 
 .hero-texto h1 {
-    color: white; /* Blanco para el hero */
-    font-size: 3.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--rosa-principal);
+  margin-bottom: 10px;
 }
 
 .hero-texto p {
-    color: white;
-    font-size: 1.4em;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.boton {
+  background-color: var(--celeste);
+  color: var(--rosa-donut);
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 198, 230, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.boton:hover {
+   transform: scale(1.05);
+   background-color: var(--celeste);
+
+}
+
+/* --- Video a la derecha --- */
+.hero-video-container {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 0;
-    transform: translateX(-50%) translateY(-50%);
-    background-size: cover;
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 9 / 16; /* mantiene el formato historia vertical */
+  border-radius: 20px;
+  object-fit: cover; /* evita deformaciones */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-texto {
+    max-width: 100%;
+  }
+
+  .hero-video {
+    max-width: 300px;
+  }
+}
+
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-video {
+        height: auto;
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/*SECCION ID SABORES CANTIDAD DE DONAS SELECCIONADAS*/
+
+button.active {
+  background-color: var(--rosa-principal);
+  color: #fff;
+  transform: scale(1.05);
+}
+
 
 /* --- SECCIÓN SABORES (Ajustes para la lógica del carrito) --- */
 .sabores {
@@ -555,4 +604,22 @@ footer {
     .limit-selection {
         flex-direction: column;
     }
+}
+
+/* Badge "Sin TACC" sobre la tarjeta */
+.card { position: relative; }
+
+.badge-sintacc {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #2ecc71;       /* verde */
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+  pointer-events: none;       /* no interfiere con clicks */
+  user-select: none;
 }
