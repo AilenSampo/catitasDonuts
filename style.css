@@ -51,6 +51,7 @@ p {
     cursor: pointer;
     font-family: 'Baloo 2', cursive;
     font-size: 1.1em;
+    margin: 25px;
 }
 
 .boton:hover, .boton-juego:hover, .next-step-button:hover:not(:disabled) {
@@ -623,4 +624,74 @@ footer {
   box-shadow: 0 2px 6px rgba(0,0,0,.15);
   pointer-events: none;       /* no interfiere con clicks */
   user-select: none;
+}
+
+
+/* Pegatina base (responsive) */
+.sticker {
+  display: inline-block;
+  width: clamp(64px, 12vw, 140px);   /* escala con pantalla */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.12));
+  will-change: transform;
+  user-select: none;
+}
+/* .sticker--nofloat { animation: none !important; } */
+
+/* Sutileza al pasar el mouse (no cambia color) */
+.sticker:hover { transform: translateY(-2px) scale(1.02); }
+
+/* Respeta accesibilidad: si el usuario pide menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .sticker,
+  .sticker--float,
+  .sticker--bob,
+  .sticker--wiggle,
+  .sticker--pop {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Contenedor opcional para ordenar varias pegatinas */
+.sticker-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(8px, 2vw, 20px);
+  align-items: center;
+  justify-content: center;
+  padding-block: 12px;
+}
+
+/* Zig-zag (X/Y) */
+@keyframes zigzag {
+  0%   { transform: translate(0,0) rotate(0deg); }
+  20%  { transform: translate(18px,-10px) rotate(-2deg); }
+  40%  { transform: translate(-18px,-6px) rotate(2deg); }
+  60%  { transform: translate(16px,8px) rotate(-1deg); }
+  80%  { transform: translate(-16px,12px) rotate(1deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+/* Asegurá que zigzag gane a nofloat */
+.sticker.sticker--zigzag {
+  animation: zigzag var(--dur, 3.2s) ease-in-out infinite !important;
+  will-change: transform;
+}
+
+/* Olita (senoidal horizontal) */
+/* @keyframes waveX {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(14px); }
+  50%  { transform: translateX(0); }
+  75%  { transform: translateX(-14px); }
+  100% { transform: translateX(0); }
+}
+.sticker--wave {
+  animation: waveX var(--dur, 2.6s) ease-in-out infinite;
+} */
+
+/* Respeto accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .sticker--zigzag, .sticker--wave, .sticker--drift { animation: none !important; }
 }
