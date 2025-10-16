@@ -1,83 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catita's Donuts</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catita's Donuts - Venta de mini donitas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="/images/logo.jpg" alt="Catita's Donuts logo">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#sabores">Sabores</a></li>
-        <li><a href="#sobre">Sobre Catita</a></li>
-        <li><a href="#pedidos">Hacenos tu pedido</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div class="logo">
+            <img src="images/logoDonuts.png" alt="Logo de Catita Donas" class="logo-animado">
+        </div>
+        <button class="hamburger-menu" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre">Sobre Catita</a></li>
+                <li><a href="#sabores">Sabores</a></li>
+                <li><a href="#pedidos">Pedidos</a></li>
+                <li><a href="#juegos">Juegos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="hero">
-    <div class="hero-texto">
-      <h1>Donas hechas con amor 💕</h1>
-      <p>Catita tiene solo 10 años y ya hace las donas más ricas del mundo 🍩</p>
-      <a href="#pedidos" class="boton">¡Quiero pedir!</a>
-    </div>
-    <img src="/images/3.svg" alt="Ilustración de Catita con donas" class="hero-img">
-  </section>
+    <section class="hero" id="inicio">
+        <div class="hero-texto">
+            <h1>Donas hechas con amor 💕</h1>
+            <p>Catita tiene solo 10 años y ya hace las donas más ricas del mundo 🍩</p>
+            <a href="#pedidos" class="boton">¡Quiero pedir!</a>
+        </div>
 
-  <section id="sabores" class="sabores">
-    <h2>Nuestros sabores favoritos</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="images/dona-choco.png" alt="Dona de chocolate">
-        <h3>Chocolate</h3>
-      </div>
-      <div class="card">
-        <img src="images/dona-frutilla.png" alt="Dona de vainilla">
-        <h3>Vainilla</h3>
-      </div>
-      <div class="card">
-        <img src="images/dona-vainilla.png" alt="Dona de chocolate sin tacc">
-        <h3>Chocolate Sin Tacc</h3>
-      </div>
-      <div class="card">
-        <img src="images/dona-vainilla.png" alt="Dona de vainilla sin tacc">
-        <h3>Vainilla Sin Tacc</h3>
-      </div>
-      <div class="card">
-        <img src="images/dona-vainilla.png" alt="Dona de vainilla sin tacc">
-        <h3>Chocolate con dulce de Leche Sin Tacc</h3>
-      </div>
-    </div>
-  </section>
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="videos/Es hora de algo dulce!.mp4" type="video/mp4">
+                <p>💖 Ups, tu navegador no puede mostrar este video. Probá actualizarlo para ver toda la dulzura.</p>   
+            </video>
+        </div>
+    </section>
 
-  <section id="sobre" class="sobre">
-    <h2>¿Quién es Catita?</h2>
-    <p>Catita tiene 10 años y desde muy chiquita ama la cocina —¡especialmente cuando se trata de cosas dulces! Por eso, hoy te invita a probar sus donitas, hechas con mucho amor, alegría… ¡y glaseado! 🧁</p>
-  </section>
+    <div id="custom-alert-container"></div>
 
-  <section id="pedidos" class="pedidos">
-    <h2>Hacenos tu pedido</h2>
-    <form id="formulario">
-      <input type="text" placeholder="Tu nombre" required>
-      <input type="tel" placeholder="WhatsApp" required>
-      <textarea placeholder="Contanos qué sabores querés"></textarea>
-      <button type="submit">Enviar pedido</button>
-    </form>
-  </section>
+    <section id="sobre" class="sobre">
+        <h2 class="sobre">¿Quién es Catita?</h2>
+        <p>Catita tiene 10 años y desde muy chiquita ama la cocina —¡especialmente cuando se trata de cosas dulces! Por eso, hoy te invita a probar sus donitas, hechas con mucho amor, alegría… ¡y glaseado! 🧁</p>
+    </section>
 
-  <footer>
-    <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
-  </footer>
+    <section id="sabores" class="sabores">
+        <h2>Nuestros sabores favoritos</h2>
 
-  <script src="script.js"></script>
+        <div class="limit-selection">
+            <p>¿Cuántas donitas quieres en tu combo?</p>
+            <button id="select-12" type="button" class="active">12 Donitas</button>
+            <button id="select-18" type="button">18 Donitas</button>
+        </div>
+
+        <p class="total-selected">
+            Llevas seleccionadas: <span id="selected-count">0</span> de <span id="current-limit">12</span>
+        </p>
+
+
+        <h3>Donas Clásicas</h3>
+        <div class="cards" id="donuts-tacc-container">
+            </div>
+
+        <!-- <h3>Donas Sin TACC</h3>
+        <div class="cards" id="donuts-sintacc-container">
+            </div> -->
+    </section>
+
+     
+    <section id="juegos" class="juegos-catita">
+        <h2>¡A jugar con Catita!</h2>
+        <p>¿Querés divertirte creando tu propia dona soñada? ¡Catita te espera para jugar!</p>
+        <a href="arma-tu-dona.html" class="boton-juego">
+            <i class="fas fa-cookie-bite"></i> ¡Arma tu Dona! <i class="fas fa-magic"></i>
+        </a>
+    </section>
+
+    <section id="pedidos" class="pedidos">
+        <h2>Hacenos tu pedido</h2>
+        <form id="formulario">
+            <input type="text" placeholder="Tu nombre" required>
+            <input type="tel" placeholder="WhatsApp" required>
+
+            <div id="sabores-seleccionados-resumen">
+                <p>Tu selección: <span id="contador-donas-resumen">0/0</span></p>
+                <ul id="lista-sabores-resumen"></ul>
+            </div>
+
+            <textarea id="detalle-pedido" placeholder="Algún detalle adicional sobre tu pedido (opcional)" rows="3"></textarea>
+
+            <button type="submit" id="submit-pedido-button" disabled>Enviar pedido</button>
+        </form>
+    </section>
+
+    <a href="https://wa.me/+5493517918029?text=Hola!%20Quisiera%20saber%20más%20sobre%20sus%20deliciosas%20donas!" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
+    </footer>
+
+    <script defer src="script.js"></script>
+    <!-- <script src="menu.js"></script>  -->
 </body>
 </html>

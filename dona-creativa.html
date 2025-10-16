@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="style.css">
+    <title>¡Arma tu Dona Soñada! 🍩✨ Catitas Donuts</title>
+    <style>
+        body {
+            font-family: '',var(--font-principal) , sans-serif;
+            background-color: #e2f7ff; 
+            color: #d81b60; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #3ec6ea; 
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+        .dona-builder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .dona-preview {
+            position: relative;
+            width: 250px; 
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        .dona-part {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+      
+        #dona-base { z-index: 1; }
+        #dona-glaze { z-index: 2; }
+        #dona-sprinkles { z-index: 3; }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .control-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .control-group button {
+            background-color: #ffe0b2; 
+            color: #880e4f; 
+            padding: 10px 15px;
+            border: 2px solid #ffab91;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px #ff8a65;
+        }
+        .control-group button:hover {
+            background-color: #ffcc80;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #ff8a65;
+        }
+        .control-group button.active {
+            background-color: #ffab91;
+            color: white;
+            box-shadow: 0 2px #d84315;
+            transform: translateY(2px);
+        }
+        #reset-button {
+            background-color: #ff7043; 
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px #bf360c;
+        }
+        #reset-button:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0 7px #bf360c;
+        }
+
+    
+        .base-img { background-image: url('images/arma tu dona/Glaseado Blanco.png'); } 
+        .glaseado-blanco { background-image: url('images/arma tu dona/Glaseado Blanco.png'); }
+        .glaseado-chocolate { background-image: url('images/arma tu dona/Glaseado Chocolate.png'); }
+        .glaseado-rosa { background-image: url('images/arma tu dona/Glaseado Rosa.png'); }
+
+        .chispitas-colores { background-image: url('images/arma tu dona/sprinkles colorfull.png'); }
+        .chispitas-corazones { background-image: url('images/arma tu dona/heart sprinkles.png'); }
+        .chispitas-estrellas { background-image: url('images/arma tu dona/stars sprinkles.png'); }
+    </style>
+</head>
+<body>
+    <h1>🍩 ¡Arma tu Dona Soñada! ✨</h1>
+    <p>¡Elige tu glaseado y tus chispitas favoritas para crear la dona más deliciosa!</p>
+
+    <div class="dona-builder">
+        <div class="dona-preview">
+            <div id="dona-base" class="dona-part base-img"></div>
+            <div id="dona-glaze" class="dona-part"></div>
+            <div id="dona-sprinkles" class="dona-part"></div>
+        </div>
+
+        <div class="controls">
+            <h3>¡Elige tu Glaseado!</h3>
+            <div class="control-group">
+                <button onclick="setGlaze('blanco')" id="glaze-blanco">🤍 Blanco</button>
+                <!-- <button onclick="setGlaze('celeste')" id="glaze-celeste">💙 Celeste</button> -->
+                <button onclick="setGlaze('chocolate')" id="glaze-chocolate">🍫 Choco</button>
+                <button onclick="setGlaze('rosa')" id="glaze-rosa">🩷 Rosa</button>
+            </div>
+
+            <h3>¡Y tus Chispitas!</h3>
+            <div class="control-group">
+                <button onclick="setSprinkles('colores')" id="sprinkles-colores">🌈 Colores</button>
+                <button onclick="setSprinkles('corazones')" id="sprinkles-corazones">💖 Corazones</button>
+                <button onclick="setSprinkles('estrellas')" id="sprinkles-estrellas">🌟 Estrellas</button>
+            </div>
+        </div>
+
+        <button id="reset-button" onclick="resetDona()">¡Empezar de Nuevo! 🔄</button>
+    </div>
+
+    <script>
+        const donaBase = document.getElementById('dona-base');
+        const donaGlaze = document.getElementById('dona-glaze');
+        const donaSprinkles = document.getElementById('dona-sprinkles');
+
+        const glazeButtons = document.querySelectorAll('.control-group button[onclick^="setGlaze"]');
+        const sprinklesButtons = document.querySelectorAll('.control-group button[onclick^="setSprinkles"]');
+
+        function updateButtonState(buttons, selectedId) {
+            buttons.forEach(btn => {
+                if (btn.id === selectedId) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function setGlaze(type) {
+            donaGlaze.className = 'dona-part glaseado-' + type;
+            updateButtonState(glazeButtons, 'glaze-' + type);
+        }
+
+        function setSprinkles(type) {
+            donaSprinkles.className = 'dona-part chispitas-' + type;
+            updateButtonState(sprinklesButtons, 'sprinkles-' + type);
+        }
+
+        function resetDona() {
+            donaGlaze.className = 'dona-part';
+            donaSprinkles.className = 'dona-part';
+            glazeButtons.forEach(btn => btn.classList.remove('active'));
+            sprinklesButtons.forEach(btn => btn.classList.remove('active'));
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            resetDona(); 
+        });
+    </script>
+</body>
+</html>
