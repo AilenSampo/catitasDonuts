@@ -75,7 +75,7 @@ header {
     box-shadow: var(--sombra);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10;
     height: auto;
 }
 
@@ -132,7 +132,7 @@ nav ul li a:hover {
     width: 30px;
     height: 25px;
     padding: 0;
-    z-index: 1001; /* Para que esté sobre el menú */
+    z-index: 11; /* Para que esté sobre el menú */
 }
 
 .hamburger-menu .bar {
@@ -536,7 +536,7 @@ button.active {
     text-align: center;
     font-size: 30px;
     box-shadow: 2px 2px 3px #999;
-    z-index: 100;
+    z-index: 9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -628,70 +628,57 @@ footer {
 
 
 /* Pegatina base (responsive) */
-.sticker {
-  display: inline-block;
-  width: clamp(64px, 12vw, 140px);   /* escala con pantalla */
+.sticker-float{
+  position: fixed;
+  z-index: 120;                 /* por encima del header */
+  pointer-events: none;
+  width: clamp(46px, 14vw, 90px);
   height: auto;
-  object-fit: contain;
+  opacity: .95;
+  will-change: transform;
+  animation: floatUpDown 6s ease-in-out infinite alternate;
   filter: drop-shadow(0 6px 14px rgba(0,0,0,.12));
-  will-change: transform;
-  user-select: none;
-}
-/* .sticker--nofloat { animation: none !important; } */
-
-/* Sutileza al pasar el mouse (no cambia color) */
-.sticker:hover { transform: translateY(-2px) scale(1.02); }
-
-/* Respeta accesibilidad: si el usuario pide menos movimiento */
-@media (prefers-reduced-motion: reduce) {
-  .sticker,
-  .sticker--float,
-  .sticker--bob,
-  .sticker--wiggle,
-  .sticker--pop {
-    animation: none !important;
-    transform: none !important;
-  }
 }
 
-/* Contenedor opcional para ordenar varias pegatinas */
-.sticker-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: clamp(8px, 2vw, 20px);
-  align-items: center;
-  justify-content: center;
-  padding-block: 12px;
+@keyframes floatUpDown{
+  from{ transform: translateY(0) rotate(0deg); }
+  to  { transform: translateY(-12px) rotate(2deg); }
 }
 
-/* Zig-zag (X/Y) */
-@keyframes zigzag {
-  0%   { transform: translate(0,0) rotate(0deg); }
-  20%  { transform: translate(18px,-10px) rotate(-2deg); }
-  40%  { transform: translate(-18px,-6px) rotate(2deg); }
-  60%  { transform: translate(16px,8px) rotate(-1deg); }
-  80%  { transform: translate(-16px,12px) rotate(1deg); }
-  100% { transform: translate(0,0) rotate(0deg); }
-}
-/* Asegurá que zigzag gane a nofloat */
-.sticker.sticker--zigzag {
-  animation: zigzag var(--dur, 3.2s) ease-in-out infinite !important;
-  will-change: transform;
+.sticker-zigzag{ animation: zigzag 5s ease-in-out infinite; }
+@keyframes zigzag{
+  0%{ transform: translate(0,0) rotate(0); }
+  25%{ transform: translate(14px,-8px) rotate(-2deg); }
+  50%{ transform: translate(-14px,-4px) rotate(2deg); }
+  100%{ transform: translate(0,0) rotate(0); }
 }
 
-/* Olita (senoidal horizontal) */
-/* @keyframes waveX {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(14px); }
-  50%  { transform: translateX(0); }
-  75%  { transform: translateX(-14px); }
-  100% { transform: translateX(0); }
-}
-.sticker--wave {
-  animation: waveX var(--dur, 2.6s) ease-in-out infinite;
-} */
+/* posiciones móviles */
+.sticker-top-left      { top: 74px; left: 10px; }
+.sticker-top-right     { top: 74px; right: 12px; }
+.sticker-bottom-left   { left: 10px; bottom: calc(20px + env(safe-area-inset-bottom)); }
+.sticker-bottom-right  { right: 12px; bottom: calc(96px + env(safe-area-inset-bottom)); } /* arriba del botón WA */
 
-/* Respeto accesibilidad */
-@media (prefers-reduced-motion: reduce) {
-  .sticker--zigzag, .sticker--wave, .sticker--drift { animation: none !important; }
+
+@media (min-width: 992px){
+  .sticker-float{ animation-duration: 8s; }
+}
+
+
+  /* pegadas a los bordes de la ventana, por debajo del header */
+  .sticker-top-left  { top: calc(var(--header-h) + 12px); left: 24px; }
+  .sticker-top-right { top: calc(var(--header-h) + 12px); right: 24px; }
+  .sticker-bottom-left  { bottom: 40px; left: 24px; }
+  .sticker-bottom-right { bottom: 140px; right: 24px; } /* evita WhatsApp */
+
+  /* OPCIONAL: anclar a los bordes del CONTENEDOR, no de la ventana
+     (así nunca pisan el título/texto). Agregá estas clases a las imágenes
+     que quieras “fuera” del contenido. */
+  .sticker-edge-left  { left: calc(50% - var(--container-max)/2 - 56px); }
+  .sticker-edge-right { right: calc(50% - var(--container-max)/2 - 56px); }
+
+
+:root{
+    --container-max:1000px;
+    --header-h:200px
 }
