@@ -682,3 +682,99 @@ footer {
     --container-max:1000px;
     --header-h:200px
 }
+
+
+/*Contruccion de dona*/
+.dona-builder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        .dona-preview {
+            position: relative;
+            width: 250px; 
+            height: 250px;
+            margin-bottom: 20px;
+        }
+        .dona-part {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+      
+        #dona-base { z-index: 1; }
+        #dona-glaze { z-index: 2; }
+        #dona-sprinkles { z-index: 3; }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .control-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .control-group button {
+            background-color: #ffe0b2; 
+            color: #880e4f; 
+            padding: 10px 15px;
+            border: 2px solid #ffab91;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px #ff8a65;
+        }
+        .control-group button:hover {
+            background-color: #ffcc80;
+            transform: translateY(-2px);
+            box-shadow: 0 6px #ff8a65;
+        }
+        .control-group button.active {
+            background-color: #ffab91;
+            color: white;
+            box-shadow: 0 2px #d84315;
+            transform: translateY(2px);
+        }
+        #reset-button {
+            background-color: #ff7043; 
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px #bf360c;
+        }
+        #reset-button:hover {
+            background-color: #e64a19;
+            transform: translateY(-2px);
+            box-shadow: 0 7px #bf360c;
+        }
+
+    
+        .base-img { background-image: url('images/arma tu dona/Glaseado Blanco.png'); } 
+        .glaseado-blanco { background-image: url('images/arma tu dona/Glaseado Blanco.png'); }
+        .glaseado-chocolate { background-image: url('images/arma tu dona/Glaseado Chocolate.png'); }
+        .glaseado-rosa { background-image: url('images/arma tu dona/Glaseado Rosa.png'); }
+
+        .chispitas-colores { background-image: url('images/arma tu dona/sprinkles colorfull.png'); }
+        .chispitas-corazones { background-image: url('images/arma tu dona/heart sprinkles.png'); }
+        .chispitas-estrellas { background-image: url('images/arma tu dona/stars sprinkles.png'); }
