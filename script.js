@@ -2,16 +2,16 @@
  *  DATOS DE LAS DONAS *
  ***********************/
 const donutsTacc = [
-  { id: 1, name: "Chocolate con Cobertura de Chocolate", description: "Dona de masa de chocolate cubierta con baño de chocolate liso.", image: "images/sabores_donitas/chocolate_cobertura_chocolate.png", category: "tacc" },
-  { id: 2, name: "Vainilla con Cobertura de Chocolate", description: "Dona de masa vainilla con cobertura lisa de chocolate.", image: "images/sabores_donitas/vainilla_chocolate.png", category: "tacc" },
-  { id: 3, name: "Limón con Glaseado de Limón", description: "Dona de masa vainilla con cobertura lisa sabor limón color celeste.", image: "images/sabores_donitas/limon.png", category: "tacc" }
+  { id: 1, name: "Chocolate con Cobertura de Chocolate", description: "Dona de masa de chocolate cubierta con baño de chocolate liso.", image: "images/sabores_donitas/chocolate_cobertura_chocolate.jpg", category: "tacc" },
+  { id: 2, name: "Vainilla con Cobertura de Chocolate", description: "Dona de masa vainilla con cobertura lisa de chocolate.", image: "images/sabores_donitas/vainilla_chocolate.jpg", category: "tacc" },
+  { id: 3, name: "Limón con Glaseado de Limón", description: "Dona de masa vainilla con cobertura lisa sabor limón color celeste.", image: "images/sabores_donitas/limon.jpg", category: "tacc" }
 ];
 
-const donutsSinTacc = [
-  { id: 4, name: "Chocolate con Cobertura de Chocolate (Sin TACC)", description: "Dona de masa de chocolate cubierta con baño de chocolate liso. Sin TACC.", image: "images/sabores_donitas/chocolate_cobertura_chocolate.png", category: "sintacc" },
-  { id: 5, name: "Vainilla con Cobertura de Chocolate (Sin TACC)", description: "Dona de masa vainilla con cobertura lisa de chocolate. Sin TACC.", image: "images/sabores_donitas/vainilla_chocolate.png", category: "sintacc" },
-  { id: 6, name: "Chocolate con Dulce de Leche y Cobertura de Chocolate (Sin TACC)", description: "Dona de masa de chocolate con un cono de dulce de leche en el centro y baño de chocolate liso. Sin TACC.", image: "images/sabores_donitas/chocolate_dulce_de_leche.png", category: "sintacc" }
-];
+// const donutsSinTacc = [
+//   { id: 4, name: "Chocolate con Cobertura de Chocolate (Sin TACC)", description: "Dona de masa de chocolate cubierta con baño de chocolate liso. Sin TACC.", image: "images/sabores_donitas/chocolate_cobertura_chocolate.png", category: "sintacc" },
+//   { id: 5, name: "Vainilla con Cobertura de Chocolate (Sin TACC)", description: "Dona de masa vainilla con cobertura lisa de chocolate. Sin TACC.", image: "images/sabores_donitas/vainilla_chocolate.png", category: "sintacc" },
+//   { id: 6, name: "Chocolate con Dulce de Leche y Cobertura de Chocolate (Sin TACC)", description: "Dona de masa de chocolate con un cono de dulce de leche en el centro y baño de chocolate liso. Sin TACC.", image: "images/sabores_donitas/chocolate_dulce_de_leche.png", category: "sintacc" }
+// ];
 
 /* ===========================================================
    ESTADO ÚNICO + PERSISTENCIA + UI
