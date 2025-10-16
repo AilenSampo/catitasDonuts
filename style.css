@@ -75,7 +75,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    height: 81px;
+    height: auto;
 }
 
 .logo img {
@@ -405,9 +405,10 @@ button.active {
 
 /* --- SECCIÓN SOBRE CATITA --- */
 .sobre {
-    background-color: var(--rosa-fondo);
+    background-color: var(--blanco);
     padding: 60px 20px;
     text-align: center;
+    
 }
 
 /* --- SECCIÓN JUEGOS --- */
