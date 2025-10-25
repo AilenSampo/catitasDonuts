@@ -1,3 +1,9 @@
+
+
+
+
+
+
 /***********************
  *  DATOS DE LAS DONAS *
  ***********************/
@@ -61,7 +67,7 @@ const donutsTacc = [
   function updateResumenItems() {
     if (!elResumenItems) return;
     elResumenItems.innerHTML = '';
-    const all = [...donutsTacc, ...donutsSinTacc];
+    const all = [...donutsTacc,];
     Object.entries(window.selectedDonuts).forEach(([id, qty]) => {
       qty = Number(qty || 0);
       if (qty > 0) {
@@ -74,7 +80,7 @@ const donutsTacc = [
   }
 
   function sanitizeSelection() {
-    const validIds = new Set([...donutsTacc, ...donutsSinTacc].map(d => String(d.id)));
+    const validIds = new Set([...donutsTacc,].map(d => String(d.id)));
     for (const id of Object.keys(window.selectedDonuts)) {
       const qty = Number(window.selectedDonuts[id] || 0);
       if (!validIds.has(String(id)) || qty <= 0 || Number.isNaN(qty)) {
@@ -159,7 +165,7 @@ const donutsTacc = [
 
   function renderAllDonas() {
     renderDonas(donutsTacc, "donuts-tacc-container");
-    renderDonas(donutsSinTacc, "donuts-sintacc-container");
+    // renderDonas(donutsSinTacc, "donuts-sintacc-container");
   }
 
   // Reset combo (opcional si tenés el botón)
@@ -204,7 +210,7 @@ const donutsTacc = [
         const whatsapp = formulario.querySelector('input[type="tel"]')?.value || "";
         const detalle  = document.getElementById('detalle-pedido')?.value || "";
 
-        const all = [...donutsTacc, ...donutsSinTacc];
+        const all = [...donutsTacc,];
         const items = Object.entries(window.selectedDonuts)
           .map(([id, qty]) => {
             const d = all.find(x => String(x.id) === String(id));
