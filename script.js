@@ -1,7 +1,35 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector('.hamburger-menu');
+  const nav = document.getElementById('main-nav');
 
+  if(!btn || !nav) return;
 
+  const closeMenu = () => {
+    nav.classList.remove('is-open');
+    btn.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.classList.remove('no-scroll');
+  };
 
+  const toggleMenu = () => {
+    const open = !nav.classList.contains('is-open');
+    nav.classList.toggle('is-open', open);
+    btn.classList.toggle('is-open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('no-scroll', open);
+  };
 
+  btn.addEventListener('click', toggleMenu);
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeMenu(); });
+
+  // Cerrar al clickear fuera
+  document.addEventListener('click', (e) => {
+    if(nav.classList.contains('is-open') && !nav.contains(e.target) && !btn.contains(e.target)){
+      closeMenu();
+    }
+  });
+});
 
 
 /***********************

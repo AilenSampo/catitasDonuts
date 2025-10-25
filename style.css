@@ -119,39 +119,35 @@ nav ul li a:hover {
     color: var(--celeste-glaseado);
 }
 
-/* Menú Hamburguesa (para móviles) */
-.hamburger-menu {
-    display: none; /* Oculto por defecto en desktop */
-    background: none;
-    border: none;
-    font-size: 1.8em;
-    color: var(--rosa-donut);
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    padding: 0;
-    z-index: 11; /* Para que esté sobre el menú */
-}
+/* Botón hamburguesa */
+.hamburger-menu { display:none; background:none; border:0; cursor:pointer; z-index:1001; }
+.hamburger-menu .bar{ display:block; width:28px; height:3px; margin:6px 0; background:#333; transition:transform .3s, opacity .3s; }
 
-.hamburger-menu .bar {
-    width: 100%;
-    height: 3px;
-    background-color: var(--rosa-donut);
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-}
+/* Animación a X */
+.hamburger-menu.is-open .bar:nth-child(1){ transform: translateY(9px) rotate(45deg); }
+.hamburger-menu.is-open .bar:nth-child(2){ opacity:0; }
+.hamburger-menu.is-open .bar:nth-child(3){ transform: translateY(-9px) rotate(-45deg); }
 
-/* Animación del menú hamburguesa */
-.hamburger-menu.active .bar:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-}
-.hamburger-menu.active .bar:nth-child(2) {
-    opacity: 0;
-}
-.hamburger-menu.active .bar:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
+/* Nav desktop por defecto */
+#main-nav ul{ display:flex; gap:1.5rem; list-style:none; margin:0; padding:0; }
+
+/* MOBILE */
+@media (max-width:768px){
+  .hamburger-menu{ display:block; }
+
+  /* Panel lateral oculto por defecto */
+  #main-nav{
+    position:fixed; top:0; right:0; height:100vh; width:75%; max-width:320px;
+    background:#fff; box-shadow:-8px 0 24px rgba(0,0,0,.15);
+    transform:translateX(100%); transition:transform .3s ease;
+    z-index:1000; display:flex; align-items:flex-start;
+  }
+  #main-nav.is-open{ transform:translateX(0); }
+
+  #main-nav ul{ flex-direction:column; gap:1rem; padding:2rem 1.5rem; width:100%; }
+
+  /* Evitar scroll del body cuando abre el menú */
+  body.no-scroll{ overflow:hidden; }
 }
 
 
