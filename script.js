@@ -41,67 +41,67 @@ const donutsTacc = [
     id: 1, 
     name: "Coco con Cobertura de Chocolate", 
     description: "Dona de masa sabor coco cubierta con baño de chocolate liso.", 
-    image: "images/sabores_donitas/coco_chocolate.jpg", 
+    image: "images/sabores_donitas/coco-clasica.jpeg", 
     category: "clasica" 
   },
   { 
     id: 2, 
     name: "Coco Rellena de Dulce de Leche con Cobertura de Chocolate", 
     description: "Dona de coco rellena de dulce de leche y cubierta con baño de chocolate.", 
-    image: "images/sabores_donitas/coco_dulcedeleche.jpg", 
+    image: "images/sabores_donitas/coco-clasica-dulce.jpeg", 
     category: "rellena_dulce" 
   },
   { 
     id: 3, 
     name: "Coco Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
     description: "Dona de coco rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
-    image: "images/sabores_donitas/coco_premium.jpg", 
+    image: "images/sabores_donitas/cococ-clasica-premium.jpeg", 
     category: "rellena_premium" 
   },
 
   // NARANJA
-  { 
-    id: 4, 
-    name: "Naranja con Cobertura de Chocolate", 
-    description: "Dona de masa sabor naranja cubierta con baño de chocolate liso.", 
-    image: "images/sabores_donitas/naranja_chocolate.jpg", 
-    category: "clasica" 
-  },
-  { 
-    id: 5, 
-    name: "Naranja Rellena de Dulce de Leche con Cobertura de Chocolate", 
-    description: "Dona de naranja rellena de dulce de leche y cubierta con baño de chocolate.", 
-    image: "images/sabores_donitas/naranja_dulcedeleche.jpg", 
-    category: "rellena_dulce" 
-  },
-  { 
-    id: 6, 
-    name: "Naranja Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
-    description: "Dona de naranja rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
-    image: "images/sabores_donitas/naranja_premium.jpg", 
-    category: "rellena_premium" 
-  },
+  // { 
+  //   id: 4, 
+  //   name: "Naranja con Cobertura de Chocolate", 
+  //   description: "Dona de masa sabor naranja cubierta con baño de chocolate liso.", 
+  //   image: "images/sabores_donitas/naranja_chocolate.jpg", 
+  //   category: "clasica" 
+  // },
+  // { 
+  //   id: 5, 
+  //   name: "Naranja Rellena de Dulce de Leche con Cobertura de Chocolate", 
+  //   description: "Dona de naranja rellena de dulce de leche y cubierta con baño de chocolate.", 
+  //   image: "images/sabores_donitas/naranja_dulcedeleche.jpg", 
+  //   category: "rellena_dulce" 
+  // },
+  // { 
+  //   id: 6, 
+  //   name: "Naranja Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
+  //   description: "Dona de naranja rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
+  //   image: "images/sabores_donitas/naranja_premium.jpg", 
+  //   category: "rellena_premium" 
+  // },
 
   // VAINILLA
   { 
     id: 7, 
     name: "Vainilla con Cobertura de Chocolate", 
     description: "Dona de masa vainilla cubierta con baño de chocolate liso.", 
-    image: "images/sabores_donitas/vainilla_chocolate.jpg", 
+    image: "images/sabores_donitas/vainilla-clasica.jpeg", 
     category: "clasica" 
   },
   { 
     id: 8, 
     name: "Vainilla Rellena de Dulce de Leche con Cobertura de Chocolate", 
     description: "Dona de vainilla rellena de dulce de leche y cubierta con baño de chocolate.", 
-    image: "images/sabores_donitas/vainilla_dulcedeleche.jpg", 
+    image: "images/sabores_donitas/vainilla-dulce.jpeg", 
     category: "rellena_dulce" 
   },
   { 
     id: 9, 
     name: "Vainilla Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
     description: "Dona de vainilla rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
-    image: "images/sabores_donitas/vainilla_premium.jpg", 
+    image: "images/sabores_donitas/vailinna-premium.jpeg", 
     category: "rellena_premium" 
   },
 
@@ -110,21 +110,21 @@ const donutsTacc = [
     id: 10, 
     name: "Chocolate con Cobertura de Chocolate", 
     description: "Dona de masa de chocolate cubierta con baño de chocolate liso.", 
-    image: "images/sabores_donitas/chocolate_chocolate.jpg", 
+    image: "images/sabores_donitas/chocolate-clasica.jpeg", 
     category: "clasica" 
   },
   { 
     id: 11, 
     name: "Chocolate Rellena de Dulce de Leche con Cobertura de Chocolate", 
     description: "Dona de chocolate rellena de dulce de leche y cubierta con baño de chocolate.", 
-    image: "images/sabores_donitas/chocolate_dulcedeleche.jpg", 
+    image: "images/sabores_donitas/chocolate-rellena-dulce.jpeg", 
     category: "rellena_dulce" 
   },
   { 
     id: 12, 
     name: "Chocolate Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
     description: "Dona de chocolate rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
-    image: "images/sabores_donitas/chocolate_premium.jpg", 
+      image: "images/sabores_donitas/chocolate-rellena-dulce.jpeg", 
     category: "rellena_premium" 
   }
 ];
