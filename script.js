@@ -142,6 +142,44 @@ const donutsTacc = [
   const LS_LIMIT = 'donitasLimit';
   const LS_SELECTION = 'donitasSeleccion';
 
+  const WEBHOOK_URL = "https://hook.us2.make.com/vjmr04bzx8uv8z3mlm8cwonchg5t46a9";
+
+    // Enviar pedido a Make
+  function enviarPedidoAMake({ nombre, whatsapp, detalle }) {
+    if (!WEBHOOK_URL) return;
+
+    // Armar array de sabores a partir de selectedDonuts
+    const saboresArray = Object.entries(window.selectedDonuts).map(([id, qty]) => {
+      const dona = donutsTacc.find(x => String(x.id) === String(id));
+      return {
+        id: Number(id),
+        sabor: dona ? dona.name : `Sabor ${id}`,
+        cantidad: Number(qty || 0)
+      };
+    });
+
+    const payload = {
+      cliente: nombre,
+      telefono: whatsapp,
+      unidades: getCurrentLimit(),   // usa tu estado actual
+      comentarios: detalle,
+      sabores: saboresArray
+    };
+
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(() => {
+        console.log("Pedido enviado a Make ✅");
+      })
+      .catch(err => {
+        console.error("Error al enviar a Make", err);
+      });
+  }
+
+
   // Estado único
   let currentLimit   = parseInt(localStorage.getItem(LS_LIMIT), 10) || 18;
   let selectedDonuts = JSON.parse(localStorage.getItem(LS_SELECTION)) || {}; // {id: qty}
@@ -336,6 +374,8 @@ const donutsTacc = [
         let msg = `¡Hola Catita! Soy ${nombre}. Quiero mi combo de ${currentLimit} donitas.\nSabores: ${items}.`;
         if (detalle)  msg += `\nDetalles: ${detalle}.`;
         if (whatsapp) msg += `\nMi WhatsApp: ${whatsapp}.`;
+
+        enviarPedidoAMake({ nombre, whatsapp, detalle });
 
         window.open(`https://wa.me/+5493517918029?text=${encodeURIComponent(msg)}`, '_blank');
 
