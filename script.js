@@ -35,10 +35,98 @@ document.addEventListener('DOMContentLoaded', () => {
 /***********************
  *  DATOS DE LAS DONAS *
  ***********************/
-const donutsTacc = [
-  { id: 1, name: "Chocolate con Cobertura de Chocolate", description: "Dona de masa de chocolate cubierta con baño de chocolate liso.", image: "images/sabores_donitas/chocolate_cobertura_chocolate.jpg", category: "tacc" },
-  { id: 2, name: "Vainilla con Cobertura de Chocolate", description: "Dona de masa vainilla con cobertura lisa de chocolate.", image: "images/sabores_donitas/vainilla_chocolate.jpg", category: "tacc" },
-  { id: 3, name: "Limón con Glaseado de Limón", description: "Dona de masa vainilla con cobertura lisa sabor limón color celeste.", image: "images/sabores_donitas/limon.jpg", category: "tacc" }
+const donutsTacc = [ 
+  // COCO
+  { 
+    id: 1, 
+    name: "Coco con Cobertura de Chocolate", 
+    description: "Dona de masa sabor coco cubierta con baño de chocolate liso.", 
+    image: "images/sabores_donitas/coco_chocolate.jpg", 
+    category: "clasica" 
+  },
+  { 
+    id: 2, 
+    name: "Coco Rellena de Dulce de Leche con Cobertura de Chocolate", 
+    description: "Dona de coco rellena de dulce de leche y cubierta con baño de chocolate.", 
+    image: "images/sabores_donitas/coco_dulcedeleche.jpg", 
+    category: "rellena_dulce" 
+  },
+  { 
+    id: 3, 
+    name: "Coco Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
+    description: "Dona de coco rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
+    image: "images/sabores_donitas/coco_premium.jpg", 
+    category: "rellena_premium" 
+  },
+
+  // NARANJA
+  { 
+    id: 4, 
+    name: "Naranja con Cobertura de Chocolate", 
+    description: "Dona de masa sabor naranja cubierta con baño de chocolate liso.", 
+    image: "images/sabores_donitas/naranja_chocolate.jpg", 
+    category: "clasica" 
+  },
+  { 
+    id: 5, 
+    name: "Naranja Rellena de Dulce de Leche con Cobertura de Chocolate", 
+    description: "Dona de naranja rellena de dulce de leche y cubierta con baño de chocolate.", 
+    image: "images/sabores_donitas/naranja_dulcedeleche.jpg", 
+    category: "rellena_dulce" 
+  },
+  { 
+    id: 6, 
+    name: "Naranja Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
+    description: "Dona de naranja rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
+    image: "images/sabores_donitas/naranja_premium.jpg", 
+    category: "rellena_premium" 
+  },
+
+  // VAINILLA
+  { 
+    id: 7, 
+    name: "Vainilla con Cobertura de Chocolate", 
+    description: "Dona de masa vainilla cubierta con baño de chocolate liso.", 
+    image: "images/sabores_donitas/vainilla_chocolate.jpg", 
+    category: "clasica" 
+  },
+  { 
+    id: 8, 
+    name: "Vainilla Rellena de Dulce de Leche con Cobertura de Chocolate", 
+    description: "Dona de vainilla rellena de dulce de leche y cubierta con baño de chocolate.", 
+    image: "images/sabores_donitas/vainilla_dulcedeleche.jpg", 
+    category: "rellena_dulce" 
+  },
+  { 
+    id: 9, 
+    name: "Vainilla Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
+    description: "Dona de vainilla rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
+    image: "images/sabores_donitas/vainilla_premium.jpg", 
+    category: "rellena_premium" 
+  },
+
+  // CHOCOLATE
+  { 
+    id: 10, 
+    name: "Chocolate con Cobertura de Chocolate", 
+    description: "Dona de masa de chocolate cubierta con baño de chocolate liso.", 
+    image: "images/sabores_donitas/chocolate_chocolate.jpg", 
+    category: "clasica" 
+  },
+  { 
+    id: 11, 
+    name: "Chocolate Rellena de Dulce de Leche con Cobertura de Chocolate", 
+    description: "Dona de chocolate rellena de dulce de leche y cubierta con baño de chocolate.", 
+    image: "images/sabores_donitas/chocolate_dulcedeleche.jpg", 
+    category: "rellena_dulce" 
+  },
+  { 
+    id: 12, 
+    name: "Chocolate Rellena Block / Bon o Bon / Nutella con Cobertura de Chocolate", 
+    description: "Dona de chocolate rellena a elección (Block, Bon o Bon o Nutella) con baño de chocolate.", 
+    image: "images/sabores_donitas/chocolate_premium.jpg", 
+    category: "rellena_premium" 
+  }
 ];
 
 // const donutsSinTacc = [
@@ -55,7 +143,7 @@ const donutsTacc = [
   const LS_SELECTION = 'donitasSeleccion';
 
   // Estado único
-  let currentLimit   = parseInt(localStorage.getItem(LS_LIMIT), 10) || 12;
+  let currentLimit   = parseInt(localStorage.getItem(LS_LIMIT), 10) || 18;
   let selectedDonuts = JSON.parse(localStorage.getItem(LS_SELECTION)) || {}; // {id: qty}
 
   // Puente global (evita desincronías)
@@ -63,8 +151,8 @@ const donutsTacc = [
   window.getCurrentLimit = () => currentLimit;
 
   // Refs UI
-  const btn12 = document.getElementById('select-12');
   const btn18 = document.getElementById('select-18');
+  const btn24 = document.getElementById('select-24');
   const elSelected = document.getElementById('selected-count');
   const elLimit = document.getElementById('current-limit');
   const elResumenTotal = document.getElementById('contador-donas-resumen'); // "X/Y"
@@ -82,9 +170,9 @@ const donutsTacc = [
     Object.values(window.selectedDonuts).reduce((acc, n) => acc + Number(n || 0), 0);
 
   function paintActive(limit) {
-    if (!btn12 || !btn18) return;
-    btn12.classList.toggle('active', limit === 12);
+    if (!btn18 || !btn24) return;
     btn18.classList.toggle('active', limit === 18);
+    btn24.classList.toggle('active', limit === 24);
   }
 
   function refreshCardQty(id) {
@@ -216,8 +304,8 @@ const donutsTacc = [
     renderAllDonas();
     sanitizeSelection();
 
-    btn12?.addEventListener('click', () => setLimit(12));
     btn18?.addEventListener('click', () => setLimit(18));
+    btn24?.addEventListener('click', () => setLimit(24));
 
     setLimit(currentLimit);
     Object.keys(window.selectedDonuts).forEach(id => refreshCardQty(id));
@@ -256,7 +344,7 @@ const donutsTacc = [
         window.selectedDonuts = {};
         persist();
         document.querySelectorAll('.cantidad-actual').forEach(e => e.textContent = '0');
-        setLimit(12);
+        setLimit(18);
         updateResumenItems();
         updateTotalsUI();
       });
