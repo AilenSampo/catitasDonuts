@@ -377,7 +377,7 @@ const donutsTacc = [
 
         enviarPedidoAMake({ nombre, whatsapp, detalle });
 
-        window.open(`https://wa.me/+5493517918029?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/+543517393613?text=${encodeURIComponent(msg)}`, '_blank');
 
         // reset
         formulario.reset();
