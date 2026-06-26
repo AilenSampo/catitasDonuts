@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entre Capas — Catitas Atelier</title>
+    <link rel="icon" href="images/favicon/favicon-32x32.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="atelier.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="atelier-header">
+        <a href="index.html" class="header-logo">
+            <img src="images/logoDonuts.png" alt="Catitas Atelier">
+            <div class="wordmark">
+                <span class="wm-catitas">CATITAS</span>
+                <span class="wm-atelier">Atelier</span>
+            </div>
+        </a>
+        <nav class="atelier-nav">
+            <a href="index.html">Inicio</a>
+            <a href="donuts.html">Donuts</a>
+            <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" target="_blank">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- HERO ENTRE CAPAS -->
+    <section class="ec-hero">
+        <a href="index.html" class="back-link">← Catitas Atelier</a>
+        <p class="ec-subtitle">Edición Artesanal</p>
+        <h1 class="ec-title">Entre Capas</h1>
+        <span class="ec-title-script">by Catitas Atelier</span>
+        <p class="ec-hero-desc">
+            Alfajores artesanales con harina de almendras, miel y ganache Bariloche.
+            Sin azúcar agregada.
+        </p>
+    </section>
+
+    <!-- FEATURES -->
+    <div class="ec-features">
+        <div class="ec-feature">
+            <div class="ec-feature-icon">🌾</div>
+            <span class="ec-feature-label">Harina de almendras</span>
+        </div>
+        <div class="ec-feature">
+            <div class="ec-feature-icon">🍯</div>
+            <span class="ec-feature-label">Endulzados con miel</span>
+        </div>
+        <div class="ec-feature">
+            <div class="ec-feature-icon">🍫</div>
+            <span class="ec-feature-label">Ganache Bariloche</span>
+        </div>
+        <div class="ec-feature">
+            <div class="ec-feature-icon">✓</div>
+            <span class="ec-feature-label">Sin azúcar agregada</span>
+        </div>
+    </div>
+
+    <!-- CATÁLOGO -->
+    <section class="ec-catalogo">
+        <h2 class="section-title">Nuestros alfajores</h2>
+        <div class="section-divider"></div>
+        <div class="ec-cards" id="ec-catalogo-container">
+            <!-- JS renderiza las cards aquí -->
+        </div>
+        <button id="ec-reset" type="button" class="btn-atelier btn-secondary">
+            Vaciar selección
+        </button>
+    </section>
+
+    <!-- PEDIDO -->
+    <section class="ec-pedido" id="ec-pedido">
+        <h2 class="section-title">Hacé tu pedido</h2>
+        <div class="section-divider"></div>
+
+        <form id="ec-formulario" class="ec-form">
+            <input type="text" id="ec-nombre" placeholder="Tu nombre" required>
+            <input type="tel" id="ec-telefono" placeholder="Tu WhatsApp" required>
+
+            <div class="ec-resumen">
+                <p class="ec-resumen-title">Tu selección</p>
+                <ul class="ec-resumen-list" id="ec-resumen-lista">
+                    <li class="ec-resumen-empty">Todavía no seleccionaste nada 🍫</li>
+                </ul>
+            </div>
+
+            <textarea id="ec-detalle" placeholder="¿Algún detalle adicional? (opcional)" rows="3"></textarea>
+
+            <button type="submit" class="btn-pedido" id="ec-submit">
+                Enviar pedido por WhatsApp 💬
+            </button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="atelier-footer">
+        <div class="footer-wordmark">
+            <span class="fw-catitas">CATITAS</span>
+            <span class="fw-atelier">Atelier</span>
+        </div>
+        <p class="footer-tagline">De las mismas manos que hacen las donuts que amás ♥</p>
+        <p class="footer-copy">© 2025 Catitas Atelier · Hecho con amor en Córdoba</p>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script defer src="entrecapas.js"></script>
+
+</body>
+</html>
