@@ -475,7 +475,7 @@ body {
 }
 
 @media (max-width: 640px) {
-  .sticker-catita { display: none; }
+  .sticker-catita { width: 100px; bottom: 140px; }
 }
 
 /* ─── WHATSAPP FLOTANTE ───────────────────────────────────── */
