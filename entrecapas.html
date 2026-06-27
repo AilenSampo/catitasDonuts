@@ -32,7 +32,10 @@
                 <span class="wm-atelier">Atelier</span>
             </div>
         </a>
-        <nav class="atelier-nav">
+        <button class="atelier-hamburger" id="atelier-hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="atelier-nav" id="atelier-nav">
             <a href="index.html">Inicio</a>
             <a href="donuts.html">Donuts</a>
             <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" target="_blank">Contacto</a>
@@ -159,6 +162,23 @@
     </a>
 
     <script defer src="entrecapas.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('atelier-hamburger');
+            const nav = document.getElementById('atelier-nav');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', () => {
+                const open = nav.classList.toggle('is-open');
+                btn.classList.toggle('is-open', open);
+                btn.setAttribute('aria-expanded', open);
+            });
+            nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                nav.classList.remove('is-open');
+                btn.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', false);
+            }));
+        });
+    </script>
 
 </body>
 </html>

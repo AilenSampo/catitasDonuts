@@ -977,6 +977,14 @@ body {
 
 /* ─── RESPONSIVE ──────────────────────────────────────────── */
 
+@media (max-width: 768px) {
+  /* Neutraliza flex-wrap que style.css pone en header genérico */
+  .atelier-header {
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+  }
+}
+
 @media (max-width: 640px) {
   /* Header */
   .atelier-header { padding: 10px 16px; }
