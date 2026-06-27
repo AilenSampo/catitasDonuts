@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catitas Atelier — Hecho con amor</title>
+    <title>Catitas Atelier — Hecho con amor en Córdoba</title>
+    <meta name="description" content="El atelier artesanal de Catita: donuts y alfajores Entre Capas hechos con amor en Córdoba, Argentina.">
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Catitas Atelier — Hecho con amor en Córdoba">
+    <meta property="og:description" content="Donuts y alfajores artesanales Entre Capas. Hechos con amor por Catita, 11 años, en Córdoba.">
+    <meta property="og:image"       content="https://catitasdonuts.netlify.app/images/logoDonuts-atelier.png">
+    <meta property="og:url"         content="https://catitasdonuts.netlify.app/">
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Catitas Atelier — Hecho con amor en Córdoba">
+    <meta name="twitter:description" content="Donuts y alfajores artesanales Entre Capas. Hechos con amor por Catita, 11 años, en Córdoba.">
+    <meta name="twitter:image"       content="https://catitasdonuts.netlify.app/images/logoDonuts-atelier.png">
     <link rel="icon" href="images/favicon/favicon-32x32.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="atelier.css">
 </head>
@@ -14,104 +26,113 @@
     <!-- HEADER -->
     <header class="atelier-header">
         <a href="index.html" class="header-logo">
-            <img src="images/logoDonuts.png" alt="Catitas Atelier">
+            <img src="images/logoDonuts-atelier.png" alt="Catitas Atelier">
             <div class="wordmark">
-                <span class="wm-catitas">CATITAS</span>
+                <span class="wm-catitas">Catita's</span>
                 <span class="wm-atelier">Atelier</span>
             </div>
         </a>
-        <nav class="atelier-nav">
+        <button class="atelier-hamburger" id="atelier-hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="atelier-nav" id="atelier-nav">
             <a href="#productos">Productos</a>
             <a href="#sobre">Sobre Catita</a>
-            <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20sobre%20Catitas%20Atelier!" target="_blank">Contacto</a>
+            <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20sobre%20Catitas%20Atelier!" target="_blank">Contacto</a>
         </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="atelier-hero" id="inicio">
-        <div class="hero-inner">
-            <p class="hero-kicker">♥ Hecho con amor en Córdoba</p>
-            <h1 class="hero-title">CATITAS</h1>
-            <span class="hero-script">Atelier</span>
-            <p class="hero-tagline">Ingredientes nobles, recetas que enamoran</p>
-            <div class="hero-ctas">
-                <a href="donuts.html" class="btn-atelier btn-primary">Ver Donitas 🍩</a>
-                <a href="entrecapas.html" class="btn-atelier btn-secondary">Entre Capas 🍫</a>
-            </div>
+    <!-- SOBRE CATITA -->
+    <section class="atelier-sobre" id="sobre">
+        <div class="sobre-inner">
+            <h2 class="section-title">¿Quién es Catita? 🐱</h2>
+            <div class="section-divider"></div>
+            <p class="sobre-text">
+                ¡Hola! Soy Catita, tengo 11 años y desde muy chiquita amo la cocina
+                —¡especialmente cuando se trata de cosas dulces! 🧁
+                Empecé con mis donitas y hoy sumé los alfajores
+                <strong>Entre Capas</strong>: hechos con ingredientes nobles,
+                sin apuros y con muchísimo amor.<br><br>
+                <em>De las mismas manos que hacen las donuts que amás. 💕</em>
+            </p>
         </div>
     </section>
 
     <!-- PRODUCTOS -->
     <section class="atelier-productos" id="productos">
-        <h2 class="section-title">Nuestras colecciones</h2>
+        <h2 class="section-title">Mis colecciones</h2>
         <div class="section-divider"></div>
 
         <div class="producto-grid">
 
             <!-- DONUTS -->
             <a href="donuts.html" class="producto-card">
-                <span class="card-badge badge-original">Original</span>
-                <span class="card-emoji">🍩</span>
-                <h3 class="card-title">Catitas Donuts</h3>
+                <span class="card-badge badge-original">Catita's Donuts</span>
+                <div class="card-img-wrap">
+                    <img src="images/productos/donitas2.png" alt="Catita's Donuts" class="card-img">
+                </div>
+                <h3 class="card-title">Catita's Donuts</h3>
                 <p class="card-desc">
                     Las mini donitas que amás, hechas con mucho amor y glaseado.
-                    Clásicas, rellenas de dulce de leche o premium con Nutella, Block o Bon o Bon.
-                    ¡Las que empezaron todo!
+                    Clásicas, rellenas de dulce de leche o premium con Nutella,
+                    Block o Bon o Bon. ¡Las que empezaron todo!
                 </p>
                 <span class="card-link">Ver donitas →</span>
             </a>
 
             <!-- ENTRE CAPAS -->
             <a href="entrecapas.html" class="producto-card featured">
-                <span class="card-badge badge-new">¡Nuevo!</span>
-                <span class="card-emoji">🍫</span>
+                <span class="card-badge badge-new">Entre Capas</span>
+                <div class="card-img-wrap">
+                    <img src="images/productos/alfajoresbañados.png" alt="Entre Capas — Alfajores" class="card-img">
+                </div>
                 <h3 class="card-title">Entre Capas</h3>
                 <p class="card-desc">
-                    Alfajores artesanales con harina de almendras, endulzados con miel y
-                    ganache Bariloche. Sin azúcar agregada. De las mismas manos que hacen
-                    las donuts que amás.
+                    Alfajores artesanales con harina de almendras, endulzados con miel
+                    y ganache Bariloche. Sin azúcar agregada.
+                    De las mismas manos que hacen las donuts que amás 💕
                 </p>
-                <div class="card-tags">
-                    <span class="card-tag">🌾 Harina de almendras</span>
-                    <span class="card-tag">🍯 Endulzados con miel</span>
-                    <span class="card-tag">🍫 Ganache Bariloche</span>
-                    <span class="card-tag">✓ Sin azúcar agregada</span>
-                </div>
                 <span class="card-link">Conocer alfajores →</span>
             </a>
 
         </div>
     </section>
 
-    <!-- SOBRE CATITA -->
-    <section class="atelier-sobre" id="sobre">
-        <div class="sobre-inner">
-            <h2 class="section-title">¿Quién está detrás?</h2>
-            <div class="section-divider"></div>
-            <p class="sobre-text">
-                Soy Catita, tengo 11 años y desde muy chiquita amo la cocina —¡especialmente
-                cuando se trata de cosas dulces! Empecé con mis donitas y hoy sumé los alfajores
-                <em>Entre Capas</em>: hechos con ingredientes nobles, sin apuros y con mucho amor.
-                <br><br>
-                <strong>De las mismas manos que hacen las donuts que amás.</strong>
-            </p>
-        </div>
-    </section>
-
     <!-- FOOTER -->
     <footer class="atelier-footer">
         <div class="footer-wordmark">
-            <span class="fw-catitas">CATITAS</span>
+            <span class="fw-catitas">Catita's</span>
             <span class="fw-atelier">Atelier</span>
         </div>
         <p class="footer-tagline">De las mismas manos que hacen las donuts que amás ♥</p>
         <p class="footer-copy">© 2025 Catitas Atelier · Hecho con amor en Córdoba</p>
+        <p class="footer-copy" style="margin-top:8px;">Arquitectura digital por <a href="https://www.ailensampo.com" target="_blank" style="color:var(--dorado);text-decoration:none;">Ailén Sampó</a>, 2026</p>
+        <a href="https://whatsapp.com/channel/0029VbB4qlQ60eBf2qkQhV3h" target="_blank" class="footer-canal-wa">
+            <i class="fa-brands fa-whatsapp"></i> Seguinos en nuestro canal de WhatsApp
+        </a>
     </footer>
 
+    <!-- STICKER CATITA -->
+    <img src="images/catita.png" alt="Catita" class="sticker-catita">
+
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20sobre%20Catitas%20Atelier!" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20sobre%20Catitas%20Atelier!" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <script>
+        const btn = document.getElementById('atelier-hamburger');
+        const nav = document.getElementById('atelier-nav');
+        btn.addEventListener('click', () => {
+            const open = nav.classList.toggle('is-open');
+            btn.classList.toggle('is-open', open);
+            btn.setAttribute('aria-expanded', open);
+        });
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', false);
+        }));
+    </script>
 </body>
 </html>

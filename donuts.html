@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catitas Donuts — Catitas Atelier</title>
+    <title>Catita's Donuts — Las donitas más ricas del mundo</title>
+    <meta name="description" content="Mini donitas artesanales hechas con amor por Catita, 11 años. Clásicas, rellenas de dulce de leche o premium. Pedí en Córdoba.">
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Catita's Donuts — Las donitas más ricas del mundo">
+    <meta property="og:description" content="Mini donitas artesanales hechas con amor por Catita, 11 años. Clásicas, rellenas de dulce de leche o premium con Nutella, Block o Bon o Bon.">
+    <meta property="og:image"       content="https://catitasdonuts.netlify.app/images/logoDonuts.png">
+    <meta property="og:url"         content="https://catitasdonuts.netlify.app/donuts.html">
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Catita's Donuts — Las donitas más ricas del mundo">
+    <meta name="twitter:description" content="Mini donitas artesanales hechas con amor por Catita, 11 años. Clásicas, rellenas o premium.">
+    <meta name="twitter:image"       content="https://catitasdonuts.netlify.app/images/logoDonuts.png">
     <link rel="icon" href="/images/favicon/favicon-32x32.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="atelier.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/index.html">
-                <img src="images/logoDonuts.png" alt="Logo de Catita Donas" class="logo-animado">
-            </a>
-        </div>
-        <button class="hamburger-menu" type="button"
+    <header class="atelier-header">
+        <a href="index.html" class="header-logo">
+            <img src="images/logoDonuts.png" alt="Catita's Donuts" class="logo-animado">
+            <div class="wordmark">
+                <span class="wm-catitas">Catita's</span>
+                <span class="wm-donuts">Donuts</span>
+            </div>
+        </a>
+        <button class="hamburger-menu atelier-hamburger" type="button"
+          id="atelier-hamburger"
           aria-label="Abrir menú"
           aria-controls="main-nav"
           aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <span></span><span></span><span></span>
         </button>
-        <nav id="main-nav">
-            <ul>
-                <li><a href="index.html">← Atelier</a></li>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre">Sobre Catita</a></li>
-                <li><a href="#sabores">Sabores</a></li>
-                <li><a href="#pedidos">Pedidos</a></li>
-                <li><a href="#juegos">Juegos</a></li>
-            </ul>
+        <nav id="main-nav" class="atelier-nav">
+            <a href="index.html">← Atelier</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre">Sobre Catita</a>
+            <a href="#sabores">Sabores</a>
+            <a href="#pedidos">Pedidos</a>
+            <a href="#juegos">Juegos</a>
         </nav>
     </header>
 
@@ -104,6 +116,12 @@
                 <ul id="lista-sabores-resumen"></ul>
             </div>
 
+            <div class="ec-total-box" id="dona-total-box" style="display:none">
+                <span class="ec-total-label">Total estimado</span>
+                <span class="ec-total-valor" id="dona-total-valor">$0</span>
+                <span class="ec-total-detalle" id="dona-total-detalle"></span>
+            </div>
+
             <textarea id="detalle-pedido" placeholder="Acá podes agregar algún detalle adicional sobre tu pedido (opcional)" rows="3"></textarea>
 
             <button type="submit" id="submit-pedido-button" disabled>Enviar pedido</button>
@@ -118,12 +136,21 @@
         </a>
     </section>
 
-    <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20saber%20más%20sobre%20sus%20deliciosas%20donas!" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20saber%20más%20sobre%20sus%20deliciosas%20donas!" class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <footer>
-        <p>© 2025 Catitas Donuts 🍩 · Parte de <a href="index.html" style="color:inherit;">Catitas Atelier</a> · Hecho con amor en Córdoba</p>
+    <footer class="atelier-footer">
+        <div class="footer-wordmark">
+            <span class="fw-catitas">Catita's</span>
+            <span class="fw-atelier">Atelier</span>
+        </div>
+        <p class="footer-tagline">De las mismas manos que hacen las donuts que amás ♥</p>
+        <p class="footer-copy">© 2025 Catitas Atelier · Hecho con amor en Córdoba</p>
+        <p class="footer-copy" style="margin-top:8px;">Arquitectura digital por <a href="https://www.ailensampo.com" target="_blank" style="color:var(--dorado);text-decoration:none;">Ailén Sampó</a>, 2026</p>
+        <a href="https://whatsapp.com/channel/0029VbB4qlQ60eBf2qkQhV3h" target="_blank" class="footer-canal-wa">
+            <i class="fa-brands fa-whatsapp"></i> Seguinos en nuestro canal de WhatsApp
+        </a>
     </footer>
 
     <img src="images/sweet.png" alt="dulces sweet"

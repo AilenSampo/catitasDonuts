@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entre Capas — Catitas Atelier</title>
+    <title>Entre Capas — Alfajores artesanales · Catitas Atelier</title>
+    <meta name="description" content="Alfajores de harina de almendras, endulzados con miel y ganache Bariloche. Sin azúcar agregada. Hechos con amor en Córdoba.">
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Entre Capas — Alfajores artesanales · Catitas Atelier">
+    <meta property="og:description" content="Alfajores de harina de almendras, endulzados con miel y ganache Bariloche. Sin azúcar agregada. De las mismas manos que hacen las donuts que amás.">
+    <meta property="og:image"       content="https://catitasdonuts.netlify.app/images/productos/alfajoresbañados.png">
+    <meta property="og:url"         content="https://catitasdonuts.netlify.app/entrecapas.html">
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Entre Capas — Alfajores artesanales · Catitas Atelier">
+    <meta name="twitter:description" content="Alfajores de harina de almendras, endulzados con miel y ganache Bariloche. Sin azúcar agregada.">
+    <meta name="twitter:image"       content="https://catitasdonuts.netlify.app/images/productos/alfajoresbañados.png">
     <link rel="icon" href="images/favicon/favicon-32x32.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="atelier.css">
 </head>
@@ -23,7 +35,7 @@
         <nav class="atelier-nav">
             <a href="index.html">Inicio</a>
             <a href="donuts.html">Donuts</a>
-            <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" target="_blank">Contacto</a>
+            <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" target="_blank">Contacto</a>
         </nav>
     </header>
 
@@ -42,21 +54,47 @@
     <!-- FEATURES -->
     <div class="ec-features">
         <div class="ec-feature">
-            <div class="ec-feature-icon">🌾</div>
+            <div class="ec-feature-icon">
+                <img src="images/iconosEntreCapas/harinaAlmendras.png" alt="Harina de almendras">
+            </div>
             <span class="ec-feature-label">Harina de almendras</span>
         </div>
         <div class="ec-feature">
-            <div class="ec-feature-icon">🍯</div>
+            <div class="ec-feature-icon">
+                <img src="images/iconosEntreCapas/miel.png" alt="Endulzados con miel">
+            </div>
             <span class="ec-feature-label">Endulzados con miel</span>
         </div>
         <div class="ec-feature">
-            <div class="ec-feature-icon">🍫</div>
+            <div class="ec-feature-icon">
+                <img src="images/iconosEntreCapas/chocolate.png" alt="Ganache Bariloche">
+            </div>
             <span class="ec-feature-label">Ganache Bariloche</span>
         </div>
         <div class="ec-feature">
-            <div class="ec-feature-icon">✓</div>
+            <div class="ec-feature-icon">
+                <img src="images/iconosEntreCapas/terron.png" alt="Sin azúcar agregada">
+            </div>
             <span class="ec-feature-label">Sin azúcar agregada</span>
         </div>
+    </div>
+
+    <!-- PRECIOS -->
+    <div class="ec-precios">
+        <h3 class="ec-precios-titulo">Precios y promo</h3>
+        <div class="ec-precios-grid">
+            <div class="ec-precio-item">
+                <span class="ec-precio-label">Por unidad</span>
+                <span class="ec-precio-valor">$3.000</span>
+            </div>
+            <div class="ec-precio-sep"></div>
+            <div class="ec-precio-item destacado">
+                <span class="ec-precio-label">Caja de 6 unidades</span>
+                <span class="ec-precio-valor">$17.400</span>
+                <span class="ec-precio-ahorro">¡Ahorrás $600!</span>
+            </div>
+        </div>
+        <p class="ec-precios-promo">Mixeá tus favoritas — desde 6 unidades <strong style="color:var(--dorado)">todas</strong> tienen un valor de $2.900, sin importar el sabor 🎉</p>
     </div>
 
     <!-- CATÁLOGO -->
@@ -87,6 +125,12 @@
                 </ul>
             </div>
 
+            <div class="ec-total-box" id="ec-total-box" style="display:none">
+                <span class="ec-total-label">Total estimado</span>
+                <span class="ec-total-valor" id="ec-total-valor">$0</span>
+                <span class="ec-total-detalle" id="ec-total-detalle"></span>
+            </div>
+
             <textarea id="ec-detalle" placeholder="¿Algún detalle adicional? (opcional)" rows="3"></textarea>
 
             <button type="submit" class="btn-pedido" id="ec-submit">
@@ -103,10 +147,14 @@
         </div>
         <p class="footer-tagline">De las mismas manos que hacen las donuts que amás ♥</p>
         <p class="footer-copy">© 2025 Catitas Atelier · Hecho con amor en Córdoba</p>
+        <p class="footer-copy" style="margin-top:8px;">Arquitectura digital por <a href="https://www.ailensampo.com" target="_blank" style="color:var(--dorado);text-decoration:none;">Ailén Sampó</a>, 2026</p>
+        <a href="https://whatsapp.com/channel/0029VbB4qlQ60eBf2qkQhV3h" target="_blank" class="footer-canal-wa">
+            <i class="fa-brands fa-whatsapp"></i> Seguinos en nuestro canal de WhatsApp
+        </a>
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20pedir%20alfajores%20Entre%20Capas!" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 

@@ -6,26 +6,42 @@
 const alfajores = [
   {
     id: 1,
-    name: "Clásico",
-    description: "Dos tapas de harina de almendras rellenas de ganache de chocolate Bariloche. Endulzado solo con miel.",
-    image: "images/entre_capas/clasico.jpg",
+    name: "Relleno Bariloche",
+    description: "Tapas de harina de almendras bañadas en chocolate, rellenas de ganache Bariloche. Endulzado con miel, sin azúcar agregada.",
+    image: "images/productos/alfajoresbañados.png",
     emoji: "🍫"
   },
   {
     id: 2,
-    name: "Dulce de Leche",
-    description: "Tapas de almendra rellenas de dulce de leche cremoso. Sin azúcar agregada.",
-    image: "images/entre_capas/dulce.jpg",
-    emoji: "🍮"
-  },
-  {
-    id: 3,
-    name: "Mixto — Ganache & Dulce",
-    description: "Lo mejor de los dos mundos: ganache Bariloche y dulce de leche entre tapas de harina de almendras.",
-    image: "images/entre_capas/mixto.jpg",
+    name: "Relleno Bon o Bon",
+    description: "Tapas de almendra bañadas en chocolate, rellenas de dulce de leche con centro de Bon o Bon. El favorito de todos. 🤩",
+    image: "images/productos/alfajorbonobon.png",
     emoji: "✨"
   }
 ];
+
+/*****************************
+ *  PRECIOS
+ *****************************/
+const PRECIO_UNIDAD       = 3000;
+const PRECIO_PROMO_UNIDAD = 2900; // 17400 / 6 — aplica a TODAS las unidades desde 6
+
+function calcularTotal(unidades) {
+  return unidades >= 6
+    ? unidades * PRECIO_PROMO_UNIDAD
+    : unidades * PRECIO_UNIDAD;
+}
+
+function formatPeso(n) {
+  return '$' + n.toLocaleString('es-AR');
+}
+
+function detalleCalculo(unidades) {
+  if (unidades >= 6) {
+    return `${unidades} unidades x ${formatPeso(PRECIO_PROMO_UNIDAD)} c/u (precio promo)`;
+  }
+  return `${unidades} unidad${unidades > 1 ? 'es' : ''} × ${formatPeso(PRECIO_UNIDAD)}`;
+}
 
 /*****************************
  *  ESTADO
@@ -57,7 +73,10 @@ function actualizarQty(id) {
 }
 
 function actualizarResumen() {
-  const lista = document.getElementById('ec-resumen-lista');
+  const lista      = document.getElementById('ec-resumen-lista');
+  const totalBox   = document.getElementById('ec-total-box');
+  const totalValor = document.getElementById('ec-total-valor');
+  const totalDetalle = document.getElementById('ec-total-detalle');
   if (!lista) return;
 
   lista.innerHTML = '';
@@ -65,6 +84,7 @@ function actualizarResumen() {
 
   if (entries.length === 0) {
     lista.innerHTML = '<li class="ec-resumen-empty">Todavía no seleccionaste nada 🍫</li>';
+    if (totalBox) totalBox.style.display = 'none';
     return;
   }
 
@@ -74,6 +94,12 @@ function actualizarResumen() {
     li.textContent = `${qty} × Entre Capas ${alf ? alf.name : 'Alfajor ' + id}`;
     lista.appendChild(li);
   });
+
+  const unidades = getTotal();
+  const total    = calcularTotal(unidades);
+  if (totalBox)    totalBox.style.display = 'flex';
+  if (totalValor)  totalValor.textContent  = formatPeso(total);
+  if (totalDetalle) totalDetalle.textContent = detalleCalculo(unidades);
 }
 
 /*****************************
@@ -163,11 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .join(', ');
 
-    let msg = `¡Hola Catita! Soy ${nombre}. Quiero pedir alfajores Entre Capas.\nSelección: ${items}.`;
+    const unidades = getTotal();
+    const total    = calcularTotal(unidades);
+    let msg = `¡Hola Catita! Soy ${nombre}. Quiero pedir alfajores Entre Capas.\nSelección: ${items}.\nTotal: ${formatPeso(total)} (${detalleCalculo(unidades)}).`;
     if (detalle) msg += `\nDetalles: ${detalle}.`;
     if (tel)     msg += `\nMi WhatsApp: ${tel}.`;
 
-    window.open(`https://wa.me/+543517393613?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/+543517918029?text=${encodeURIComponent(msg)}`, '_blank');
 
     // Resetear todo
     form.reset();
