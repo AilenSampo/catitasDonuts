@@ -475,7 +475,18 @@ body {
 }
 
 @media (max-width: 640px) {
-  .sticker-catita { width: 100px; bottom: 140px; }
+  .sticker-catita {
+    width: 95px;
+    left: auto;
+    right: 8px;
+    bottom: 150px;
+    animation: catita-float-mobile 4s ease-in-out infinite;
+  }
+}
+
+@keyframes catita-float-mobile {
+  0%, 100% { transform: scaleX(1) translateY(0); }
+  50%       { transform: scaleX(1) translateY(-8px); }
 }
 
 /* ─── WHATSAPP FLOTANTE ───────────────────────────────────── */
