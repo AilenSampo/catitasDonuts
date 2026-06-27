@@ -3,161 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catita's Donuts - Venta de mini donitas</title>
-    <link rel="icon" href="/images/favicon/favicon-32x32.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand&family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+    <title>Catitas Atelier — Hecho con amor en Córdoba</title>
+    <meta name="description" content="El atelier artesanal de Catita: donuts y alfajores Entre Capas hechos con amor en Córdoba, Argentina.">
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Catitas Atelier — Hecho con amor en Córdoba">
+    <meta property="og:description" content="Donuts y alfajores artesanales Entre Capas. Hechos con amor por Catita, 11 años, en Córdoba.">
+    <meta property="og:image"       content="https://catitasdonuts.netlify.app/images/logoDonuts-atelier.png">
+    <meta property="og:url"         content="https://catitasdonuts.netlify.app/">
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Catitas Atelier — Hecho con amor en Córdoba">
+    <meta name="twitter:description" content="Donuts y alfajores artesanales Entre Capas. Hechos con amor por Catita, 11 años, en Córdoba.">
+    <meta name="twitter:image"       content="https://catitasdonuts.netlify.app/images/logoDonuts-atelier.png">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="atelier.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="/index.html">
-                <img src="images/logoDonuts.png" alt="Logo de Catita Donas" class="logo-animado">
-            </a>
-        </div>
-        <button class="hamburger-menu" type="button"
-          aria-label="Abrir menú"
-          aria-controls="main-nav"
-          aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+
+    <!-- HEADER -->
+    <header class="atelier-header">
+        <a href="index.html" class="header-logo">
+            <img src="images/logoDonuts-atelier.png" alt="Catitas Atelier">
+            <div class="wordmark">
+                <span class="wm-catitas">Catita's</span>
+                <span class="wm-atelier">Atelier</span>
+            </div>
+        </a>
+        <button class="atelier-hamburger" id="atelier-hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
         </button>
-        <nav id="main-nav">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre">Sobre Catita</a></li>
-                <li><a href="#sabores">Sabores</a></li>
-                <li><a href="#pedidos">Pedidos</a></li>
-                <li><a href="#juegos">Juegos</a></li>
-            </ul>
+        <nav class="atelier-nav" id="atelier-nav">
+            <a href="#productos">Productos</a>
+            <a href="#sobre">Sobre Catita</a>
+            <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20sobre%20Catitas%20Atelier!" target="_blank">Contacto</a>
         </nav>
     </header>
 
-    <section class="hero" id="inicio">
-        <div class="hero-texto">
-            <h1>Donas hechas con amor 💕</h1>
-            <p>Tengo 11 años y hago las donas más ricas del mundo 🍩</p>
+    <!-- SOBRE CATITA -->
+    <section class="atelier-sobre" id="sobre">
+        <div class="sobre-inner">
+            <h2 class="section-title">¿Quién es Catita? 🐱</h2>
+            <div class="section-divider"></div>
+            <p class="sobre-text">
+                ¡Hola! Soy Catita, tengo 11 años y desde muy chiquita amo la cocina
+                —¡especialmente cuando se trata de cosas dulces! 🧁
+                Empecé con mis donitas y hoy sumé los alfajores
+                <strong>Entre Capas</strong>: hechos con ingredientes nobles,
+                sin apuros y con muchísimo amor.<br><br>
+                <em>De las mismas manos que hacen las donuts que amás. 💕</em>
+            </p>
         </div>
+    </section>
 
-        <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="videos/Es hora de algo dulce!.mp4" type="video/mp4">
-                <p>💖 Ups, tu navegador no puede mostrar este video. Probá actualizarlo para ver toda la dulzura.</p>   
-            </video>
+    <!-- PRODUCTOS -->
+    <section class="atelier-productos" id="productos">
+        <h2 class="section-title">Mis colecciones</h2>
+        <div class="section-divider"></div>
+
+        <div class="producto-grid">
+
+            <!-- DONUTS -->
+            <a href="donuts.html" class="producto-card">
+                <span class="card-badge badge-original">Catita's Donuts</span>
+                <div class="card-img-wrap">
+                    <img src="images/productos/donitas2.png" alt="Catita's Donuts" class="card-img">
+                </div>
+                <h3 class="card-title">Catita's Donuts</h3>
+                <p class="card-desc">
+                    Las mini donitas que amás, hechas con mucho amor y glaseado.
+                    Clásicas, rellenas de dulce de leche o premium con Nutella,
+                    Block o Bon o Bon. ¡Las que empezaron todo!
+                </p>
+                <span class="card-link">Ver donitas →</span>
+            </a>
+
+            <!-- ENTRE CAPAS -->
+            <a href="entrecapas.html" class="producto-card featured">
+                <span class="card-badge badge-new">Entre Capas</span>
+                <div class="card-img-wrap">
+                    <img src="images/productos/alfajoresbañados.png" alt="Entre Capas — Alfajores" class="card-img">
+                </div>
+                <h3 class="card-title">Entre Capas</h3>
+                <p class="card-desc">
+                    Alfajores artesanales con harina de almendras, endulzados con miel
+                    y ganache Bariloche. Sin azúcar agregada.
+                    De las mismas manos que hacen las donuts que amás 💕
+                </p>
+                <span class="card-link">Conocer alfajores →</span>
+            </a>
+
         </div>
     </section>
 
-    <div id="custom-alert-container"></div>
-
-    <section id="sobre" class="sobre">
-        <h2 class="sobre">¿Quién es Catita?</h2>
-        <p>¡Hola! Soy Catita, tengo 11 años y desde muy chiquita amo la cocina —¡especialmente cuando se trata de cosas dulces! Por eso, hoy te invito a probar mis donitas, hechas con mucho amor, alegría… ¡y glaseado! 🧁</p>
-    </section>
-
-     <section id="sabores" class="sabores">
-        <h2>Mis sabores favoritos</h2>
-        <h3>Precios</h3>
-
-        <p><strong>🍩 Donitas Clásicas</strong></p>
-        <p>18 mini: <strong>$9.500</strong> 🎉</p>
-        <p>24 mini: <strong>$12.100</strong> 🤩</p>
-
-        <p><strong>🥄 Rellenitas de Dulce de Leche</strong></p>
-        <p>¡Modo “no me las saquen” activado! 😋</p>
-        <p>18 mini: <strong>$13.700</strong></p>
-        <p>24 mini: <strong>$17.700</strong></p>
-
-        <p><strong>✨ Donas Premium</strong> (Nutella, Block o Bon o Bon)</p>
-        <p>¡Nivel “me las escondo”! 🤭</p>
-        <p>18 mini: <strong>$15.500</strong></p>
-        <p>24 mini: <strong>$19.800</strong></p>
-
-        <!-- <p><strong>🌈 Surtidito Mágico</strong></p>
-        <p>Un box con TODAS las variedades: clásicas, rellenas y premium 🪄🍩</p>
-        <p><strong>$9.500</strong></p> -->
-
- 
-        <div class="limit-selection">
-            <p>¿Cuántas donitas quieres en tu combo?</p>
-            <button id="select-18" type="button" class="active">18 Donitas</button>
-            <button id="select-24" type="button">24 Donitas</button>
+    <!-- FOOTER -->
+    <footer class="atelier-footer">
+        <div class="footer-wordmark">
+            <span class="fw-catitas">Catita's</span>
+            <span class="fw-atelier">Atelier</span>
         </div>
-
-        <p class="total-selected">
-            Llevas seleccionadas: <span id="selected-count">0</span> de <span id="current-limit">18</span>
-        </p>
-
-
-        <h3>Donas Clásicas</h3>
-        <div class="cards" id="donuts-tacc-container">
-            </div>
-
-        <!-- <h3>Donas Sin TACC</h3>
-        <div class="cards" id="donuts-sintacc-container">
-            </div> -->
-            <div>
-                 <button id="reset-combo" type="button" class="boton">Vaciar selección</button>
-            </div>
-           
-    </section>
-
-    <section id="pedidos" class="pedidos">
-        <h2>Hacenos tu pedido</h2>
-        <form id="formulario">
-            <input type="text" placeholder="Tu nombre" required>
-            <input type="tel" placeholder="WhatsApp" required>
-
-            <div id="sabores-seleccionados-resumen">
-                <p>Tu selección: <span id="contador-donas-resumen">0/0</span></p>
-                <ul id="lista-sabores-resumen"></ul>
-            </div>
-
-            <textarea id="detalle-pedido" placeholder="Acá podes agregar algún detalle adicional sobre tu pedido (opcional)" rows="3"></textarea>
-
-            <button type="submit" id="submit-pedido-button" disabled>Enviar pedido</button>
-
-        </form>
-    </section>
-
-    
-
-    <section id="juegos" class="juegos-catita">
-        <h2>¡A jugar con Catita!</h2>
-        <p>¿Querés divertirte creando tu propia dona soñada? ¡Catita te espera para jugar!</p>
-        <a href="/dona-creativa.html" class="boton-juego">
-            <i class="fas fa-cookie-bite"></i> ¡Arma tu Dona! <i class="fas fa-magic"></i>
+        <p class="footer-tagline">De las mismas manos que hacen las donuts que amás ♥</p>
+        <p class="footer-copy">© 2025 Catitas Atelier · Hecho con amor en Córdoba</p>
+        <p class="footer-copy" style="margin-top:8px;">Arquitectura digital por <a href="https://www.ailensampo.com" target="_blank" style="color:var(--dorado);text-decoration:none;">Ailén Sampó</a>, 2026</p>
+        <a href="https://whatsapp.com/channel/0029VbB4qlQ60eBf2qkQhV3h" target="_blank" class="footer-canal-wa">
+            <i class="fa-brands fa-whatsapp"></i> Seguinos en nuestro canal de WhatsApp
         </a>
-    </section>
+    </footer>
 
-    
-    <a href="https://wa.me/+543517393613?text=Hola!%20Quisiera%20saber%20más%20sobre%20sus%20deliciosas%20donas!" class="whatsapp-float" target="_blank">
+    <!-- STICKER CATITA -->
+    <img src="images/catita.png" alt="Catita" class="sticker-catita">
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/+543517918029?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20sobre%20Catitas%20Atelier!" class="wa-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <footer>
-        <p>© 2025 Catita's Donuts 🍩 | Hecho con amor en Córdoba</p>
-    </footer>
-    <!-- Stickers flotantes -->
-    <!-- <img src="images/paleta.png"  alt="paleta kawaii"
-        class="sticker-float sticker-top-left sticker-zigzag sticker-edge-left">
-
-    <img src="images/cupcake.png" alt="cupcake feliz"
-        class="sticker-float sticker-top-right sticker-zigzag sticker-edge-right"> -->
-
-    <img src="images/sweet.png"   alt="dulces sweet"
-        class="sticker-float sticker-bottom-left sticker-zigzag sticker-edge-left">
-
-    <!-- <img src="images/cara.png"    alt="carita kawaii"
-     class="sticker-float sticker-bottom-right"> -->
-
-     <img src="images/cupcake.png" alt="cupcake" class="sticker-float sticker-bottom-right sticker-zigzag">
-
-
-
-    <script defer src="script.js"></script>
-
+    <script>
+        const btn = document.getElementById('atelier-hamburger');
+        const nav = document.getElementById('atelier-nav');
+        btn.addEventListener('click', () => {
+            const open = nav.classList.toggle('is-open');
+            btn.classList.toggle('is-open', open);
+            btn.setAttribute('aria-expanded', open);
+        });
+        nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            nav.classList.remove('is-open');
+            btn.classList.remove('is-open');
+            btn.setAttribute('aria-expanded', false);
+        }));
+    </script>
 </body>
 </html>

@@ -136,6 +136,67 @@ const donutsTacc = [
 // ];
 
 /* ===========================================================
+   PRECIOS POR CATEGORÍA
+   =========================================================== */
+const PRECIOS_DONA = {
+  18: { clasica: 9500,  rellena_dulce: 13700, rellena_premium: 15500 },
+  24: { clasica: 12100, rellena_dulce: 17700, rellena_premium: 19800 }
+};
+
+function calcularPrecioDonas(seleccion, limite) {
+  const precios = PRECIOS_DONA[limite] || PRECIOS_DONA[18];
+  const unitarios = {};
+  Object.keys(precios).forEach(cat => { unitarios[cat] = precios[cat] / limite; });
+
+  let total = 0;
+  Object.entries(seleccion).forEach(([id, qty]) => {
+    qty = Number(qty || 0);
+    if (qty <= 0) return;
+    const dona = donutsTacc.find(d => String(d.id) === String(id));
+    if (dona) total += qty * (unitarios[dona.category] || 0);
+  });
+  return Math.round(total);
+}
+
+function formatPesoDona(n) {
+  return '$' + n.toLocaleString('es-AR');
+}
+
+function detallePrecioDonas(seleccion, limite) {
+  const precios = PRECIOS_DONA[limite] || PRECIOS_DONA[18];
+  const porCategoria = {};
+  Object.entries(seleccion).forEach(([id, qty]) => {
+    qty = Number(qty || 0);
+    if (qty <= 0) return;
+    const dona = donutsTacc.find(d => String(d.id) === String(id));
+    if (dona) porCategoria[dona.category] = (porCategoria[dona.category] || 0) + qty;
+  });
+  return Object.entries(porCategoria).map(([cat, qty]) => {
+    const labels = { clasica: 'Clásicas', rellena_dulce: 'Rellenas DDL', rellena_premium: 'Premium' };
+    const unit = precios[cat] / limite;
+    return `${qty} ${labels[cat] || cat} × ${formatPesoDona(Math.round(unit))}`;
+  }).join(' + ');
+}
+
+function actualizarTotalDonas() {
+  const box    = document.getElementById('dona-total-box');
+  const valor  = document.getElementById('dona-total-valor');
+  const detalle = document.getElementById('dona-total-detalle');
+  if (!box) return;
+
+  const seleccion = window.selectedDonuts || {};
+  const limite    = window.getCurrentLimit ? window.getCurrentLimit() : 18;
+  const count     = Object.values(seleccion).reduce((s, n) => s + Number(n || 0), 0);
+
+  if (count === 0) { box.style.display = 'none'; return; }
+
+  const total = calcularPrecioDonas(seleccion, limite);
+  box.style.display  = 'flex';
+  valor.textContent  = formatPesoDona(total);
+  detalle.textContent = detallePrecioDonas(seleccion, limite);
+}
+
+/* ===========================================================
    ESTADO ÚNICO + PERSISTENCIA + UI
    =========================================================== */
 (function () {
@@ -250,10 +311,12 @@ const donutsTacc = [
     if (elLimit) elLimit.textContent = currentLimit;
     if (elResumenTotal) elResumenTotal.textContent = `${total}/${currentLimit}`;
 
-    const totalSel = document.querySelector('.total-selected'); // color opcional
+    const totalSel = document.querySelector('.total-selected');
     if (totalSel) totalSel.style.color = (total === currentLimit) ? '#25c4ea' : '#f06bb4';
 
     if (submitPedidoButton) submitPedidoButton.disabled = total !== currentLimit;
+
+    actualizarTotalDonas();
   }
 
   // Acciones públicas
@@ -371,13 +434,15 @@ const donutsTacc = [
             return `${qty} x ${d ? d.name : ('Sabor ' + id)}`;
           }).join(', ');
 
-        let msg = `¡Hola Catita! Soy ${nombre}. Quiero mi combo de ${currentLimit} donitas.\nSabores: ${items}.`;
+        const precioTotal = calcularPrecioDonas(window.selectedDonuts, currentLimit);
+        const precioDetalle = detallePrecioDonas(window.selectedDonuts, currentLimit);
+        let msg = `¡Hola Catita! Soy ${nombre}. Quiero mi combo de ${currentLimit} donitas.\nSabores: ${items}.\nTotal: ${formatPesoDona(precioTotal)} (${precioDetalle}).`;
         if (detalle)  msg += `\nDetalles: ${detalle}.`;
         if (whatsapp) msg += `\nMi WhatsApp: ${whatsapp}.`;
 
         enviarPedidoAMake({ nombre, whatsapp, detalle });
 
-        window.open(`https://wa.me/+543517393613?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/+543517918029?text=${encodeURIComponent(msg)}`, '_blank');
 
         // reset
         formulario.reset();

@@ -1,0 +1,1033 @@
+/* ============================================================
+   CATITAS ATELIER — Brand CSS
+   Paleta: Crema #F7F1E8 · Chocolate #5A3A2E · Caramelo #C48A5A
+           Rosa #E7B1B4 · Dorado #D8B98B
+   Tipografía: Fredoka One (títulos) · Dancing Script (Atelier) · Quicksand (texto)
+   ============================================================ */
+
+:root {
+  --crema:       #F7F1E8;
+  --chocolate:   #F26780;
+  --caramelo:    #C48A5A;
+  --rosa:        #E7B1B4;
+  --dorado:      #D8B98B;
+  --rosa-claro:  #fce8f0;
+  --blanco:      #FFFFFF;
+  --texto-sec:   #7a6355;
+  --sombra:      0 6px 20px rgba(242, 103, 128, 0.13);
+  --sombra-card: 0 8px 28px rgba(242, 103, 128, 0.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: var(--crema);
+  color: var(--chocolate);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── HEADER ─────────────────────────────────────────────── */
+
+.atelier-header {
+  background: var(--blanco);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 14px rgba(90, 58, 46, .09);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.header-logo img {
+  height: 60px;
+  width: auto;
+  animation: flotar 3s ease-in-out infinite alternate;
+}
+
+@keyframes flotar {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
+}
+
+.wordmark { display: flex; flex-direction: column; line-height: 1; gap: 1px; }
+
+.wm-catitas {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  color: var(--chocolate);
+  letter-spacing: .03em;
+}
+
+.wm-atelier {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--caramelo);
+}
+
+.wm-donuts {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  color: var(--caramelo);
+  letter-spacing: .03em;
+}
+
+.atelier-nav a {
+  text-decoration: none;
+  color: var(--chocolate);
+  font-weight: 700;
+  font-size: .95rem;
+  margin-left: 28px;
+  transition: color .2s;
+}
+
+.atelier-nav a:hover { color: var(--caramelo); }
+
+/* ─── HERO LANDING ────────────────────────────────────────── */
+
+.atelier-hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 40px;
+  background: radial-gradient(ellipse at 60% 40%, #f5e6d0 0%, var(--crema) 65%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* corazones de fondo sutiles */
+.atelier-hero::before {
+  content: '♥';
+  position: absolute;
+  font-size: 280px;
+  color: rgba(231, 177, 180, .07);
+  top: -40px;
+  right: -60px;
+  pointer-events: none;
+}
+
+.atelier-hero::after {
+  content: '♥';
+  position: absolute;
+  font-size: 180px;
+  color: rgba(196, 138, 90, .06);
+  bottom: 10px;
+  left: -30px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-logo {
+  width: clamp(110px, 18vw, 160px);
+  animation: flotar 3s ease-in-out infinite alternate;
+  margin-bottom: 18px;
+  filter: drop-shadow(0 8px 16px rgba(90,58,46,.15));
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rosa);
+  color: var(--chocolate);
+  font-family: 'Fredoka One', cursive;
+  font-size: .9rem;
+  letter-spacing: .08em;
+  padding: 5px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  color: var(--chocolate);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.hero-script {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  color: var(--caramelo);
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-tagline {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--texto-sec);
+  font-weight: 600;
+  margin-bottom: 36px;
+  max-width: 400px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ─── BOTONES ─────────────────────────────────────────────── */
+
+.btn-atelier {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 999px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.05rem;
+  letter-spacing: .03em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn-primary {
+  background: var(--chocolate);
+  color: var(--crema);
+  box-shadow: 0 4px 14px rgba(90,58,46,.3);
+}
+
+.btn-secondary {
+  background: var(--rosa);
+  color: var(--chocolate);
+  box-shadow: 0 4px 14px rgba(231,177,180,.5);
+}
+
+.btn-caramelo {
+  background: var(--caramelo);
+  color: var(--blanco);
+}
+
+.btn-atelier:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(90,58,46,.22);
+}
+
+.btn-atelier:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── TÍTULOS DE SECCIÓN ──────────────────────────────────── */
+
+.section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.2rem;
+  color: var(--chocolate);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--caramelo), var(--rosa));
+  border-radius: 999px;
+  margin: 0 auto 44px;
+}
+
+/* ─── SECCIÓN PRODUCTOS (LANDING) ─────────────────────────── */
+
+.atelier-productos {
+  padding: 52px 32px 60px;
+  background: var(--blanco);
+  text-align: center;
+}
+
+.producto-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.producto-card {
+  background: var(--crema);
+  border-radius: 20px;
+  padding: 22px 20px 20px;
+  text-decoration: none;
+  color: var(--chocolate);
+  border: 2px solid rgba(216, 185, 139, .35);
+  box-shadow: var(--sombra-card);
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.producto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(90, 58, 46, .18);
+}
+
+.producto-card.featured {
+  border-color: var(--caramelo);
+  background: linear-gradient(145deg, #fff8f0, #f7ede0);
+}
+
+.card-badge {
+  display: inline-block;
+  font-family: 'Fredoka One', cursive;
+  font-size: .72rem;
+  letter-spacing: .05em;
+  padding: 3px 11px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.card-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.producto-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.badge-original { background: var(--dorado);  color: var(--chocolate); }
+.badge-new      { background: var(--rosa);     color: var(--chocolate); }
+
+.card-emoji {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.25rem;
+  color: var(--chocolate);
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font-size: .85rem;
+  color: var(--texto-sec);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.card-tag {
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: rgba(216, 185, 139, .3);
+  color: var(--chocolate);
+}
+
+.card-link {
+  font-family: 'Fredoka One', cursive;
+  color: var(--caramelo);
+  font-size: .9rem;
+}
+
+/* ─── SECCIÓN SOBRE ───────────────────────────────────────── */
+
+.atelier-sobre {
+  padding: 80px 40px;
+  background: var(--crema);
+  text-align: center;
+}
+
+.sobre-inner { max-width: 600px; margin: 0 auto; }
+
+.sobre-text {
+  color: var(--texto-sec);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+
+.atelier-footer {
+  background: var(--chocolate);
+  color: var(--crema);
+  text-align: center;
+  padding: 48px 24px 32px;
+}
+
+.footer-wordmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.fw-catitas {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.6rem;
+  color: var(--crema);
+}
+
+.fw-atelier {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--dorado);
+}
+
+.footer-tagline {
+  color: rgba(247, 241, 232, .75);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, .75);
+  font-size: .8rem;
+}
+
+.footer-canal-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 10px 20px;
+  border: 1px solid #25d366;
+  border-radius: 999px;
+  color: #25d366;
+  font-family: 'Quicksand', sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+
+.footer-canal-wa:hover {
+  background: #25d366;
+  color: #fff;
+}
+
+.footer-canal-wa i { font-size: 1.1rem; }
+
+/* ─── STICKER CATITA ──────────────────────────────────────── */
+
+.sticker-catita {
+  position: fixed;
+  bottom: 0;
+  left: 24px;
+  width: 160px;
+  pointer-events: none;
+  z-index: 20;
+  filter: drop-shadow(2px 4px 8px rgba(0,0,0,.15));
+  transform: scaleX(-1);
+  animation: catita-float 4s ease-in-out infinite;
+}
+
+@keyframes catita-float {
+  0%, 100% { transform: scaleX(-1) translateY(0); }
+  50%       { transform: scaleX(-1) translateY(-8px); }
+}
+
+@media (max-width: 640px) {
+  .sticker-catita { width: 110px; left: 12px; }
+}
+
+/* ─── WHATSAPP FLOTANTE ───────────────────────────────────── */
+
+.wa-float {
+  position: fixed;
+  inset: auto 28px 28px auto;
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .22);
+  z-index: 200;
+  text-decoration: none;
+  transition: transform .25s;
+}
+
+.wa-float:hover { transform: scale(1.12); }
+
+/* ─── BACK LINK ───────────────────────────────────────────── */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--caramelo);
+  text-decoration: none;
+  font-family: 'Fredoka One', cursive;
+  font-size: .95rem;
+  margin-bottom: 22px;
+  transition: color .2s;
+}
+
+.back-link:hover { color: var(--chocolate); }
+
+/* ─── ENTRE CAPAS — HERO ──────────────────────────────────── */
+
+.ec-hero {
+  background: radial-gradient(ellipse at 40% 50%, #f5e3cc 0%, var(--crema) 70%);
+  padding: 68px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ec-hero::after {
+  content: '♥';
+  position: absolute;
+  font-size: 200px;
+  color: rgba(196, 138, 90, .06);
+  bottom: -40px;
+  right: -20px;
+  pointer-events: none;
+}
+
+.ec-subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dorado);
+  color: var(--chocolate);
+  font-family: 'Fredoka One', cursive;
+  font-size: .85rem;
+  letter-spacing: .08em;
+  padding: 5px 18px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.ec-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  color: var(--chocolate);
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.ec-title-script {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  color: var(--caramelo);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  display: block;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.ec-hero-desc {
+  max-width: 500px;
+  margin: 0 auto;
+  color: var(--texto-sec);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* ─── ENTRE CAPAS — FEATURES ──────────────────────────────── */
+
+.ec-features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 50px 40px;
+  background: var(--chocolate);
+}
+
+.ec-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.ec-feature-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(247, 241, 232, .25);
+  background: rgba(255,255,255,.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  overflow: hidden;
+  padding: 10px;
+  transition: transform .25s;
+}
+
+.ec-feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ec-feature:hover .ec-feature-icon { transform: scale(1.12) rotate(-5deg); }
+
+.ec-feature-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  color: var(--dorado);
+  max-width: 110px;
+  line-height: 1.3;
+}
+
+/* ─── PRECIOS ─────────────────────────────────────────────── */
+
+.ec-precios {
+  background: var(--chocolate);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.ec-precios-titulo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  color: var(--dorado);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.ec-precios-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.ec-precio-sep {
+  width: 1px;
+  height: 60px;
+  background: rgba(247,241,232,.2);
+}
+
+.ec-precio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ec-precio-icono {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.ec-precio-icono img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ec-precio-label {
+  font-family: 'Quicksand', sans-serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(247,241,232,.65);
+}
+
+.ec-precio-valor {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.9rem;
+  color: var(--crema);
+  line-height: 1;
+}
+
+.ec-precio-ahorro {
+  font-family: 'Fredoka One', cursive;
+  font-size: .85rem;
+  background: var(--rosa);
+  color: var(--chocolate);
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+.ec-precio-item.destacado .ec-precio-valor { color: var(--dorado); }
+
+.ec-precios-promo {
+  font-size: .88rem;
+  color: rgba(247,241,232,.55);
+  font-weight: 600;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ─── TOTAL DINÁMICO ──────────────────────────────────────── */
+
+.ec-total-box {
+  background: var(--chocolate);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ec-total-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  color: var(--crema);
+  flex-shrink: 0;
+}
+
+.ec-total-valor {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  color: var(--dorado);
+  margin-left: auto;
+}
+
+.ec-total-detalle {
+  width: 100%;
+  font-size: .8rem;
+  color: rgba(247,241,232,.55);
+  font-weight: 600;
+}
+
+/* ─── ENTRE CAPAS — CATÁLOGO ──────────────────────────────── */
+
+.ec-catalogo {
+  padding: 80px 40px;
+  background: var(--blanco);
+  text-align: center;
+}
+
+.ec-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto 44px;
+}
+
+.ec-card {
+  background: var(--crema);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid rgba(216, 185, 139, .3);
+  box-shadow: var(--sombra);
+  transition: transform .22s, box-shadow .22s;
+  text-align: left;
+}
+
+.ec-card:hover {
+  transform: translateY(-6px) rotate(.4deg);
+  box-shadow: 0 14px 30px rgba(90, 58, 46, .18);
+}
+
+.ec-card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.ec-card-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #ede0cc, var(--dorado));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.ec-card-body { padding: 22px; }
+
+.ec-card-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.15rem;
+  color: var(--chocolate);
+  margin-bottom: 8px;
+}
+
+.ec-card-desc {
+  font-size: .9rem;
+  color: var(--texto-sec);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.ec-stepper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ec-stepper button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--caramelo);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s, transform .15s;
+  line-height: 1;
+}
+
+.ec-stepper button:hover {
+  background: var(--chocolate);
+  transform: scale(1.1);
+}
+
+.ec-qty {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.25rem;
+  color: var(--chocolate);
+  min-width: 24px;
+  text-align: center;
+}
+
+/* ─── ENTRE CAPAS — PEDIDO ────────────────────────────────── */
+
+.ec-pedido {
+  padding: 70px 40px;
+  background: var(--crema);
+  text-align: center;
+}
+
+.ec-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.ec-form input,
+.ec-form textarea {
+  padding: 13px 16px;
+  border: 2px solid rgba(196, 138, 90, .35);
+  border-radius: 12px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--blanco);
+  color: var(--chocolate);
+  width: 100%;
+  transition: border-color .2s;
+}
+
+.ec-form input:focus,
+.ec-form textarea:focus {
+  outline: none;
+  border-color: var(--caramelo);
+}
+
+.ec-form textarea { resize: vertical; }
+
+.ec-resumen {
+  background: var(--blanco);
+  border: 2px solid rgba(216, 185, 139, .4);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.ec-resumen-title {
+  font-family: 'Fredoka One', cursive;
+  color: var(--chocolate);
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.ec-resumen-list {
+  list-style: none;
+  padding: 0;
+  color: var(--texto-sec);
+  font-size: .92rem;
+  font-weight: 600;
+}
+
+.ec-resumen-list li {
+  padding: 4px 0;
+  border-bottom: 1px dotted rgba(90,58,46,.12);
+}
+
+.ec-resumen-list li:last-child { border-bottom: none; }
+.ec-resumen-empty { color: #bbb; font-style: italic; }
+
+.btn-pedido {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: var(--chocolate);
+  color: var(--crema);
+  border: none;
+  border-radius: 14px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.btn-pedido:hover { background: var(--caramelo); transform: translateY(-3px); }
+.btn-pedido:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+/* ─── HAMBURGER ───────────────────────────────────────────── */
+
+.atelier-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 1002;
+  position: relative;
+}
+
+/* Cuando el nav de donuts está abierto, su z-index (1000 de style.css) no tapa el botón */
+#main-nav.atelier-nav { z-index: 1001; }
+
+.atelier-hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--chocolate);
+  border-radius: 3px;
+  transition: transform .3s, opacity .3s;
+}
+
+.atelier-hamburger.is-open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.atelier-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.atelier-hamburger.is-open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  /* Header */
+  .atelier-header { padding: 10px 16px; }
+  .atelier-hamburger { display: flex; }
+
+  /* Nav mobile: panel lateral */
+  .atelier-nav {
+    position: fixed;
+    top: 0; right: 0;
+    height: 100vh;
+    width: 70%;
+    max-width: 280px;
+    background: var(--blanco);
+    box-shadow: -6px 0 24px rgba(90,58,46,.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.8rem;
+    padding: 2rem 2rem;
+    transform: translateX(100%);
+    transition: transform .3s ease;
+    z-index: 200;
+  }
+
+  .atelier-nav.is-open { transform: translateX(0); }
+
+  .atelier-nav a {
+    margin: 0;
+    font-size: 1.2rem;
+    display: block;
+  }
+
+  /* Productos */
+  .atelier-productos { padding: 36px 16px 48px; }
+  .producto-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+    gap: 16px;
+  }
+
+  /* Sobre */
+  .atelier-sobre { padding: 44px 18px; }
+
+  /* Entre Capas */
+  .ec-hero { padding: 40px 18px; }
+  .ec-features { padding: 30px 16px; gap: 14px; }
+  .ec-feature-icon { width: 54px; height: 54px; font-size: 1.5rem; }
+  .ec-catalogo { padding: 44px 16px; }
+  .ec-pedido { padding: 44px 16px; }
+  .ec-cards { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto 36px; }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .atelier-productos { padding: 44px 24px 56px; }
+  .producto-grid { max-width: 640px; gap: 16px; }
+  .atelier-nav a { margin-left: 18px; font-size: .88rem; }
+  .ec-cards { grid-template-columns: repeat(2, 1fr); }
+}
