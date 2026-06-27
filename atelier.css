@@ -500,6 +500,10 @@ body {
 
 .wa-float:hover { transform: scale(1.12); }
 
+@media (max-width: 640px) {
+  .wa-float { inset: auto 16px 90px auto; width: 50px; height: 50px; }
+}
+
 /* ─── BACK LINK ───────────────────────────────────────────── */
 
 .back-link {
